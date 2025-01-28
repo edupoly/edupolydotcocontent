@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+        }
+        
+         .container{
+            width: 100%;
+            height:100vh;
+            scroll-snap-type: y mandatory;
+            overflow: auto;
+        }
+        .section{
+            width: 100%;
+            height: 100vh;
+            scroll-snap-align: start;
+            background-size: cover;
+        }
+        .section:nth-child(1) {
+            background-image: url(images/peace1.jpg);
+        }
+        .section:nth-child(2) {
+            background-image: url(images/peace3.jpg);
+        }
+        .section:nth-child(3) {
+            background-image: url(images/peace4.jpg);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="section" id="d1">
+            <h1>Edupoly for ReactJS Training</h1>
+        </div>
+        <div class="section" id="d2">
+            <h1>Edupoly for Angular Training</h1>
+        </div>
+        <div class="section" id="d3">
+            <h1>Edupoly for NodeJS Training</h1>
+        </div>
+    </div>
+    
+</body>
+</html>

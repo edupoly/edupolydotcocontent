@@ -1,0 +1,34 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            var ar = [11,24,15,36,25];
+             var dt1 = new Date();
+            //var dt1 = new Date('jun-29-19 11:23:33:345');
+            console.log(dt1.getDate())
+            console.log(dt1.getFullYear())
+            console.log(dt1.getMonth())
+
+            console.log(dt1.getHours())
+            console.log(dt1.getMinutes())
+            console.log(dt1.getSeconds())
+            console.log(dt1.getMilliseconds())
+
+            console.log(dt1.getTime())
+
+            var std=new Date("Feb/28/2022");
+            var edd=new Date("Mar/2/2022");
+
+            var stime = std.getTime()
+            var etime = edd.getTime()
+            var ttime = (etime-stime)
+            var ds = ttime/(1000*60*60*24)
+            console.log(ds)
+        </script>
+    </body>
+</html>
+<!-- 
+    1970 January 00:00
+1656483643611
+1656483674169
+ -->

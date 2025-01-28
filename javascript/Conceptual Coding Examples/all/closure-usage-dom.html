@@ -1,0 +1,36 @@
+<html>
+    <head></head>
+    <body>
+        <ul id="d1">
+
+        </ul>
+        <script>
+            var students = ['prateek','alok','rajani','himaja']
+
+            students.forEach(function(a,j){
+                var newli = document.createElement('li');
+                newli.innerHTML=a;
+                var newbtn = document.createElement('button');
+                newbtn.innerHTML='delete';
+                newbtn.onclick=function(){
+                    alert(j)
+                }
+                newli.appendChild(newbtn);
+                document.getElementById('d1').appendChild(newli);
+            })
+
+
+            // for(let i=0;i<=students.length-1;i++){
+            //     var newli = document.createElement('li');
+            //     newli.innerHTML=students[i];
+            //     var newbtn = document.createElement('button');
+            //     newbtn.innerHTML='delete';
+            //     newbtn.onclick=function(){
+            //         alert(i)
+            //     }
+            //     newli.appendChild(newbtn);
+            //     document.getElementById('d1').appendChild(newli);
+            // }
+        </script>
+    </body>
+</html>

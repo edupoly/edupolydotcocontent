@@ -1,0 +1,28 @@
+<html>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.5.7/rxjs.umd.min.js"
+    integrity="sha512-MiYwnEfEqT5G1xAVakQk02nQONtyt4KfpD0FmOsmJcR1Xc5Ic1fhEm4piCH7fCtEKUJfCw6Q07IpsISlAePczQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+  <button id="d1">0</button><br>
+  <button id="d2">100</button><br>
+  <button id="d3">1000</button><br>
+  <script>
+    console.log(rxjs)
+    var br1 = rxjs.ajax.ajax("http://localhost:3000/posts")
+    var br2 = rxjs.ajax.ajax("http://localhost:3001/comments")
+    var br3 = rxjs.ajax.ajax("http://localhost:3002/profile")
+    rxjs.merge(br1, br2, br3).subscribe((res) => {
+      console.log(res.response)
+    })
+//     Subscribe to all source observables
+// When a new value arrives from a source observable, pass it down to an observer
+// Only after all source observables complete, send the complete notification to the observer.
+// If any of the source observables throws an error, send the error notification to the observer.
+  </script>
+</body>
+
+</html>

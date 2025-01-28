@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+
+    <div id="mydiv" style="box-shadow:1px 10px 20px 2px;width:50%;border: 2px solid rgb(132, 119, 119);padding:10px;margin:10px auto"></div>
+
+  <script type="text/babel">
+    
+    function Comp1(){
+      var [students,setStudents] = React.useState(
+        [
+          {
+            firstname:'Ravi',
+            lastname:'Sastri',
+            gender:'male'
+          },
+          {
+            firstname:'Sachin',
+            lastname:'Tendulkar',
+            gender:'male'
+          },
+          {
+            firstname:'Mithali',
+            lastname:'Raj',
+            gender:'female'
+          },
+          {
+            firstname:'Rohit',
+            lastname:'Sharma',
+            gender:'male'
+          },
+          {
+            firstname:'Smriti',
+            lastname:'Mandhana',
+            gender:'female'
+          },
+          {
+            firstname:'Virat',
+            lastname:'Kohli',
+            gender:'male'
+          },
+        ]);
+      
+      function sortStudents(key,order){
+        var temp = [...students];
+        temp.sort((s1,s2)=>{
+          if(order==='asc'){
+            if(s1[key]>s2[key]){
+              return 1
+            }
+            else{
+              return -1
+            }
+          }
+          if(order==='dsc'){
+            if(s1[key]>s2[key]){
+              return -1
+            }
+            else{
+              return 1
+            }
+          }
+        });
+        setStudents([...temp])
+      }
+      
+      return <div>
+        <h1>Students</h1>
+            
+          <table border="1px" width="100%">
+            <thead>
+              <th onClick={()=>{sortStudents('firstname','asc')}}>Firstname</th>
+              <th onClick={()=>{sortStudents('lastname','asc')}}>Lastname</th>
+              <th onClick={()=>{sortStudents('gender','asc')}}>Gender</th>
+            </thead>
+            {
+              students.map((student)=>{
+                return <tr>
+                  <td>{student.firstname}</td>
+                  <td>{student.lastname}</td>
+                  <td>{student.gender}</td>
+                </tr>
+              })
+            }
+          </table>
+        </div>
+    }
+    
+    ReactDOM.render(<Comp1></Comp1>,document.getElementById('mydiv'))
+  </script>
+</body>
+</html>

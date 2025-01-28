@@ -1,0 +1,127 @@
+<html>
+    <head></head>
+    <body>
+        <input type="text" id="title" placeholder="Enter the title"><br>
+        <input type="text" id="author" placeholder="Enter the Author Name"><br>
+        <button onclick="addPost()" id="addp">Add Post</button>
+        <button onclick="updatePost()" id="updatep">Update Post</button>
+        <table border="2" align="center">
+            <thead>
+                <th>ID</th>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Delete</th>
+                <th>Edit</th>
+            </thead>
+            <tbody id="dd">
+            </tbody>
+        </table>
+        <script>
+            var eid = null;
+            document.getElementById("updatep").disabled = true;
+            function addPost(){
+                var newPost = {}
+                newPost.title=document.getElementById('title').value;
+                newPost.author=document.getElementById('author').value;
+                fetch("http://localhost:3000/posts",{
+                    method:'POST',
+                    headers:{
+                        'Content-Type':'application/json'
+                    },
+                    body:JSON.stringify(newPost)
+                })
+                .then(function(res){
+                    console.log(res)
+                    getPosts();
+                })
+                .catch(function(err){
+                    console.log(err)
+                })
+            }
+            getPosts();
+            function getPosts(){
+                fetch("http://localhost:3000/posts")
+                .then(function(res){
+                    res.json()
+                    .then(function(posts){
+                        document.getElementById('dd').innerHTML='';
+                        posts.forEach(function(post,i){
+                            
+                            var newtr = document.createElement('tr');
+                            var titletd = document.createElement('td');
+                            titletd.innerHTML = post.title;
+                            var idtd = document.createElement('td');
+                            idtd.innerHTML = post.id;
+                            var authortd = document.createElement('td');
+                            authortd.innerHTML = post.author;
+                            var deltd = document.createElement('td');
+                            var deleteBtn = document.createElement('button');
+                            deleteBtn.innerHTML='DELETE';
+                            deleteBtn.onclick=function(){
+                                var x = confirm();
+                                if(x){
+                                    deletePost(post.id)
+                                }
+                            }
+                            deltd.appendChild(deleteBtn)
+
+                            var edittd = document.createElement('td');
+                            var editBtn = document.createElement('button');
+                            editBtn.innerHTML='Edit';
+                            editBtn.onclick=function(){
+                                editPost(post)
+                            }
+                            edittd.appendChild(editBtn)
+                            newtr.appendChild(idtd)
+                            newtr.appendChild(titletd)
+                            newtr.appendChild(authortd)
+                            newtr.appendChild(deltd)
+                            newtr.appendChild(edittd)
+                            document.getElementById('dd').appendChild(newtr)
+                        });
+                    })
+                })
+            }
+            function editPost(post){
+                eid=post.id;
+                document.getElementById("addp").disabled = true;
+                document.getElementById("updatep").disabled = false;
+                document.getElementById('title').value=post.title
+                document.getElementById('author').value=post.author
+            }
+            function deletePost(id){
+                fetch("http://localhost:3000/posts/"+id,{
+                    method:'DELETE'
+                })
+                .then(function(res){
+                    getPosts();
+                })
+                .catch(function(err){
+                    console.log(err)
+                })
+            }
+            function updatePost(){
+                var newPost = {}
+                newPost.title=document.getElementById('title').value;
+                newPost.author=document.getElementById('author').value;
+                fetch("http://localhost:3000/posts/"+eid,{
+                    method:'PUT',
+                    headers:{
+                        'Content-Type':'application/json'
+                    },
+                    body:JSON.stringify(newPost)
+                })
+                .then(function(res){
+                    console.log(res)
+                    eid=null;
+                    document.getElementById("updatep").disabled = true;
+                    document.getElementById("addp").disabled = false;
+                    getPosts();
+                })
+                .catch(function(err){
+                    console.log(err)
+                })
+            }
+        </script>
+    </body>
+</html>

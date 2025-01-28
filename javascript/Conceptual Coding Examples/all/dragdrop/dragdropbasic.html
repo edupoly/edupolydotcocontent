@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Arima:wght@100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <style>
+            *{
+                font-family: "Poppins", sans-serif;
+
+            }
+            #d1{
+                display: flex;
+                justify-content: center;
+                background-color: lightblue;
+            }
+            #d1 ul{
+                padding:20px;
+                margin:20px;
+                width:300px;
+                border-radius: 10px;
+                box-shadow: 10px 10px 20px;
+                background-color: white;
+            }
+            #d1 ul li{
+                padding:10px;
+                margin:20px;
+                list-style: none;
+                border-radius: 5px;
+                background-color: rgb(192, 87, 87);
+                color:white;
+                box-shadow: 1px 1px 10px rgb(233, 173, 173);
+            }
+        </style>
+        <script>
+            function handledragstart(event){
+                console.log(event)
+                event.dataTransfer.setData('text/plain',event.target.id)
+                console.log(event.target.innerHTML)
+            }
+            function onDragOver(event) {
+                event.preventDefault();
+            }
+            function onDrop(event) {
+                const el = event
+                    .dataTransfer
+                    .getData('text/plain');
+                event.target.appendChild(document.getElementById(el))
+            }
+        </script>
+    </head>
+    <body>
+        <div style="text-align: center;">
+            <h3>Edupoly Javascript Examples</h3>
+            <h1>Drag and Drop Lists</h1>
+        </div>
+        <div id="d1">
+            <ul id="allplayers" ondragover="onDragOver(event);" ondrop="onDrop(event);">
+                <li id="t1" draggable="true" ondragstart="handledragstart(event)">Rohit Sharma</li>
+                <li id="t2" draggable="true" ondragstart="handledragstart(event)">Virat Kohli</li>
+                <li id="t3" draggable="true" ondragstart="handledragstart(event)">Shubman Gill</li>
+                <li id="t4" draggable="true" ondragstart="handledragstart(event)">Rishabh Pant</li>
+                <li id="t4" draggable="true" ondragstart="handledragstart(event)">Yashaswi Jaiswal</li>
+            </ul>
+            <ul  id="selected" ondragover="onDragOver(event);" ondrop="onDrop(event);">
+            </ul>
+        </div>
+    </body>
+</html>

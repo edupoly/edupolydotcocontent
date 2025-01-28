@@ -1,0 +1,49 @@
+<html>
+    <body>
+        <script>
+            function div(a,b){
+                var p = new Promise(function(resolve,reject){
+                    setTimeout(function(){
+                        if(b===0){
+                            reject("Denominator cannot be zero")
+                        }
+                        else{
+                            resolve(a/b);
+                        }
+                    },5000)
+                });
+                return p;
+            }
+
+            var x = div(12,3);
+            console.log(x);
+
+            var y = div(33,0);
+            console.log(y)
+
+
+
+
+
+
+
+
+
+
+
+            // div(1123,0).then(function(res){console.log(res)}).catch(function(err){console.log(err)})
+
+
+            // div(1123,20).then(function(res){console.log(res)}).catch(function(err){console.log(err)})
+            
+            // var x = div(156,4)
+            
+            // console.dir(x);
+            
+            // fetch("http://localhost:3000/students").then(function(res){console.log("res",res)}).catch(function(err){console.log('err',err)})
+
+            // console.log("HI")
+
+        </script>
+    </body>
+</html>

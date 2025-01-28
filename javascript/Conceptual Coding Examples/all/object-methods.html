@@ -1,0 +1,49 @@
+<html>
+    <body>
+        <script>
+            var ar = [12,23,34,54]
+
+            for(var i=0;i<=ar.length-1;i++){
+                console.log(ar[i])
+            }
+
+            var br = [[10,20],[11,22],[99,30],[55,35]]
+
+            for(var j=0;j<=br.length-1;j++){
+                for(var k=0;k<=br[j].length-1;k++){
+                    console.log(br[j][k])
+                }
+            }
+
+
+            var obj = {
+                    name:'gauri shankar',
+                    age:19,
+                    gender:'male',
+                    place:'hyd'
+            }
+            console.dir(Object.entries(obj))
+            console.log(Object.keys(obj))
+            console.log(Object.values(obj))
+            Object.freeze(obj)
+            obj.likes = 'sweets';//not applied on obj
+            obj.age=33;//not applied on obj
+            console.log(obj)
+
+            var obj2 = {
+                    name:'uma parvathi',
+                    age:29,
+                    gender:'female',
+                    place:'bengaluru'
+            }
+            obj2.likes='shiva';
+            console.log(obj2)
+
+            Object.seal(obj2);
+            obj2.food = 'icecream';
+            console.log(obj2);
+            obj2.place='chennai'
+            console.log(obj2)
+        </script>
+    </body>
+</html>

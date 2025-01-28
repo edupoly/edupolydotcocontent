@@ -1,0 +1,83 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <style>
+      body{
+        background-color: rgb(217, 218, 219);
+      }
+      #d1,#d2{
+        height:350px;
+        width:200px;
+        border:1px solid;
+      }
+      #queue li{
+        list-style: none;
+        width: 100px;
+        padding:5px;
+        border:1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="p-2">
+      <div class="text-center">
+          <h1> Scenario & Usecases based Javascript Mini Projects</h1>
+          <p>on Event Handling, DOM Manipulation with Event Object</p>
+          <h2> Queue Datastructure operations in Javascript</h2>
+      </div>
+      <hr>
+      <p>
+          Instructions:
+          <ol class="m-0">
+              <li>click Enqueue button to take a new number from prompt</li>
+              <li>click Dequeue button to perform the Dequeue operation</li>
+          </ol>
+      </p>
+    </div>
+    <div id='queue' class="mt-5" style="display: flex;flex-direction:column;align-items: center;">
+      <div style="display:flex;">
+        <div id="d1" style="display: flex;flex-direction: column;align-items: center;padding: 10px;"></div>
+        <div id="d2" style="padding: 10px;">
+          <button class="btn btn-secondary mb-2" onclick="enq()">Enqueue</button>
+          <button class="btn btn-secondary" onclick="deq()">Dequeue</button>
+        </div>
+      </div>
+      <h1>Queue of Numbers</h1>
+    </div>
+    <script>
+      var queue = [12,23,34,45];
+      var maxlength = 10;
+      function enq() {
+        if (queue.length < maxlength) {
+          var num = prompt();
+          if (num) {
+            queue.unshift(num);
+            displayItems();
+          }
+        } else {
+          alert('queue overflow. No place to push one more number');
+        }
+      }
+      function deq() {
+        if (queue.length === 0) {
+          alert('no items in the queue. please enqueue something');
+        } else {
+          queue.pop();
+          displayItems();
+        }
+      }
+      function displayItems() {
+        var s = document.getElementById('d1');
+        s.innerHTML = '';
+        queue.forEach(function(n, i) {
+          var newli = document.createElement('li');
+          newli.innerHTML = n;
+          s.appendChild(newli);
+        });
+      }
+      displayItems();
+    </script>
+  </body>
+</html>

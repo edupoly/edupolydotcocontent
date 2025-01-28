@@ -1,0 +1,62 @@
+<html>
+    <body>
+        <ul id="d2">
+
+        </ul>
+        <table border="2">
+            <thead>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Occupation</th>
+                <th>Age</th>
+            </thead>
+            <tbody id="d5">
+
+            </tbody>
+        </table>
+        <script>
+            var students = ['adil','ansari','pravin','harsh','vijay','giriyan'];
+            students.forEach(function(a){
+                var newli = document.createElement("li");
+                newli.innerHTML=a;
+                document.getElementById('d2').appendChild(newli);
+            })
+            var employees = [
+                {
+                    name:'sachin',
+                    gender:'male',
+                    occupation:'Director',
+                    age:20
+                },
+                {
+                    name:'Praveen',
+                    gender:'male',
+                    occupation:'Instructor',
+                    age:40
+                },
+                {
+                    name:'Sneha',
+                    gender:'female',
+                    occupation:'Mentor',
+                    age:21
+                }
+            ]
+            employees.forEach(function(emp){
+                var newtr = document.createElement('tr');
+                var nametd = document.createElement('td');
+                nametd.innerHTML=emp.name
+                var gendertd = document.createElement('td');
+                gendertd.innerHTML=emp.gender
+                var occupationtd = document.createElement('td');
+                occupationtd.innerHTML=emp.occupation
+                var agetd = document.createElement('td');
+                agetd.innerHTML=emp.age
+                newtr.appendChild(nametd)
+                newtr.appendChild(gendertd)
+                newtr.appendChild(occupationtd)
+                newtr.appendChild(agetd)
+                document.getElementById("d5").appendChild(newtr);
+            })
+        </script>
+    </body>
+</html>

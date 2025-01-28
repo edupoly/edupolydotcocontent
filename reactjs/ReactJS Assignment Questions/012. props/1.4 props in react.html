@@ -1,0 +1,59 @@
+<html>
+  <head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      function Course(props){
+        return (
+          <div style={{border:'1px solid',padding:'10px',margin:'10px'}}>
+            <h2>CourseName:{props.courseName}</h2>
+            <h3>CourseTrainer:{props.trainer.toUpperCase()}</h3>
+            <h3>CourseCost:Rs.{props.cost}</h3>
+          </div>
+        )
+      }
+      function CourseList(){
+        var courses = [
+          {
+            cname:'PHP',
+            trainer:'Ramesh',
+            cost:20000
+          },
+          {
+            cname:'CCNA',
+            trainer:'Jayaram',
+            cost:40000
+          },
+          {
+            cname:'C++',
+            trainer:'Kavya',
+            cost:20000
+          },
+          {
+            cname:'Java',
+            trainer:'Venkat',
+            cost:30000
+          },
+        ]
+        return(
+          <div  style={{border:'1px solid',padding:'10px',margin:'10px'}}>
+            {
+              courses.map((c)=>{
+                return(
+                  <Course courseName={c.cname} trainer={c.trainer} cost={c.cost}></Course>
+                )
+              })
+            }
+          </div>
+        )
+      }
+      ReactDOM.render(<CourseList></CourseList>,document.getElementById('root'))
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    
+    <div id="d1"></div>
+
+    <script type="text/babel">
+    
+    var Counter = function(p){
+      var [c,fn] = React.useState(p.i);
+      function inc(){
+        fn(c+p.step)
+      }
+      function dec(){
+        fn(c-p.step)
+      }
+      return (
+        <div style={{border:'1px solid',padding:'10px',margin:'10px'}}>
+          <h1>Count:{c}</h1>  
+          <button onClick={inc}>Increment</button>
+          <button onClick={dec}>Decrement</button>
+        </div>
+      )
+     }
+
+     function App(){
+      return(
+        <div>
+          <Counter i={10} step={100}></Counter>
+          <Counter i={100} step={40}></Counter>
+          <Counter i={300} step={50}></Counter>
+        </div>
+      )
+     }
+     ReactDOM.render(<App></App>,document.getElementById("d1"))
+    </script>
+  </body>
+</html>

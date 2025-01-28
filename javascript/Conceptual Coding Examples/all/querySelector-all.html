@@ -1,0 +1,36 @@
+<html>
+    <body>
+        <h1 class="abc">this is first header</h1>
+        <ul>
+            <li>
+                kashmir
+            </li>
+            <li>
+                <h1 class="abc">manali</h1>
+            </li>
+            <li>
+                munnar
+            </li>
+            <li>
+                <h1>araku</h1>
+            </li>
+            <li>
+                hyderabad
+            </li>
+        </ul>
+        <script>
+            var x = document.getElementsByTagName('h1');
+            for(var i=0;i<=x.length-1;i++){
+                x[i].style.color='red'
+            }
+            var y = document.querySelectorAll("li")
+            y.forEach(function(el){
+                el.style.backgroundColor='lightblue'
+            })
+
+            console.dir(x);
+            console.dir(y);
+            
+        </script>
+    </body>
+</html>

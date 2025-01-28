@@ -1,0 +1,50 @@
+<html>
+    <body>
+        <script>
+
+            function getStudents(){
+                var p = new Promise(function(resolve,reject){
+                    fetch('http://localhost:3000/students')
+                    .then(function(res){
+                        res.json()
+                        .then(function(data){resolve(data)})
+                        .catch(function(err){reject(err)})
+                    })
+                })
+                return p
+            }
+            getStudents().then(function(students){console.log(students)}).catch(function(){})
+
+            async function getStudents(){
+                var p = await fetch("http://localhost:3000/students")
+                return p.json()
+            }
+            getStudents().then(function(students){console.log(students)}).catch(function(){})
+
+
+
+            function div(a,b){
+                if(b===0){
+                    return Promise.reject("DEno canot be zero")
+                }
+                else{
+                    return Promise.resolve(a/b)
+                }
+            }
+
+            async function rem(a,b){
+                var p = await (a%b);
+                return p;
+            }
+
+            div(12,5)
+            .then(function(res){console.log(res)})
+            .catch(function(err){console.log(err)})
+
+            rem(12534,6)
+            .then(function(res){console.log(res)})
+            .catch(function(err){console.log(err)})
+
+        </script>
+    </body>
+</html>

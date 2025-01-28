@@ -1,0 +1,52 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            var ar = [11,34,19,49,29,27,13];
+            var a = ar[0];
+            var b = ar[1];
+
+            var [x,,y]=ar;
+            console.log(x,y)
+
+            var obj = {
+                firstname:'himaja',
+                lastname:'kadali',
+                age:33,
+                address:{
+                    pincode:500081,
+                    city:'hyderabad'
+                }
+            }
+            var {firstname:fn,age,address:{city}} = obj;
+            console.log(obj.firstname)
+            // console.log(firstname)
+            console.log(fn)
+            console.log(obj.address.city)
+            console.log(city)
+
+            var br = ar;
+            var cr = [ar];
+            var dr = [...ar]
+            console.log(br)
+            console.log(cr)
+            console.log(dr)
+
+            var xr = [10,20,30];
+            var yr = [11,22,33];
+            var zr = [...xr,...yr]
+            console.log(zr)
+
+            var pr = [12,24,56];
+            pr = [100,...pr]//pr.unshift(100)
+
+            var std1 = {
+                firstname:'soumya',
+                lastname:'abcd'
+            }
+            //std1.lastname = 'shankar'
+            std1 = {...std1,lastname:'shankar'}
+            console.log(std1);
+        </script>
+    </body>
+</html>

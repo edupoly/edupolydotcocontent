@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <script>
+            function handleSubmit(e){
+                e.preventDefault()
+                var myform=new FormData(e.target);
+                console.log(myform)
+                myform.forEach(function(a){
+                    console.log(a)
+                })
+                for(var x of myform.values()){
+                    console.log(x)
+                }
+                for(var x of myform.keys()){
+                    console.log(x)
+                }
+                for(var x of myform.entries()){
+                    console.log(x)
+                }
+                for(var x of myform.keys()){
+                    console.log(myform.get(x))
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <form onSubmit="handleSubmit(event)">
+            <input type="text" name="firstname">
+            <br>
+            <input type="text" name="lastname">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

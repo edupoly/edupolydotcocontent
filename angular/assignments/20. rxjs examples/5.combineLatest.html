@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.5.7/rxjs.umd.min.js" integrity="sha512-MiYwnEfEqT5G1xAVakQk02nQONtyt4KfpD0FmOsmJcR1Xc5Ic1fhEm4piCH7fCtEKUJfCw6Q07IpsISlAePczQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </head>
+  <body>
+    <button id="d1">0</button><br>
+    <button id="d2">100</button><br>
+    <button id="d3">1000</button><br>
+    <script>
+      // combineLatest is similar to forkJoin, except that it combines the latest results of all the observables and emits the combined final value.So until each observable is completed, the subscription block emits the result.
+      var br1 = rxjs.fromEvent(document.getElementById('d1'),'click')
+      var br2 = rxjs.fromEvent(document.getElementById('d2'),'click')
+      var br3 = rxjs.fromEvent(document.getElementById('d3'),'click')
+
+      var x1 = rxjs.combineLatest([br1,br2,br3])
+      //calls only after all three observables fire
+      x1.subscribe((a)=>{
+        console.log(a[0].target.innerHTML)
+        console.log(a[1].target.innerHTML)
+        console.log(a[2].target.innerHTML)
+      })
+    </script>
+  </body>
+</html>

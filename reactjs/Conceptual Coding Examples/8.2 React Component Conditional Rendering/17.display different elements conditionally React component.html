@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <!-- take a number and print a 'even' in h1 element if the given number is even
+        print 'odd' in italic if the given number is odd -->
+        <div id="d1"></div>
+        <script type="text/babel">
+            var Abc = function(){
+                var x = +prompt();
+                var[a,setA] = React.useState(x)
+                return(
+                    <div>
+                        {a%2===0?(<h1>Even</h1>):(<i>odd</i>)}
+                    </div>
+                )
+            }
+            ReactDOM.render(<Abc/>,document.getElementById('d1'));
+        </script>
+    </body>
+</html>

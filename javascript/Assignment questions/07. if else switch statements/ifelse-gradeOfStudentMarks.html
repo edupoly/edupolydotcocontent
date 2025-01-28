@@ -1,0 +1,39 @@
+<html>
+	<script>
+	
+		var x,y,z;
+		
+		x = +prompt("enter the maths marks out of 100");
+		y = +prompt("enter the science marks out of 100");
+		z = +prompt("enter the social marks out of 100");
+		
+		var percentage;
+		
+		percentage = (x+y+z)/3;
+		console.log(percentage);
+		
+		if(percentage>=70){
+			console.log("You passed with Distinction");
+		}
+		else{
+			if(percentage>=60){
+				console.log("You passed with First Class");
+			}
+			else{
+				if(percentage>=50){
+					console.log("You passed with Second Class");
+				}
+				else{
+					if(percentage>=40){
+						console.log("You passed with No Class");
+					}
+					else{
+						console.log("Dont worry, Malli rasuko")
+					}
+				}
+			}
+		}
+		
+		
+	</script>
+</html>

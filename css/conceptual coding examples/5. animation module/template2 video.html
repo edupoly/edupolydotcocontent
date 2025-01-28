@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <style>
+            *{
+                margin: 0px;
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            #header{
+                display: flex;
+                align-items: center;
+                background-image: url("https://img.freepik.com/free-vector/white-abstract-background-design_361591-1470.jpg?t=st=1730214614~exp=1730218214~hmac=759631db63f5b135a1ac1d0d52b78d1cb595cfd763017a9695b0f20475d615e6&w=1800");
+            }
+            #himg{
+                width:80%;
+                padding:2rem;
+            }
+            #cont{
+                padding:50px;
+                animation: moveup 3s;
+            }
+            #cont h1{
+                font-size: 4rem;
+            }
+            #himg{
+                animation: zoomzoom 2s;
+            }
+            @keyframes moveup {
+                from{
+                    opacity:0;
+                    transform: translate(0%,40%);
+                }
+                to{
+                    opacity: 1;
+                    transform: translate(0%);
+                }
+            }
+            @keyframes zoomzoom {
+                from{
+                    opacity: 0;
+                    transform: scale(0) translate(-40%,-40%);
+                }
+                to{
+                    opacity: 1;
+                    transform: scale(1);
+                }
+            }
+           
+        </style>
+    </head>
+    <body>
+        <div id="header">
+            <div id="cont">
+                <h1>
+                    Edupoly Learning Center for Excellence
+                </h1>
+                <p>
+                    This environment of joy boosts motivation and helps learners internalize new knowledge in meaningful ways, rather than viewing it as a burden or chore.
+                </p>
+            </div>
+            <div>
+                <img id="himg" src="https://bootstrapmade.com/content/demo/iLanding/assets/img/illustration-1.webp" alt="">
+            </div>
+        </div>
+    </body>
+</html>

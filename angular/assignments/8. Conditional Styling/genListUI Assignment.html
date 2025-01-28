@@ -1,0 +1,77 @@
+<html>
+  <head></head>
+  <body>
+    
+    <div id="d2" style="border:5px solid red;margin:10px;padding:10px;">
+      <ul id="students">
+
+      </ul>
+    </div>
+    <script>
+     
+      var students = [
+        {
+          name:'jaya',
+          gender:'female',
+          place:'gachibowli',
+        },
+        {
+          name:'dasu',
+          gender:'male',
+          place:'kphb'
+        },
+        {
+          name:'swati',
+          gender:'female',
+          place:'pune'
+        },
+        {
+          name:'pallavi',
+          gender:'female',
+          place:'assam'
+        },
+        {
+          name:'kiran',
+          gender:'male',
+          place:'kondapur'
+        },
+        {
+          name:'thirumala',
+          gender:'male',
+          place:'madhapur'
+        },
+        {
+          name:'priya',
+          gender:'female',
+          place:'hitech'
+        },
+      ]
+
+      students.forEach(function(stu){
+        var newstdli = document.createElement('li');
+        newstdli.innerHTML=stu.name;
+        if(stu.gender==='female')
+        {
+          newstdli.style.backgroundColor='pink'
+        }
+        if(stu.gender==='male')
+        {
+          newstdli.style.backgroundColor='lightblue'
+        }
+
+        var detailsul = document.createElement('ul');
+        var genderli = document.createElement('li');
+        genderli.innerHTML=stu.gender;
+        var placeli = document.createElement('li');
+        placeli.innerHTML=stu.place;
+        detailsul.appendChild(genderli);
+        detailsul.appendChild(placeli);
+
+        newstdli.appendChild(detailsul)
+
+        var studentsList =document.getElementById('students');
+        studentsList.appendChild(newstdli)
+      })
+    </script>
+  </body>
+</html>

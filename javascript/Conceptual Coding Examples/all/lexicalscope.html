@@ -1,0 +1,60 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            var p = 888;
+            function abc(){
+                console.log(p);
+                var b = 999;
+                {
+                    let c = 777;
+                    var d = 666;
+                    function xyz(){
+                        console.log(p);
+                        console.log(b);
+                        console.log(c);
+                        console.log(d);
+                    }
+                }
+                xyz()
+                console.dir(xyz)
+            }
+            abc();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // var a = 100;
+            // console.log(b);//undefined
+            // console.log(a);
+            // var b = 200;
+            // console.log(b);
+            // {
+            //     var c = 300;
+            //     console.log(d);//
+            //     let d = 333;
+            //     console.log(d);//333
+            // }
+            // console.log(c);//300
+            // console.log(d);//error
+        </script>
+    </body>
+</html>

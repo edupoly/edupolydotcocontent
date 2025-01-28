@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Example Bootstrap Document</title>
+
+    <!-- This says our CSS is compatible with phones, and phones
+         don't need to scale it strangely. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+          crossorigin="anonymous">
+
+    <!-- Optional theme add-on -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/darkly/bootstrap.min.css" integrity="sha384-nNK9n28pDUDDgIiIqZ/MiyO3F4/9vsMtReZK39klb/MtkZI3/LtjSjlmyVPS3KdN"
+          crossorigin="anonymous">
+
+    <!-- If you don't like how sandstone looks, go here and see other themes
+         that are available:
+         https://bootswatch.com/
+
+         You can replace the 'optional theme' with links from the page below
+         to get that theme:
+         https://www.bootstrapcdn.com/bootswatch/
+    -->
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootswatch@4.5.2/dist/flatly/bootstrap.min.css" integrity="sha384-qF/QmIAj5ZaYFAeQcrQ6bfVMAh4zZlrGwTPY7T/M+iTTLJqJBJjwwnsE5Y0mV7QK"
+          crossorigin="anonymous">
+  </head>
+
+  <body>
+
+    <header>
+      <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <div class="container-fluid">
+          <!-- Brand/site name -->
+          <a class="navbar-brand" href="#">Simpson College</a>
+          <!-- Hamburger icon -->
+          <button class="navbar-toggler"
+                  type="button"
+                  data-bs-toggle="collapse"
+                  data-bs-target="#navbarSupportedContent"
+                  aria-controls="navbarSupportedContent"
+                  aria-expanded="false"
+                  aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Div to hide stuff if we have hamburger -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Nav bar item list -->
+            <ul class="navbar-nav me-auto mb-2 mb-sm-0">
+              <li class="nav-item">
+                <!-- This is the style for the 'active' page -->
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">About</a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link" href="location.html">Location</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <!-- Main content
+     Put your main content in a dic named 'container'.
+     This includes your footer.
+     Otherwise everything will stretch to the edge of the  screen.
+     -->
+    <div class="container">
+      <h1>Lorem Ipsum</h1>
+
+      <p><em>"Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."</em></p>
+
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur blandit odio quis magna pharetra finibus.
+          Etiam iaculis pellentesque lectus, sed suscipit enim scelerisque in. Cras volutpat ut mi id suscipit.
+          Nunc quis turpis lectus. Ut rutrum tempus enim quis dictum.
+          Duis consequat ex orci, non maximus dui vestibulum non.
+          In sed rutrum nulla. Curabitur auctor ultrices massa, vel maximus enim imperdiet sed.
+          Sed libero augue, vehicula eu finibus vitae, interdum nec ante.
+          Mauris vel porttitor felis.
+          Suspendisse blandit erat vel neque volutpat, sed convallis est volutpat.</p>
+
+      <p>Quisque felis mi, ornare molestie mauris ut, ullamcorper varius ex.
+          Etiam facilisis lorem vitae quam tristique sagittis.
+          Morbi finibus mauris eget elit pellentesque, non porta tortor placerat.
+          Cras vel sodales tortor, fermentum fringilla elit.
+          Proin ante ligula, posuere vitae sem sit amet, tincidunt dapibus quam.
+          Pellentesque placerat augue ut aliquet vehicula. Cras et mauris id mauris pretium varius ac nec augue.
+          Etiam rutrum eros quis hendrerit ultricies. Pellentesque a tellus id neque auctor eleifend vehicula non odio.
+          Sed varius, justo sit amet rutrum blandit, justo erat tincidunt justo, eget mollis justo felis vitae enim.</p>
+
+      <h2>Buttons</h2>
+
+      <a type="button" class="btn btn-primary" href="https://simpson.edu">Simpson</a>
+
+      <h2>Tables</h2>
+
+      <table class="table">
+          <tr>
+              <thead class="thead-light">
+                <tr>
+                    <th scope="col">First</th>
+                    <th>Last</th>
+                    <th>Email</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Sam</td>
+                  <td>Simpson</td>
+                  <td>sam.simpson@simpson.edu</td>
+                </tr>
+                <tr>
+                  <td>Fred</td>
+                  <td>Flinstone</td>
+                  <td>fred.flinstone@simpson.edu</td>
+                </tr>
+              </tbody>
+          </tr>
+      </table>
+
+      <h2>Alerts</h2>
+
+      <div class="alert alert-primary" role="alert">
+       Use an alert!
+      </div>
+
+      <h2>Cards</h2>
+
+      <div class="card" style="width: 18rem;">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Juvenile_Ragdoll.jpg/330px-Juvenile_Ragdoll.jpg" class="card-img-top" alt="Kitten">
+        <div class="card-body">
+          <h5 class="card-title">Card title</h5>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+
+    </div> <!-- end container -->
+
+    <!-- Load in JavaScript that makes Bootstrap interactive -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+          crossorigin="anonymous"></script>
+    </script>
+  </body>
+</html>

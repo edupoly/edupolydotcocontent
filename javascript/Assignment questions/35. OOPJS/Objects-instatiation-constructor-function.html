@@ -1,0 +1,31 @@
+<html>
+    <script>
+        function employee(fn,ln,a,g){
+            this.firstname=fn;
+            this.lastname=ln;
+            this.age=a;
+        }
+        function Student(fn,ln,a,g,c){
+            this.firstname=fn;
+            this.lastname=ln;
+            this.age=a;
+            this.collage=c
+        }
+        console.dir(employee)
+        var emp1 = new employee('praveen','g',23,'male');
+        console.log(emp1)
+
+        var emp2 = new employee();
+        console.log(emp2)
+
+        var st2 = new Student();
+
+        console.log(typeof(emp2))
+        console.log(st2 instanceof employee)
+        console.log(st2 instanceof Student)
+        console.log(st2 instanceof Object)
+        console.log(emp2 instanceof Object)
+        var k = 124;
+        console.log(k instanceof Object)
+    </script>
+</html>

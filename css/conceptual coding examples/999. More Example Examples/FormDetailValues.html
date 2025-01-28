@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <script>
+            var userDetails = {}
+            function handleSubmit(e){
+                e.preventDefault()
+                var myform=new FormData(e.target);
+                for(var [key,value] of myform.entries()){
+                    userDetails[key]=value;
+                }
+                console.log(userDetails)
+            }
+        </script>
+    </head>
+    <body>
+        <form onSubmit="handleSubmit(event)">
+            <input type="text" name="firstname">
+            <br>
+            <input type="text" name="middle">
+            <br>
+            <input type="text" name="lastname">
+            <br>
+            <input type="date" name="age">
+            <br>
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Document</title>
+        <style>
+            
+        </style>
+    </head>
+    <body>
+        <h1>Generate List from array of strings using DOM</h1>
+        <ul id="d1">
+
+        </ul>
+        <script>
+
+            var students = ['prateek','alok','nur','marian','himaja','kumar','lokesh','sireesha'];
+
+            for(var i=0;i<=students.length-1;i++){
+                var x = document.createElement("li");
+                x.innerHTML = students[i]
+                var y = document.getElementById("d1");
+                y.appendChild(x)
+            }
+
+            var z = document.getElementById("d1");
+            z.setAttribute("title","list of khutbatch-1-students");
+            // z.setAttribute("class","betterview nodots")
+
+            z.classList.add("betterview")
+            z.classList.add("nodots")
+        </script>
+    </body>
+</html>
+<!-- 
+    dom
+        helps us to control the html and css
+            modification
+            generate html
+ -->

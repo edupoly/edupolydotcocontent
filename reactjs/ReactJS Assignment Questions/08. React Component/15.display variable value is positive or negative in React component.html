@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- use ? : operator to display a is even or odd -->
+    <div id="d1"></div>
+    <script type="text/babel">
+        var Abc = function () {
+            var x = +prompt("enter a number");
+            var [a, setA] = React.useState(x);
+
+            return (
+                <div>
+                    <h1>{a % 2 === 0 ? 'even' : 'odd'}</h1>
+                </div>
+            )
+        }
+        ReactDOM.render(<Abc />, document.getElementById('d1'));
+    </script>
+</body>
+
+</html>

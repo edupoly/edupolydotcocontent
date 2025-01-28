@@ -1,0 +1,37 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            class Person{
+                firstname;
+                lastname;
+                aadhar;
+                dob;
+                email;
+                password;
+            }
+            class Student extends Person{
+                marks;
+                attendance;
+            }
+            var newst1 = new Student();
+            console.log(newst1)
+
+            class Employee extends Person{
+                hra;
+                da;
+                ta;
+                basic;
+            }
+            var newEm1 = new Employee();
+            console.log(newEm1)
+
+            class Driver extends Employee{
+                vehicleNumber;
+                licence;
+            }
+            var newdr1 = new Driver();
+            console.log(newdr1)
+        </script>
+    </body>
+</html>

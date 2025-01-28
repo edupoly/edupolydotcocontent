@@ -1,0 +1,31 @@
+<html>
+	<script>
+		var n=96321;
+		var s=0;
+		var r;
+		
+		while(n!=0){
+			r=n%10;
+			s=s*10+r;
+			n=parseInt(n/10);
+		}
+		
+		console.log(s);
+
+	</script>
+</html>
+r = n%10;//r=9
+s = s*10+r;//s=9
+n = parseInt(n/10)//n=265
+
+r = n%10//r=5
+s = s*10+r;//s=95
+n = parseInt(n/10);//n=26
+
+r = n%10//r=6
+s = s*10+r//956
+n = parseInt(n/10);//n=2
+
+r = n%10//r=2
+s = s*10+r;//s=9562
+n = parseInt(n/10);//n=0

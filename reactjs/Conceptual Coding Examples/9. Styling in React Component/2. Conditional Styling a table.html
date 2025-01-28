@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <center>
+    <div id="mydiv" style="border: 2px solid red;padding:10px;margin:10px"></div>
+  </center>
+  <script type="text/babel">
+
+    var students = [
+      {
+        firstname:'ravi',
+        lastname:'sastri',
+        gender:'male'
+      },
+      {
+        firstname:'sachin',
+        lastname:'tendulkar',
+        gender:'male'
+      },
+      {
+        firstname:'mithali',
+        lastname:'raj',
+        gender:'female'
+      },
+      {
+        firstname:'Rohit',
+        lastname:'Sharma',
+        gender:'male'
+      },
+      {
+        firstname:'Smriti',
+        lastname:'Mandhana',
+        gender:'female'
+      },
+      {
+        firstname:'Virat',
+        lastname:'Kohli',
+        gender:'male'
+      },
+    ];
+    var x = <table border="1px">
+        <thead>
+          <th>Firstname</th>
+          <th>Lastname</th>
+          <th>Gender</th>
+        </thead>
+        {
+          students.map((student)=>{
+            return(<tr style={student.gender==='male'?{backgroundColor:'skyblue'}:{backgroundColor:'pink'}}>
+                <td>{student.firstname}</td>
+                <td>{student.lastname}</td>
+                <td>{student.gender}</td>
+              </tr>)
+          })
+        }
+      </table>
+    function addCountry(){
+      var nc = document.getElementById('newc').value;
+      countries.push(nc);
+      var x = <ul>{
+      countries.map((c)=>{
+        return <li>{c}</li>
+      })}</ul>
+      ReactDOM.render(x,document.getElementById('mydiv'))
+    }
+    ReactDOM.render(x,document.getElementById('mydiv'))
+  </script>
+</body>
+</html>

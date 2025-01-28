@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <title>Document</title>
+</head>
+<body>
+  <center>
+    <div id="mydiv" style="box-shadow:1px 10px 20px 2px;width:40%;border: 2px solid rgb(94, 88, 88);padding:10px;margin:10px auto"></div>
+  </center>
+  <script type="text/babel">
+    
+    function Comp1(){
+
+      var [gender,setGender] = React.useState('');
+
+      function handleInput(e){
+        setGender(e.target.value)
+      }
+      return (
+              <div>
+                <input onChange={handleInput} type="radio" name='gender' value='male'/>:Male &nbsp;&nbsp;
+                <input onChange={handleInput} type="radio" name='gender' value='female'/>:Female &nbsp;&nbsp;
+                {gender==='male'&&<img width="300px" src="https://img.freepik.com/free-vector/isolated-young-handsome-man-set-different-poses-white-background-illustration_632498-658.jpg?w=1060&t=st=1676186590~exp=1676187190~hmac=f0663d518cdd991b2c733bcb6cee3940e16c5a7e3bf1bcc9895f48c4e1ee960c" />}
+                {gender==='female'&&<img width="300px" src="https://cdn.pixabay.com/photo/2014/04/02/14/10/female-306407_1280.png" />}
+              </div>
+      )
+    }
+    
+    ReactDOM.render(<Comp1></Comp1>,document.getElementById('mydiv'))
+  </script>
+</body>
+</html>

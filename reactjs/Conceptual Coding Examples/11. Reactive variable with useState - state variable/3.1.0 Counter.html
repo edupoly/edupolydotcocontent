@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <title>Document</title>
+</head>
+<body>
+  <center>
+    <div id="mydiv" style="box-shadow:1px 10px 20px 2px;width:20%;border: 2px solid rgb(94, 88, 88);padding:10px;margin:10px auto"></div>
+  </center>
+  <script type="text/babel">
+    
+    function Comp1(){
+      var [x,setX] = React.useState(100);
+      function inc(){
+        setX(x+1)
+      }
+      function dec(){
+        setX(x-1)
+      }
+      return (
+              <div>
+              <h1>Count:{x}</h1>
+              <button onClick={inc}>Increment</button>
+              <button onClick={dec}>Decrement</button>
+              </div>
+        )
+    }
+    
+    ReactDOM.render(<Comp1></Comp1>,document.getElementById('mydiv'))
+  </script>
+</body>
+</html>

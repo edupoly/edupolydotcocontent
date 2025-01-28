@@ -1,0 +1,39 @@
+<html>
+    <head></head>
+    <body>
+        <table border="2" align="center">
+            <thead></thead>
+            <tbody id="dd">
+            </tbody>
+        </table>
+        <script>
+            fetch("https://restcountries.com/v2/all")
+            .then(function(res){
+                res.json()
+                .then(function(coutries){
+                    coutries.slice(10,19).forEach(function(country,i){
+                        var newtr = document.createElement('tr');
+                        var nametd = document.createElement('td');
+                        nametd.innerHTML = country.name;
+                        var capitaltd = document.createElement('td');
+                        capitaltd.innerHTML = country.capital;
+                        var imgtd = document.createElement('td');
+                        var flagImg = document.createElement('img');
+                        flagImg.src=country.flag;
+                        flagImg.style.width='100px';
+                        imgtd.appendChild(flagImg)
+                        newtr.appendChild(nametd)
+                        newtr.appendChild(imgtd)
+                        newtr.appendChild(capitaltd)
+                        document.getElementById('dd').appendChild(newtr)
+                    });
+                })
+                .catch(function(){})
+            })
+            .catch(function(err){
+                console.log(err)
+            })
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,76 @@
+<html>
+    <body>
+        <script>
+            
+            var obj={
+                        'brand':'motorola', 
+                        'model':'one fusion+',
+                        'ram':'6GB',
+                        'cost':17000,
+                        'i':4.6
+                    }
+            console.log(obj['brand'])
+            console.log(obj['ram'])
+
+            var i = 'model';   
+            console.log(obj[i])  //one fusion               
+            console.log(obj['i'])  //4.6               
+
+            for(var k in obj)
+            {
+                console.log(k)
+                console.log(obj[k])
+            }
+            var myexpenses = {
+                coffee:15,
+                breakfast:250,
+                tea:10,
+                tea:10,
+                lunch:300,
+                snaks:20,
+                dinner:150
+            }
+
+            var marks={
+                deepika:300,
+                sachin:100,
+                dada:840,
+                kazal:340,
+                rani:430
+            }
+
+            console.log(marks.deepika)
+            var d = 'kazal';
+            //console.log(marks.d)//undefined
+            //console.log(marks.'deepika')//syntax error
+
+
+
+
+
+        </script>
+    </body>
+</html>
+<!-- 
+    var students = [
+                {
+                    firstname:'deepika',
+                    lastname:'padukone',
+                    course:'angular'
+                },
+                {
+                    firstname:'rani',
+                    lastname:'mikharjee',
+                    course:'react'
+                },
+                {
+                    firstname:'sachin',
+                    lastname:'tendulkar',
+                    course:'nodejs'
+                }
+            ]
+ -->
+ <!-- 
+    fooditems =[{},{},{}]
+    bills=[{},{},{},{},{},{}]
+  -->

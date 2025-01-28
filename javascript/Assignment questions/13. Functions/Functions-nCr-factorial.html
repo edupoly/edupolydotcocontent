@@ -1,0 +1,23 @@
+<html>
+    <script>
+
+        function facto(n){
+            var i=1,f=1;
+            for(i=1;i<=n;i++){
+                f=f*i;
+            }
+            return f;
+        }        
+
+        var n = 8;
+        var r = 3;
+
+        var nf = facto(n);
+        var rf = facto(r);
+        var nmrf = facto(n-r);
+        var ncr = (nf/(rf*nmrf))
+
+        console.log(ncr);
+    </script>
+</html>
+

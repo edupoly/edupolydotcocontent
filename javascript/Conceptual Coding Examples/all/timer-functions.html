@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <script>
+            var i = 0;
+            var timer1 = setInterval(function(){
+                i=i+1;
+                console.log(i)
+                if(i===10){
+                    clearInterval(timer1)
+                }
+            },2000);
+
+            setTimeout(function(){
+                alert("hello")
+            },6000);
+        </script>
+    </body>
+</html>

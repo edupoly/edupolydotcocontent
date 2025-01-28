@@ -1,0 +1,162 @@
+<html>
+  <head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    
+    <div id="d1"></div>
+
+    <script type="text/babel">
+     function Students(){
+
+      var [mystudents,setMystudents] = React.useState([
+                            {
+                              "firstname": "praveen",
+                              "lastname": "gubbala",
+                              "age": 36,
+                              "gender": "female",
+                              "city": "hyd",
+                              "salary": 10000
+                            },
+                            {
+                              "firstname": "srikanth",
+                              "lastname": "gubbala",
+                              "age": 32,
+                              "gender": "male",
+                              "city": "bengaluru",
+                              "salary": 20000
+                            },
+                            {
+                              "firstname": "pradeep",
+                              "lastname": "reddy",
+                              "age": 21,
+                              "gender": "male",
+                              "city": "hyd",
+                              "salary": 25000
+                            },
+                            {
+                              "firstname": "preeti",
+                              "lastname": "haia",
+                              "age": 31,
+                              "gender": "female",
+                              "city": "delhi",
+                              "salary": 30000
+                            },
+                            {
+                              "firstname": "kiran",
+                              "lastname": "gubbala",
+                              "age": 52,
+                              "gender": "male",
+                              "city": "bengaluru",
+                              "salary": 29000
+                            },
+                            {
+                              "firstname": "jayaram",
+                              "lastname": "reddy",
+                              "age": 54,
+                              "gender": "male",
+                              "city": "mumbai",
+                              "salary": 99000
+                            }
+      ])
+                           
+      function sortStudentsByFirstname(){
+        var temp = [...mystudents]
+        temp.sort((a,b)=>{
+          if(a.firstname>b.firstname){
+            return 1
+          }
+          else{
+            return -1
+          }
+        })
+        setMystudents([...temp])
+      }
+
+      function sortStudentsByLastname(){
+        var temp = [...mystudents]
+        temp.sort((a,b)=>{
+          if(a.firstname>b.lastname){
+            return 1
+          }
+          else{
+            return -1
+          }
+        })
+        setMystudents([...temp])
+      }
+      // var [fn,setFN]=React.useState('')
+      // var [ln,setLN]=React.useState('')
+      // var [age,setAge]=React.useState('')
+      // var [sal,setSal]=React.useState('')
+      // var [gen,setGen]=React.useState('')
+      var [newstudent,setnewstudent]=React.useState({
+        firstname:'',
+        lastname:'',
+        age:'',
+        salary:'',
+        gender:''
+      })
+      function updateFN(e){
+        setnewstudent({...newstudent,firstname:e.target.value})
+      }
+      function updateLN(e){
+        setnewstudent({...newstudent,lastname:e.target.value})
+
+      }
+      function updateAge(e){
+        setnewstudent({...newstudent,age:e.target.value})
+      }
+      function updateSal(e){
+        setnewstudent({...newstudent,salary:e.target.value})
+      }
+      function updateGen(e){
+        setnewstudent({...newstudent,gender:e.target.value})
+      }
+      function addStudent(){
+        setMystudents([...mystudents,{...newstudent}])
+      }
+      return (
+        <div>
+          <h1>React Students</h1>
+          <input type="text" onKeyUp={updateFN}/>
+          <br/>
+          <input type="text" onKeyUp={updateLN}/>
+          <br/>
+          <input type="text" onKeyUp={updateAge}/>
+          <br/>
+          <input type="text" onKeyUp={updateSal}/>
+          <br/>
+          <input type="text" onKeyUp={updateGen}/>
+          <br/>
+          <button onClick={addStudent}>Add Student</button>
+          <table border='2'>
+            <thead>
+              <th onClick={sortStudentsByFirstname}>Firstname</th>
+              <th onClick={sortStudentsByLastname}>Lastname</th>
+              <th>Age</th>
+              <th>Salary</th>
+              <th>Gender</th>
+            </thead>
+            {
+              mystudents.map((s)=>{
+                return (<tr>
+                          <td>{s.firstname}</td>
+                          <td>{s.lastname}</td>
+                          <td>{s.age}</td>
+                          <td>{s.salary}</td>
+                          <td>{s.gender}</td>
+                        </tr>)
+              })
+            }
+          </table>
+        </div>
+      )
+     }
+     ReactDOM.render(<Students></Students>,document.getElementById("d1"))
+    </script>
+  </body>
+</html>
+

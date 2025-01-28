@@ -1,0 +1,49 @@
+<html>
+    <body>
+        <script>
+            var a = 10;
+            var b;
+            b = a;
+            console.log(b);//10
+            console.log(a);//10
+            b = 200;
+            console.log(b);
+            console.log(a);
+            var x = 'praveen';
+            var y;
+            y=x;
+            console.log(y);
+            console.log(x);
+            y='srikanth';
+            console.log(y)
+            console.log(x)
+            var ar = [10,20,30]
+            var br;
+            var cr = []
+            br = ar;
+            for(var i=0;i<=ar.length-1;i++){
+                cr[i]=ar[i];
+            }
+            console.log(br);//10,20,30
+            console.log(ar);//10,20,30
+            br[2]='rahul';
+            console.log(br);//10,20,rahul
+            console.log(ar);//10,20,30
+            console.log(cr)
+
+
+            var ob1 = {
+                firstname:'praveen',
+                lastname:'gubbala'
+            }
+            var ob2 = ob1;
+            var ob3 = {};
+            for(var k in ob1){
+                ob3[k]=ob1[k]
+            }
+            ob1.firstname='srikanth';
+            console.log(ob2)
+            console.log(ob3)
+        </script>
+    </body>
+</html>

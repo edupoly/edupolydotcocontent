@@ -1,0 +1,98 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="scores.js"></script>
+        
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            var scorecard = <div className="container">
+                                {
+                                    scores.scoreCard.map((innings)=>{
+                                        return <div>
+                                                <h1>{innings.batTeamDetails.batTeamName} Innings</h1>
+
+                                                <table className="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th colspan='2'>BATTING</th>
+                                                            <th>R</th>
+                                                            <th>B</th>
+                                                            <th>M</th>
+                                                            <th>4s</th>
+                                                            <th>6s</th>
+                                                            <th>SR</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {
+                                                            Object.keys(innings.batTeamDetails.batsmenData).map((key)=>{
+                                                                return <tr>
+                                                                        <td>{innings.batTeamDetails.batsmenData[key].batName}</td>
+                                                                        <td>{innings.batTeamDetails.batsmenData[key].outDesc}</td>
+                                                                        <td>{innings.batTeamDetails.batsmenData[key].runs}</td>
+                                                                        <td>{innings.batTeamDetails.batsmenData[key].balls}</td>
+                                                                        <td>{innings.batTeamDetails.batsmenData[key].mins}</td>
+                                                                        <td>{innings.batTeamDetails.batsmenData[key].fours}</td>
+                                                                        <td>{innings.batTeamDetails.batsmenData[key].sixes}</td>
+                                                                        <td>{innings.batTeamDetails.batsmenData[key].strikeRate}</td>
+                                                                    </tr>
+                                                            })
+                                                        }
+                                                        <tr>
+                                                            <td>Extras</td>
+                                                            <td>(b {innings.extrasData.byes},lb {innings.extrasData.legByes},nd {innings.extrasData.no_balls},wd {innings.extrasData.wides} )</td>
+                                                            <td>{innings.extrasData.total}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>total</td>
+                                                            <td>{innings.scoreDetails.overs} (RR: {innings.scoreDetails.runRate},{innings.scoreDetails.ballNbr})</td>
+                                                            <td>{innings.scoreDetails.runs}/{innings.scoreDetails.wickets}</td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                                <table className="table">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>BOWLING</th>
+                                                            <th>O</th>
+                                                            <th>M</th>
+                                                            <th>R</th>
+                                                            <th>W</th>
+                                                            <th>ECON</th>
+                                                            <th>WD</th>
+                                                            <th>NB</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        {
+                                                            Object.keys(innings.bowlTeamDetails.bowlersData).map((key)=>{
+                                                                return <tr>
+                                                                        <td>{innings.bowlTeamDetails.bowlersData[key].bowlName}</td>
+                                                                        <td>{innings.bowlTeamDetails.bowlersData[key].overs}</td>
+                                                                        <td>{innings.bowlTeamDetails.bowlersData[key].maidens}</td>
+                                                                        <td>{innings.bowlTeamDetails.bowlersData[key].runs}</td>
+                                                                        <td>{innings.bowlTeamDetails.bowlersData[key].wickets}</td>
+                                                                        <td>{innings.bowlTeamDetails.bowlersData[key].economy}</td>
+                                                                        <td>{innings.bowlTeamDetails.bowlersData[key].wides}</td>
+                                                                        <td>{innings.bowlTeamDetails.bowlersData[key].no_balls}</td>
+                                                                    </tr>
+                                                            })
+                                                        }
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                    })
+                                }
+                
+                </div>
+
+             ReactDOM.render(scorecard,document.getElementById("root"))
+        </script>
+    </body>
+</html>

@@ -1,0 +1,47 @@
+<html>
+  
+  <head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    
+   
+    <div id="d3"></div>
+
+    <script type="text/babel">
+      var ar = []
+      function abc(){
+        var a = document.getElementById('d1').value
+        ar.push(a)
+        genUI();
+      }
+      function genUI(){
+        document.getElementById("dh").innerHTML='';
+        ar.forEach((g,i)=>{
+          var k = document.createElement("li");
+          k.innerHTML=g;
+          var delBtn = document.createElement("button")
+          delBtn.innerHTML='Del';
+          delBtn.onclick=function(){deleteTask(i)}
+          k.appendChild(delBtn)
+          document.getElementById('dh').appendChild(k)
+        })
+      }
+      function deleteTask(i){
+        ar.splice(i,1);
+        genUI();
+      }
+      var jh1 = <div>
+                  <input type="text" id='d1' />
+                  <button onClick={abc}>Click here push value</button>
+                  <ul id='dh'></ul>
+                </div>
+      ReactDOM.render(jh1,document.getElementById("d3"))
+
+
+    </script>
+  </body>
+</html>
+     

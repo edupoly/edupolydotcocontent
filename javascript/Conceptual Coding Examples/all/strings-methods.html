@@ -1,0 +1,32 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            var str = 'australia';
+            str = str.replace('a','d');
+            console.log(str);
+
+            var st = 'australia';
+            st = st.replaceAll('a','d');
+            console.log(st)
+
+            var s1 = 'kolkata';
+            s1 = s1.replaceAll(/[aeiou]/g,'*');
+            console.log(s1);
+
+            var st2 = 'praveen';
+            var x = st2.slice(2);
+            console.log(x)
+            console.log(st2)
+
+            var y = st2.substring(2,4);
+            //substring(startindex,endindex);
+            console.log(y)//av
+
+            var z = st2.substr(2,4);
+            //substr(index,count);
+            console.log(z)//avee
+
+        </script>
+    </body>
+</html>

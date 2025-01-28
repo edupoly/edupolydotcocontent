@@ -1,0 +1,53 @@
+
+<html>
+    <body>
+        <script>
+            class Employee{
+                firstname;
+                lastname;
+                dob;
+                constructor(fn,ln,d){
+                    this.firstname=fn;
+                    this.lastname=ln;
+                    this.dob=d;
+                }
+                getAge=function(){}
+            }
+            var emp1 = new Employee('praveen','gubbala','19-04-1983');
+            console.log(emp1)
+
+            var emp2 = new Employee('manas','gubbala','18-08-2012');
+            console.log(emp2)
+
+            function Mobile(model,ram,processor,storage,color,pr,dsc){
+                //this={}
+                this.model=model;
+                this.ram=ram;
+                this.processor=processor;
+                this.storage=storage;
+                this.color=color;
+                this.price=pr;
+                this.discount=dsc;
+                this.finalPrice = function(){
+                    console.log(this.price-(this.price*this.discount/100))
+                }
+                //return this
+            }
+
+            var mb1 = new Mobile('x60','12gb','sd870','128gb','black',34500,12);
+            mb1.finalPrice()
+            
+
+            var mb2 = new Mobile('samsung gs9','8gb','exinos','128gb','blue',56000,20)
+            mb2.finalPrice();
+        </script>
+    </body>
+</html>
+
+
+<!-- 
+    1. Encapsulation
+    2. Abstraction
+    3. Inheritance
+    4. Polymorphism
+ -->

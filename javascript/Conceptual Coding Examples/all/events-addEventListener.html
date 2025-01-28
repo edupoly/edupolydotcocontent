@@ -1,0 +1,23 @@
+<html>
+    <head></head>
+    <body>
+        <h1 class="student">Prateek</h1>
+        <h1>Sneha</h1>
+        <h1>Sachin</h1>
+        <h1 class="student">Alok</h1>
+        <h1>praveen</h1>
+        <h1 class="student">Marian</h1>
+        <h1 class="student">Nur</h1>
+        <h1>Monalisa</h1>
+        <script>
+            var x = document.getElementsByTagName("h1")
+            var els = document.getElementsByClassName("student");
+            
+            for(var i=0;i<=els.length-1;i++){
+                els[i].addEventListener('click',function(){
+                    alert("Student")
+                })
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+    <head></head>
+    <body>
+        <button onclick="handler1(this,event)">inline event handling</button> &nbsp; &nbsp; &nbsp;
+        <button id="b2">event handling with addEventListener</button>&nbsp; &nbsp; &nbsp;
+        <button id="b3">event handling with element object</button>&nbsp; &nbsp; &nbsp;
+        <script>
+            function handler1(el,ev){
+                console.dir(el)
+                console.dir(ev)
+                alert("button1 handled with inline event handler")
+            }
+            function abc(){
+                alert('abc called')
+            }
+            document.getElementById('b2').addEventListener("click",abc)
+            document.getElementById("b3").onclick = function(){
+                console.dir(event)
+                console.dir(this)
+                alert("button3 handled by element object direct handlers")
+            }
+
+        </script>
+    </body>
+</html>

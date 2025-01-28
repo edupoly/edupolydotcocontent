@@ -1,0 +1,79 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <script>
+            function add(a,b){
+                console.log(a+b)
+            }
+            add(12,23);
+
+            function sum(a,b,cb){
+                cb(a+b)
+            }
+            sum(12,33,function(res){console.log(res)})
+
+            function div(a,b,cbf){
+                if(b===0){
+                    cbf("denominator cannot be zero",null)
+                }
+                else{
+                    cbf(null,a/b)
+                }
+            }
+
+            div(12,0,function(err,res){
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    console.log(res)
+                }
+            })
+
+            function mul(a,b,cb){
+                if(isNaN(a)||isNaN(b)){
+                    cb("arguments should be a number",null)
+                }
+                else{
+                    cb(null,a*b)
+                }
+            }
+            mul(12,34,function(err,res){
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    console.log(res)
+                }
+            });
+            mul(12,'praveen',function(err,res){
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    console.log(res)
+                }
+            });
+            mul('druva',12,function(err,res){
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    console.log(res)
+                }
+            });
+            mul('druva','kjasdjh',function(err,res){
+                if(err){
+                    console.log(err)
+                }
+                else{
+                    console.log(res)
+                }
+            });
+
+            
+        </script>
+    </body>
+</html>

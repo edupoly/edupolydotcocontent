@@ -1,0 +1,27 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            var i=1;
+            setInterval(function(){
+                console.log("first",i);
+                i=i+2;
+            },1000)
+            
+            var j = 0;
+            setInterval(function(){
+                j=j+2
+                console.log("second",j);
+            },5000)
+
+            var k = 1;
+            setInterval(function(){
+                sum = k*10
+                k++;
+                console.log("third",sum)
+            },3000)
+            
+            console.log("lastline")
+        </script>
+    </body>
+</html>

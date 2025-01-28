@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <h1 id="d1">
+            <span id="min"></span>:
+            <span id="sec"></span>:
+            <span id="mil"></span>:
+        </h1>
+        <button onclick="reset()">Reset</button>
+        <button onclick="pause()">Pause</button>
+        <button onclick="start()">Start</button>
+        <script>
+            var c = 0;
+            document.querySelector('#d1').innerHTML=c;
+            var timer1;
+            function runTimer(){
+                timer1 = setInterval(function(){
+                    c++;
+                    document.querySelector('#d1').innerHTML=c;
+
+                },10)
+            }
+            
+            function reset(){
+                c=0;
+                document.querySelector('#d1').innerHTML=c;
+                clearInterval(timer1)
+            }
+            function pause(){
+                clearInterval(timer1)
+            }
+            function start(){
+                clearInterval(timer1)
+                runTimer();
+            }
+        </script>
+    </body>
+</html>

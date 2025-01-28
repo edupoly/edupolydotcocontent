@@ -1,0 +1,51 @@
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- 34.print each object in a seperate list for a given array of student objects   -->
+    <div id="d2"></div>
+    <script type="text/babel">
+        var Jkl = function () {
+            var [students, setStudents] = React.useState([
+                {
+                    firstname: "Praveen",
+                    lastname: "Gubbala",
+                    age: 40
+                },
+                {
+                    firstname: "Rohit",
+                    lastname: "Sharma",
+                    age: 35
+                },
+                {
+                    firstname: "Sachin",
+                    lastname: "Tendulkar",
+                    age: 50
+                },
+            ]);
+            return (
+                <div>
+                    {
+                        students.map((s) => {
+                            return (
+                                <ul>
+                                    <li>{s.firstname}</li>
+                                    <li>{s.lastname}</li>
+                                    <li>{s.age}</li>
+                                </ul>
+                            )
+                        })
+                    }
+                </div>
+            )
+        }
+        ReactDOM.render(<Jkl />, document.getElementById('d2'));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="d1"></div>
+    <script type="text/babel">
+        var Abc = function () {
+            var [x, setX] = React.useState(['dog', 'cat', 'pig', 'mouse', 'tiger', 'lion']);
+            return (
+                <div>
+                    {
+                        x.map((a) => { return <li>{a}</li> })
+                    }
+                </div>
+            )
+        }
+        ReactDOM.render(<Abc />, document.getElementById('d1'));
+    </script>
+</body>
+
+</html>

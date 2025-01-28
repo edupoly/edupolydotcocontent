@@ -1,0 +1,30 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            var ob1 = {
+                firstname:'praveen',
+                lastname:'gubbala'
+            }
+            var ob2 = {
+                firstname:'sruthi',
+                lastname:'rao'
+            }
+            function greet(a,b){
+                console.log("hello",this.firstname)
+                console.log(a)
+                console.log(b)
+            }
+            //greet();
+            greet.call(ob1,'good evening','how are you doing')
+            greet.call(ob2,'hey ... is all ok','how is the exam')
+
+            function sayHappy(a,b){
+                console.log(this)
+                console.log(a)
+                console.log(b)
+            }
+            sayHappy.apply(ob1,['happy to see you','good to be with you'])
+        </script>
+    </body>
+</html>

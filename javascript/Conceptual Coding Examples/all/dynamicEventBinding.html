@@ -1,0 +1,31 @@
+<html>
+    <head></head>
+    <body>
+        <h1>Edupoly</h1>
+        <ul id="d1">
+
+        </ul>
+        <script>
+            var nh1 = document.createElement("h1");
+            nh1.innerText = "Praveen"
+            document.body.appendChild(nh1)
+            var heroines = ['anushka','samanta','preethi','keerthi','pakrithi']
+
+            heroines.forEach(function(h,i){
+                var nli = document.createElement("li")
+                nli.innerHTML=h;
+                nli.onclick=function(){alert(i)}//i=0
+                document.getElementById("d1").appendChild(nli)
+            })
+
+            // for(var i=0;i<=heroines.length-1;i++){
+            //     var nli = document.createElement("li")
+            //     nli.innerHTML=heroines[i];
+            //     nli.onclick=function(){alert(i)}
+            //     document.getElementById("d1").appendChild(nli)
+            // }
+
+            // console.log(i)
+        </script>
+    </body>
+</html>

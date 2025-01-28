@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>Welcome to DOM</title>
+    
+  </head>
+  <body>
+    <div id="dd"></div>
+    <ul id="sd"></ul>
+    <script>
+      var x = document.createElement("h2")
+      x.innerHTML = "Welcome to Edupoly";
+      x.style.color="red";
+      x.style.border="10px solid green"
+      x.style.padding="10px";
+      x.style.backgroundColor="lightblue";
+      document.getElementById('dd').appendChild(x);
+
+      var students = ['akshay','prudvi','mounika','kavya']
+
+      for(var i=0;i<=students.length-1;i++){
+        var li1 = document.createElement('li');
+        li1.innerHTML=students[i]
+        document.getElementById('sd').appendChild(li1)
+      }
+    </script>
+  </body>
+</html>

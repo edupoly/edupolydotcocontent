@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <style>
+           
+        </style>
+    </head>
+    <body>
+        <table border="2px">
+            <thead>
+                <th>Sno.</th>
+                <th onclick="sortby('name')">Name</th>
+                <th onclick="sortby('age')">Age</th>
+                <th onclick="sortby('place')">Place</th>
+            </thead>
+            <tbody id="d1">
+                
+            </tbody>
+        </table>
+       
+        <script>
+            var students = [
+                {
+                    name:'praveen',
+                    age:38,
+                    place:'gachibowli'
+                },
+                {
+                    name:'ramesh',
+                    age:28,
+                    place:'kphb'
+                },
+                {
+                    name:'krishna vijay',
+                    age:31,
+                    place:'manikonda'
+                }
+        ]
+        genUI();
+        function genUI(){
+            students.forEach(function(s,i){
+                var newTR = document.createElement("tr");
+                var sTD = document.createElement("td");
+                sTD.innerHTML=i+1;
+                newTR.appendChild(sTD);
+                for(var k in s){
+                    var newTD = document.createElement("td");
+                    newTD.innerHTML=s[k];
+                    newTR.appendChild(newTD);
+                }
+                document.getElementById("d1").appendChild(newTR)
+            })
+        }
+        function sortby(k){
+            document.getElementById('d1').innerHTML = '';
+            students.sort(function(a,b){
+                if(a[k]>b[k]){
+                    return 1
+                }
+                else{
+                    return -1
+                }
+            })
+            console.log(students)
+            genUI();
+        }
+        </script>
+    </body>
+</html>   
+

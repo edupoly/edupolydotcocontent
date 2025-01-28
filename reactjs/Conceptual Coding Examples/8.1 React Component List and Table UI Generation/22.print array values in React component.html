@@ -1,0 +1,27 @@
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- take an array of numbers and return array of list items from map method for each value -->
+    <div id="d1"></div>
+    <script type="text/babel">
+        var Abc = function () {
+            var [ar, setAr] = React.useState([7, 41, 25, 8, 9, 6, 3]);
+            return (
+                <div>
+                    {
+                        ar.map((a) => { return <h1>{a}</h1> })
+                    }
+                </div>
+            )
+        }
+        ReactDOM.render(<Abc />, document.getElementById('d1'));
+    </script>
+</body>
+
+</html>

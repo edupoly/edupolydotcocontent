@@ -1,0 +1,41 @@
+<html>
+    <head>
+        <script>
+            //console.log(y)//reference error
+        </script>
+        <script src="ext.js"></script>
+        <script>
+            var x = 100;
+            console.log(y)
+        </script>
+    </head>
+    <body>
+        <script>
+            console.log(x);
+            console.log(y);
+            function abc(){
+                var h = 100;
+                console.log(x)
+                var x = 333;
+                function xyz(){
+                    var g = 999;
+                    console.log(x);
+                    console.log(h)
+                }
+                var f = 888;
+                console.dir(xyz)
+                {
+                    let s = 444;
+                    function pqr(){
+                        console.log(h)
+                        console.log(f)
+                        console.log(s)
+                    }
+                }
+                console.dir(pqr)
+            }
+            //console.log(h)
+            abc();
+        </script>
+    </body>
+</html>

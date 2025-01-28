@@ -1,0 +1,27 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            function div(a,b){
+                if(b===0){
+                    return Promise.reject("Denominator cannot be zero")
+                }
+                else{
+                    return Promise.resolve(a/b)
+                }
+            }
+            
+            div(12,3)
+            .then(function(x){console.log(x)})
+            .catch(function(e){console.log(e)})
+            
+            div(0,3)
+            .then(function(res){console.log(res)})
+            .catch(function(err){console.log(err)})
+
+            div(1292834343475,0)
+            .then(function(res){console.log(res)})
+            .catch(function(err){console.log(err)})
+        </script>
+    </body>
+</html>

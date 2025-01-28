@@ -1,0 +1,31 @@
+<html>
+    <style>
+        
+    </style>
+    <body>
+		<div style="display:flex;width:100%;height:100%;justify-content:center">
+			<div style="align-self: center">
+				<button onclick="like()">Like</button> <b id="l1"></b> &nbsp;&nbsp;&nbsp;
+				<button onclick="dislike()">DisLike</button> <b id="l2"></b> &nbsp;&nbsp;&nbsp;
+			</div>
+
+		</div>
+       
+        <script>
+            var likes = 0;
+            var dislikes = 0;
+            document.getElementById("l1").innerHTML = likes;
+            document.getElementById("l2").innerHTML = dislikes;
+
+            function like(){
+                likes++;
+                document.getElementById("l1").innerHTML = likes;
+            }
+
+            function dislike(){
+                dislikes++;
+                document.getElementById("l2").innerHTML = dislikes;
+            }
+        </script>
+    </body>
+</html>

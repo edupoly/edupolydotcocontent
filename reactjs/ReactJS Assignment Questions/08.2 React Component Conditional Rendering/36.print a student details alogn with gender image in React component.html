@@ -1,0 +1,72 @@
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- 36.print a student details along with gender image   -->
+    <div id="d2"></div>
+    <script type="text/babel">
+        var Jkl = function () {
+            var [students, setStudents] = React.useState([
+                {
+                    firstname: "Praveen",
+                    lastname: "Gubbala",
+                    age: 40
+                },
+                {
+                    firstname: "Smrithi",
+                    lastname: "mandana",
+                    age: 25,
+                    gender: 'female'
+                },
+                {
+                    firstname: "mithali",
+                    lastname: "raj",
+                    age: 39,
+                    gender: 'female'
+                },
+                {
+                    firstname: "Rohit",
+                    lastname: "Sharma",
+                    age: 35
+                },
+                {
+                    firstname: "Sachin",
+                    lastname: "Tendulkar",
+                    age: 50
+                },
+            ]);
+            var maleimage = "https://i.pinimg.com/736x/2a/4e/8d/2a4e8dab6791ed643d5180bc72167f6d.jpg";
+            var femaleimage = "https://cdn.pixabay.com/photo/2014/04/02/14/10/female-306407_640.png";
+            return (
+                <div>
+                    <table border='2'>
+                        {
+                            students.map((s) => {
+                                return (
+                                    <tr>
+                                        <td>{s.firstname}</td>
+                                        <td>{s.lastname}</td>
+                                        <td>{s.age}</td>
+                                        <td>
+                                            {
+                                                <img src={s.gender === 'male' ? maleimage : femaleimage} width="100px" />
+                                            }
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                        }
+                    </table>
+                </div>
+            )
+        }
+        ReactDOM.render(<Jkl />, document.getElementById('d2'));
+    </script>
+</body>
+
+</html>

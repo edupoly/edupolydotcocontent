@@ -1,0 +1,128 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.2/anime.js" integrity="sha512-FSNQjUUq97PtDnAJyMlBTH8EhV4o5X5FLVbzS9ttrdEVVbmrssJBh/PgXFQbxS+6yYx5n5irOj7de6Th0TRQZA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <style>
+            *{
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            #counter{
+                font-size: 2.5em;
+                width: 200px;
+                background-color: #e5e5e6;
+                text-align: center;
+            }
+            #inc,#dec{
+                width:150px;
+                color:white;
+                border-radius: .30em;
+                border:0px;
+                padding:.15em;
+                background-color: lightblue;
+                font-size: 2.5em;
+                margin: .5em;
+                box-shadow: -10px 10px 15px -5px grey;
+                background: hsla(213, 77%, 14%, 1);
+                background: linear-gradient(90deg, hsla(213, 77%, 14%, 1) 0%, hsla(202, 27%, 45%, 1) 100%);
+            }
+            
+            #reset{
+                height:100px;
+                width: 70px;
+                color:white;
+                border-radius: .30em;
+                border:0px;
+                padding:.15em;
+                background-color: lightblue;
+                font-size: 2.5em;
+                margin: .5em;
+                background: hsla(12, 84%, 68%, 1);
+                box-shadow: -10px 10px 15px -5px grey;
+                background: linear-gradient(90deg, hsla(12, 84%, 68%, 1) 0%, hsla(343, 100%, 66%, 1) 100%);
+            }
+            #inc:hover,#dec:hover{
+                transition: all .5s;
+                box-shadow: 10px 10px 15px -5px grey;
+                cursor:grab;
+                background: linear-gradient(90deg, hsla(202, 27%, 45%, 1) 100%, hsla(213, 77%, 14%, 1) 0%);
+            }
+            #reset:hover{
+                cursor:grab;
+                transition: all 1s;
+                box-shadow: 10px 10px 15px -5px grey;
+                background: linear-gradient(90deg, hsla(343, 100%, 66%, 1) 100%, hsla(12, 84%, 68%, 1) 0%);
+            }
+        </style>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
+    </head>
+    <body>
+        <div class="p-2">
+            <div class="text-center">
+                <h3>Javascript Mini Project on Event Handling, DOM Manipulation</h3>
+                <h5>Currency Converter</h5>
+            </div>
+            <hr>
+            <p>
+                Instructions:
+                <ol>
+                    <li>Click + button to increment the count</li>
+                    <li>Click - button to decrement the count</li>
+                    <li>Click refresh button to rest the count to 0</li>
+                </ol>
+            </p>
+          </div>
+        <table align="center" style="text-align: center;">
+            <tr>
+                <td>
+                    <button id="dec" onclick="decrementCount()">-</button>
+                </td>
+                <td rowspan="3">
+                    <button id="reset" onclick="resetCounter()">
+                        ⟳
+                    </button>
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <div id="counter"></div>
+                </td>
+            </tr>
+            <tr>
+                <td><button id="inc" onclick="incrementCount()">+</button></td>
+            </tr>
+        </table>
+        <script>
+            var count = 0;
+            document.getElementById("counter").innerHTML=count;
+            function incrementCount(){
+                count++;
+                document.getElementById("counter").innerHTML=count;
+                var el = document.getElementById("counter");
+                anime({
+                    target:el,
+                    width:['0px','100px'],
+                    duration:1000
+                })
+            }
+            function decrementCount(){
+                count--;
+                if(count===-1){
+                    alert("Counter cannot be less than ZERO")
+                }
+                else{
+                    document.getElementById("counter").innerHTML=count;
+                }
+            }
+            function resetCounter(){
+                var confirmFlag = confirm("Are you sure to Reset the counter!!! \n counter will start again from ZERO...")
+                if(confirmFlag===true){
+                    count=0;
+                    document.getElementById("counter").innerHTML=count;
+                }
+            }
+        </script>
+    </body>
+</html>

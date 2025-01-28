@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <style>
+            .reddish{
+                color:indianred;
+            }
+        </style>
+    </head>
+    <body>
+       
+        <div id="root"></div>
+
+        <script type="text/babel">
+            function Parent(){
+                console.log("Parent Rendered");
+                var [x,setX] = React.useState(100);
+                var [y,setY] = React.useState()
+                var [cc,setCC] = React.useState(100);
+
+                function abc(){
+                    alert("hello this is parent")
+                }
+                function pqr(ch){
+                    setY(ch)
+                }
+                return(
+                    <div style={{border:'2px solid',padding:'10px',margin:"10px"}}>
+                        <h1>Parent lo Counter :{cc}</h1>
+                        <button onClick={()=>{setCC(cc+1)}}>Increment</button>
+                        <button onClick={()=>{setCC(cc-1)}}>Decrement</button>
+                        <h2>Child Data:{y}</h2> 
+                        
+                        <Child x={x} abc={abc} pqr={pqr}></Child>
+                    </div>
+                )
+            }
+            function Child(props){
+                console.log("Child Rendered");
+                var [p,setP] = React.useState(111);
+                var [c,setC] = React.useState(1);
+                React.useEffect(()=>{console.log("useEffect with dep array")},[])
+                React.useEffect(()=>{console.log("useEffect without dep array")})
+                React.useEffect(()=>{console.log("useEffect with p in dep array")},[p])
+                React.useEffect(()=>{console.log("useEffect with c in dep array")},[c])
+            
+                return(
+                    <div style={{border:'2px solid',padding:'10px',margin:"10px"}}>
+                        <h1>Child Counter:{c}</h1>
+                        <button onClick={()=>{setC(c+1)}}>Inc</button>
+                        <button onClick={()=>{setC(c-1)}}>Dec</button>
+                        <h2>Child lo:{props.x}</h2>
+                        <button onClick={()=>{props.abc()}}>Click here</button>
+                        <button onClick={()=>{props.pqr(p)}}>Send Data To Parent</button>
+                    </div>
+                )
+            }
+            
+            ReactDOM.render(<Parent></Parent>,document.getElementById("root"))
+        </script>
+    </body>
+</html>
+
+<!-- 
+1. what is component?
+2. How to render component?
+-->

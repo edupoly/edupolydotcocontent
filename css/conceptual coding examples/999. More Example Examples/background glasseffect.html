@@ -1,0 +1,117 @@
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+        <style>
+            *{
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            body{
+                margin:0px;
+                color:rgb(255, 255, 255);
+            }
+            #main{
+                background-image: url("leaves.jpg");
+                background-size: cover;
+                height:100%;
+                width: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+            #glass{
+                display: flex;
+                flex-direction: column;
+                width:60%;
+                height: 70%;
+                margin:10%;
+                box-sizing: border-box;
+                overflow: auto;
+                border-radius: 30px;
+                background-color: rgba(212, 207, 207, 0.5);
+                backdrop-filter: blur(9px);
+            }
+            .fruitslist{
+                display: flex;
+                flex-direction: column;
+                padding:20px;
+                height:100%;
+            }
+            .fruits{
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .item{
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+            }
+            .item img{
+                width:70px;
+                height:70px;
+                border-radius: 50%;
+                border:5px solid white;
+                margin:10px;
+            }
+            .header{
+                display: flex;
+                border-bottom: 2px solid gray;
+                padding:20px;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .header h1{
+                margin:0px
+            }
+            .header i{
+                font-size: 1.5em;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="main">
+            <div id="glass">
+                <div class="header">
+                    <h1>Fruits List</h1>
+                    <div><i class="bi bi-gear"></i></div>
+                </div>
+                <div>
+                    <ul class="fruitslist">
+                        <li class="fruits">
+                            <div class="item">
+                                <img width='100px' src="https://img.freepik.com/free-photo/photo-mango-half-white-background_125540-4595.jpg?t=st=1707898799~exp=1707902399~hmac=6be5c7aa629c488c28de042b8697039425f972b73f31504e9a6d54ad38fe2afc&w=1480" alt="">
+                                <h3>Mango</h3>
+                            </div>
+                            <h4>$123.00</h4>
+                        </li>
+                        <li class="fruits">
+                            <div class="item">
+                                <img width='100px' src="https://img.freepik.com/free-photo/ai-generated-image-banana_23-2150683022.jpg?t=st=1707899497~exp=1707903097~hmac=c1e50cbba1d5ade1db5d22909806f5a82fbd8859b71ae1dd5769f1c5b28c134b&w=1480" alt="">
+                                <h3>Banana</h3>
+                            </div>
+                            <h4>$100.00</h4>
+                        </li>
+                        <li class="fruits">
+                            <div class="item">
+                                <img width='100px' src="https://img.freepik.com/free-photo/freshness-sweetness-nature-tropical-fruit-vibrant-pineapple-generated-by-artificial-intellingence_25030-63002.jpg?t=st=1707899462~exp=1707903062~hmac=11d41f8bfeb3e605e718dda94532c3ab52d79e50161844e573299ab5f08ef0ca&w=1800" alt="">
+                                <h3>Pinapple</h3>
+                            </div>
+                            <h4>$168.00</h4>
+                        </li>
+                        <li class="fruits">
+                            <div class="item">
+                                <img width='100px' src="https://img.freepik.com/free-photo/grapes-barrel-wine-making-close-up-banners_1268-27966.jpg?t=st=1707899393~exp=1707902993~hmac=009606d02e7333ff88c92a926ccb5cfd201082a64294e164ddab9a31fbd3f9dc&w=1480" alt="">
+                                <h3>Grapes</h3>
+                            </div>
+                            <h4>$123.00</h4>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

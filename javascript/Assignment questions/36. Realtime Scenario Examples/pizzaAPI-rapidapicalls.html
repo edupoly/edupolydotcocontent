@@ -1,0 +1,53 @@
+<html>
+    <head>
+        <style>
+            #products{
+                display: flex;
+                flex-wrap: wrap;
+                gap:10px;
+            }
+            #products li{
+                width:30%;
+                overflow: hidden;
+                border:2px solid green;
+                text-align: center;
+            }
+            #product li img{
+                width:50%;
+            }
+
+        </style>
+    </head>
+    <body>
+        <ul id="products">
+
+        </ul>
+        <script>
+            (async function(){
+                const url = 'https://pizza-and-desserts.p.rapidapi.com/pizzas';
+                const options = {
+                    method: 'GET',
+                    headers: {
+                        'x-rapidapi-key': '9e8e4f62b2msh562197ec14c334ep17b241jsn765d128bb53d',
+                        'x-rapidapi-host': 'pizza-and-desserts.p.rapidapi.com'
+                    }
+                };
+
+                try {
+                    const response = await fetch(url, options);
+                    const result = await response.text();
+                    var products = JSON.parse(result)
+                    products.forEach(function(product){
+                        var pli = `<li>
+                                <h2>${product.name}</h2>
+                                <img src=${product.img} >
+                            </li>`
+                        document.getElementById("products").innerHTML+=pli;
+                    })
+                } catch (error) {
+                    console.error(error);
+                }
+            })()
+        </script>
+    </body>
+</html>

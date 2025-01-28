@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="d5" style="border:5px solid red;padding:10px">
+    
+    </div>
+    <script type="text/babel">
+      function MyComp(){
+        var [techs,setTechs] = React.useState([])
+        function handleTechs(e){
+          if(e.target.checked===false){
+            var temp = [...techs];
+            var i = temp.indexOf(e.target.value);
+            temp.splice(i,1);
+            setTechs([...temp])
+          }
+          else{
+            setTechs([...techs,e.target.value])
+          }
+        }
+        return(
+          <div>
+            <input type="checkbox" onChange={handleTechs} value="react"/>:ReactJS<br/>
+            <input type="checkbox" onChange={handleTechs} value="angualr"/>:Angular<br/>
+            <input type="checkbox" onChange={handleTechs} value="nodejs"/>:Nodejs<br/>
+            <input type="checkbox" onChange={handleTechs} value="express"/>:Express<br/>
+            <input type="checkbox" onChange={handleTechs} value="mongo"/>:Mongodb<br/>
+            <input type="checkbox" onChange={handleTechs} value="mongoose"/>:Mongoose<br/>
+            <input type="checkbox" onChange={handleTechs} value="mysql"/>:MySql<br/>
+            <ul>
+              {
+                techs.map((tech)=>{
+                  return <li>{tech}</li>
+                })
+              }  
+            </ul>
+          </div>
+        )
+      }
+      var root = ReactDOM.createRoot(document.getElementById("d5"))
+      root.render(<MyComp></MyComp>)
+    </script>
+  </body>
+</html>

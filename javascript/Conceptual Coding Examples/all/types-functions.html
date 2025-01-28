@@ -1,0 +1,29 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            //function expressions
+            //function literals
+            //function as variable
+            var sum = function(a,b){
+                return a+b;
+            }//ananymous function
+
+            var res = sum(23,45);
+            console.log(res);
+
+            //immediatly invoked function expressions
+            //iife
+            //self executable functions
+            (function(){
+                console.log("Hello world");
+            })();
+
+            var add = sum;
+
+            var res2 = add(135,345);
+            console.log(res2)
+
+        </script>
+    </body>
+</html>

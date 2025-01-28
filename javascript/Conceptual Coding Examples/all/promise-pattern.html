@@ -1,0 +1,40 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            function div(a,b){
+                if(b===0){
+                    return Promise.reject('denominator cannot be zero')
+                }
+                else{
+                    return Promise.resolve(a/b)
+                }
+            }
+
+            div(12,4)
+            .then(function(res){
+                console.log(res)
+            })
+            .catch(function(err){
+                console.log(err)
+            })
+
+            div(12,0)
+            .then(function(res){
+                console.log(res)
+            })
+            .catch(function(err){
+                console.log(err)
+            })
+
+            console.log("hello last line")
+            
+        </script>
+    </body>
+</html>
+<!-- 
+    promise states
+        fullfilled
+        rejected
+        pending
+ -->

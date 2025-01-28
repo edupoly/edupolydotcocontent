@@ -1,0 +1,61 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <style>
+      #d1,#d2{
+  height:350px;
+  width:150px;
+  border:1px solid;
+}
+li{
+  list-style: none;
+  width: 100px;
+  padding:5px;
+  border:1px solid;
+}
+    </style>
+  </head>
+  <body>
+    <div style="display:flex">
+      <div id="d1"></div>
+      <div id="d2">
+        <button onclick="enq()">Enqueue</button>
+        <button onclick="deq()">Dequeue</button>
+      </div>
+    </div>
+    <h1>Queue of Numbers</h1>
+    <script>
+      var queue = [12,23,34,45];
+      var maxlength = 10;
+      function enq() {
+        if (queue.length < maxlength) {
+          var num = prompt();
+          if (num) {
+            queue.unshift(num);
+            displayItems();
+          }
+        } else {
+          alert('queue overflow. No place to push one more number');
+        }
+      }
+      function deq() {
+        if (queue.length === 0) {
+          alert('no items in the queue. please enqueue something');
+        } else {
+          queue.pop();
+          displayItems();
+        }
+      }
+      function displayItems() {
+        var s = document.getElementById('d1');
+        s.innerHTML = '';
+        queue.forEach(function(n, i) {
+          var newli = document.createElement('li');
+          newli.innerHTML = n;
+          s.appendChild(newli);
+        });
+      }
+      displayItems();
+    </script>
+  </body>
+</html>

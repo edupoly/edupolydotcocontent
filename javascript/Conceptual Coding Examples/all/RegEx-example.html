@@ -1,0 +1,23 @@
+<html>
+    <body>
+        password:<input type="password" onkeyup="validate(event)">
+        <script>
+            var rxp1 = /^[a-zA-Z]{7}$/;
+            function validate(e){
+
+                console.log(rxp1.test(e.target.value))
+            }
+
+
+            // var x = 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.';
+            // var rex1 = new RegExp('1960');
+            
+            // var s = rex1.test(x);
+            // console.log(s)
+
+            // var rx2 = /Printer/i;
+            // var d = rx2.test(x)
+            // console.log(d)
+        </script>
+    </body>
+</html>

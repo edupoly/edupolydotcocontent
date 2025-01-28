@@ -1,0 +1,94 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <style>
+            .betterview{
+                border:1px solid;
+                padding:10px;
+                margin:10px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div id="d4"></div>
+
+        <script type="text/babel">
+            class Bill extends React.Component{
+                constructor(){
+                    super();
+                    this.state={
+                        items:[
+                            {
+                                name:'idly',
+                                price:20,
+                                quantity:1
+                            },
+                            {
+                                name:'dosa',
+                                price:40,
+                                quantity:1
+                            }
+                        ]
+                    }
+                }
+                updateQuantity = (index,quantity)=>{
+                    var temp = [...this.state.items];
+                    temp[index].quantity = quantity;
+                    this.setState([...temp])
+                }
+                getTotal = ()=>{
+                    return this.state.items.reduce((a,b)=>{
+                        console.log(a,b)
+                        return a+(b.price*b.quantity)
+                    },0);
+                }
+                render(){
+                    return(
+                        <div class="betterview">
+                            <table border='5'>
+                                <thead>
+                                    <th>Name</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                </thead>
+                                <tbody>
+                                    {
+                                        this.state.items.map((item,i)=>{
+                                            return(
+                                                <tr>
+                                                    <td>{item.name}</td>
+                                                    <td>{item.price}</td>
+                                                    <td>
+                                                        <input type="text" value={item.quantity} onChange={(e)=>{
+                                                            this.updateQuantity(i,e.target.value)
+                                                        }}/>
+                                                    </td>
+                                                    <td>{item.price*item.quantity}</td>
+                                                </tr>
+                                            )
+                                        })
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <th colspan="5" align='right'>Total: {
+                                        this.getTotal()
+                                    }</th>
+                                </tfoot>
+                            </table>
+
+                        </div>
+                    )
+                }
+            }
+            ReactDOM.render(<Bill></Bill>,document.getElementById("d4"))
+        </script>
+    </body>
+</html>
+<!-- 
+    react: creating elements
+    react-dom: render react elements into browser dom
+ -->

@@ -1,0 +1,51 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <style>
+            .reddish{
+                color:indianred;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div id="root"></div>
+
+        <script type="text/babel">
+            function Counter(){
+                var [c,setC] = React.useState(10);
+                function inc5Times(){
+                    setC((cv)=>{return cv+1})
+                    setC((cv)=>{return cv+1})
+                    setC((cv)=>{return cv+1})
+                    setC((cv)=>{return cv+1})
+                    setC((cv)=>{return cv+1})
+                }
+                function inc(){
+                    setC((c)=>{return c+1})
+                }
+                function dec(){
+                    setC(c-1)
+                }
+                function reset(){
+                    setC(0)
+                }
+                return <div>
+                            <h1>Count:{c}</h1>
+                            <button onClick={()=>{inc()}}>Increment</button>
+                            <button onClick={()=>{dec()}}>Decrement</button>
+                            <button onClick={()=>{inc5Times()}}>Inc 5 times</button>
+                            <button onClick={()=>{reset()}}>Reset</button>
+                        </div>
+            }
+            ReactDOM.render(<Counter></Counter>,document.getElementById('root'))
+        </script>
+    </body>
+</html>
+
+<!-- 
+1. what is component?
+2. How to render component?
+-->

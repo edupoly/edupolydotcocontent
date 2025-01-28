@@ -1,0 +1,114 @@
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <div class="p-2">
+            <div class="text-center">
+                <h3>Javascript Mini Project on Event Handling, Timer functions and DOM Manipulation</h3>
+                <h2>Control the Progress bar</h2>
+            </div>
+            <hr>
+            <p>
+                Instructions:
+                <ol>
+                    <li>Fill the form and click the add button to see the new student in table</li>
+                </ol>
+            </p>
+        </div>
+        <div class="row gx-2">
+            <div class="col-sm-12 col-md-6 p-5 border">
+                <form action="">
+                    <input type="text" id="fname" placeholder="firstname">
+                    <br>
+                    <input type="text" id="lname" placeholder="lastname">
+                    <br>
+                    <input type="text" id='age' placeholder="age">
+                    <br>
+                    <label>Gender:</label>
+                    <input type="radio" name="gen" value="female" onchange="setGender(event)">:Female &nbsp;
+                    <input type="radio" name="gen" value="male" onchange="setGender(event)">:Male &nbsp;
+                    <input type="radio" name="gen" value="others" onchange="setGender(event)">:Others &nbsp;
+                    <br>
+                    <label>Technologies:</label>
+                    <input type="checkbox" value="rjs" onchange="setTechs(event)">:ReactJS
+                    <input type="checkbox" value="ajs" onchange="setTechs(event)">:Angular
+                    <input type="checkbox" value="njs" onchange="setTechs(event)">:NodeJS
+                    <input type="checkbox" value="'html" onchange="setTechs(event)">:HTML
+                    <br>
+                    <button onclick="addstudent(event)">Add</button>
+                </form>
+            </div>
+            <div class="col-sm-12 col-md-6 p-2 border">
+                <table class="table table-stripped">
+                    <thead>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Age</th>
+                    </thead>
+                    <tbody id="std">
+        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        
+        
+        <script>
+            
+            var students=[];
+            var selectedGender=null;
+            function setGender(e){
+                selectedGender=e.target.value;
+            }
+            var selectedTechs=[];
+            function setTechs(e){
+                if(e.target.checked===true){
+                    selectedTechs.push(e.target.value)
+                }
+                else{
+                    var i = selectedTechs.indexOf(e.target.value);
+                    selectedTechs.splice(i,1)
+                }
+            }
+            function addstudent(ev){
+                ev.preventDefault();
+                var student = {
+                    firstname:'',
+                    lastname:'',
+                    age:'',
+                    gender:'',
+                    techs:[]
+                }
+                student.firstname=document.getElementById("fname").value;
+                student.lastname=document.getElementById("lname").value;
+                student.age=document.getElementById("age").value;
+                student.gender=selectedGender;
+                student.techs = student.techs.concat(selectedTechs)
+                students.push(student);
+                genTable();
+                console.log(students)
+            }
+            function genTable(){
+                document.getElementById("std").innerHTML=''
+                students.forEach(function(student){
+                    var ntr = document.createElement("tr")
+                   
+                    var ftd = document.createElement("td");
+                    ftd.innerHTML= student.firstname;
+                    ntr.appendChild(ftd)
+                    var ltd = document.createElement("td");
+                    ltd.innerHTML= student.lastname;
+                    ntr.appendChild(ltd)
+                    
+                    var atd = document.createElement("td");
+                    atd.innerHTML= student.age;
+                    ntr.appendChild(atd)
+                    document.getElementById("std").appendChild(ntr)
+
+                })
+            }
+        </script>
+    </body>
+</html>

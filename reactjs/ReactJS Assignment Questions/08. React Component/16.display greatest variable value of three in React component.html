@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+        <!-- use ? : operator to display greatest -->
+        <div id="d1"></div>
+        <script type="text/babel">
+            var Abc = function(){
+                var x = +prompt();
+                var y = +prompt();
+               // var z = +prompt();
+                var[a,setA] = React.useState(x);
+                var[b,setB] = React.useState(y);
+               // var[c,setC] = React.useState(z);
+                return(
+                    <div>
+                     <h1>{a>b?a:b}</h1>    
+                     </div>
+                )
+            }
+            ReactDOM.render(<Abc/>,document.getElementById('d1'))
+        </script>
+    </body>
+</html>

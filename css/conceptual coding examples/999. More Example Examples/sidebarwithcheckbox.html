@@ -1,0 +1,45 @@
+<html>
+    <head>
+        <style>
+            
+            .onoff{
+                appearance: none;
+                cursor: pointer;
+                background-color: rgb(232, 148, 148);
+                padding:10px 20px;
+                border-radius: 5px;
+            }
+            input[type="checkbox"]::before{
+
+                content:"OPEN"
+            }
+            input[type="checkbox"]:checked::before{
+                content: 'CLOSE';
+
+            }
+            .container nav{
+                width:0px;
+                transition: 1s ease;
+                overflow: hidden;
+            }
+            input[type="checkbox"]:checked ~ nav{
+                display: block;
+                width:200px;
+                background-color: lightblue;
+                transition: 1s;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <input type="checkbox" class="onoff">
+            <nav>
+                <ul>
+                    <li>Home</li>
+                    <li>Home</li>
+                    <li>Aboutus</li>
+                </ul>
+            </nav>
+        </div>
+    </body>
+</html>

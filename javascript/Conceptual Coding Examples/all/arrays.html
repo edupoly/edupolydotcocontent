@@ -1,0 +1,37 @@
+<html>
+    <script>
+        var ar = [12,23,45,956,41,67,34,17,38];
+ 
+
+        // for(var i=0;i<=ar.length-1;i++)
+        // {
+        //     console.log(ar[i])
+        // }//prints all the array values from first to last
+
+        // for(var j=ar.length-1;j>=0;j--){
+        //     console.log(ar[j])
+        // }//prints all the array values from last to first
+
+        // for(var k =0;k<=ar.length-1;k++){
+        //     if(ar[k]%2==0){
+        //         console.log(ar[k])
+        //     }
+        // }//print all even values of array
+
+        // var s = +prompt()
+        // for(var k =0;k<=ar.length-1;k++){
+        //     if(ar[k]>=s){
+        //         console.log(ar[k])
+        //     }
+        // }
+
+        var max = ar[0];
+
+        for(var k = 1;k<=ar.length-1;k++){
+            if(ar[k]>=max){
+                max = ar[k]
+            }
+        }
+        console.log(max)
+    </script>
+</html>

@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <style>
+            .delhi{
+                background-color: lightcoral;
+            }
+            .kolkata{
+                border:10px solid blue;
+            }
+            .hyderabad{
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            }
+        </style>
+    </head>
+    <body>
+        <h1 id="d1">Welcome to application of classnames to elements</h1>
+        <button onclick="dh()">apply delhi class</button>
+        <button onclick="kk()">apply kolkata class</button>
+        <button onclick="hd()">append hyderabad class</button>
+        <button onclick="rkk()">remove kolkata class</button>
+
+        <script>
+            function dh(){
+                document.getElementById('d1').className='delhi'
+            }
+            function kk(){
+                document.getElementById('d1').className='kolkata'
+            }
+            function hd(){
+                document.getElementById('d1').classList.add('hyderabad')
+            }
+            function rkk(){
+                document.getElementById('d1').classList.remove('kolkata')
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.8.1/rxjs.umd.min.js" integrity="sha512-D9LDs8YUUVa4V9Gl4Zb+xqRAc7RCzooR3+zzebgK2RMu/KU+dh90pbjEEMzPiSyRSGbSp9j1pZnrO4joGa5WEg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body>
+        <button id="b1">Counter Button with Debouncing (<span id="deb"></span>)</button>
+        <button id="b2">Counter Button with Throttling (<span id="thr"></span>)</button>
+        <script>
+            var debCnt=0;
+            var thrCnt=0;
+            rxjs.fromEvent(document.getElementById('b1'),"click").pipe(rxjs.debounceTime(3000)).subscribe(()=>{
+                document.getElementById("deb").innerHTML=++debCnt;
+            })
+            rxjs.fromEvent(document.getElementById('b2'),"click").pipe(rxjs.throttleTime(3000)).subscribe(()=>{
+                document.getElementById("thr").innerHTML=++thrCnt;
+            })
+        </script>
+    </body>
+</html>

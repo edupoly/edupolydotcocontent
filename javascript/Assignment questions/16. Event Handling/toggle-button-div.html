@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <style>
+
+#d1{
+  width: 200px;
+  height: 100px;
+  border:2px solid;
+  padding:10px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;  
+}
+    </style>
+  </head>
+  <body>
+    <h1 id="d1">im nothing</h1>
+    <button onclick="toggle()">True/False</button>
+    <script>
+      function toggle() {
+        var x = document.getElementById('d1');
+        if (x.innerHTML === 'true') {
+          x.innerHTML = 'false';
+        } else {
+          x.innerHTML = 'true';
+        }
+      }
+
+    </script>
+  </body>
+</html>

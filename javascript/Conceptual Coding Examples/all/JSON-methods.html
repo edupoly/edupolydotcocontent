@@ -1,0 +1,35 @@
+<html>
+    <body>
+        <script>
+            var students = [
+                {
+                    name:'gauri shankar',
+                    age:19,
+                    gender:'male',
+                    place:'hyd'
+                },
+                {
+                    name:'himaja',
+                    age:29,
+                    gender:'female',
+                    place:'pune'
+                },
+                {
+                    name:'dada',
+                    age:39,
+                    gender:'male',
+                    place:'kolkata'
+                },
+            ];
+            console.log(typeof students)
+            var k = JSON.stringify(students);
+            console.log(k)
+            console.log(typeof k)
+            var p = JSON.parse(k)
+            console.log(p)
+            console.log(typeof p)
+
+            
+        </script>
+    </body>
+</html>

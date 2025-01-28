@@ -1,0 +1,36 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            var str = 'australia';
+            console.log(str[0]);
+            console.log(str[3]);
+            str[3]='d';
+            console.log(str[3]);
+
+            var sa = str.split("");
+            console.log(sa)
+            sa[3] = 'd';
+            console.log(sa);
+
+            var ss = sa.join("");
+            console.log(ss);
+
+            str = ss;
+            console.log(str);
+
+            const x = [11,22,33,44];
+            x[3] = 99;//constants are mutable
+
+            var s = 'praveen';
+            s[3] = 'x';//error//strings are immutable
+            s = 'kalyan'
+        </script>
+    </body>
+</html>
+<!-- 
+    mutable
+    immutable
+
+    const vs string
+ -->

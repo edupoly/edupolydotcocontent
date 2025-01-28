@@ -1,0 +1,32 @@
+<html>
+  <head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="d3">
+    
+    </div>
+    <script type="text/babel">
+
+        var techs =[]
+
+        function handleTechs(e){
+          
+        }
+        var jh1=<div>
+                  <input type="checkbox" onChange={handleTechs} value="react"/>:ReactJS<br/>
+                  <input type="checkbox" onChange={handleTechs} value="angualr"/>:Angular<br/>
+                  <input type="checkbox" onChange={handleTechs} value="nodejs"/>:Nodejs<br/>
+                  <input type="checkbox" onChange={handleTechs} value="express"/>:Express<br/>
+                  <input type="checkbox" onChange={handleTechs} value="mongo"/>:Mongodb<br/>
+                  <input type="checkbox" onChange={handleTechs} value="mongoose"/>:Mongoose<br/>
+                  <input type="checkbox" onChange={handleTechs} value="mysql"/>:MySql<br/>
+                  <h1 id='dd'></h1>
+                </div>
+      ReactDOM.render(jh1,document.getElementById("d3"))
+
+    </script>
+  </body>
+</html>

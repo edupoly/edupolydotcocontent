@@ -1,0 +1,42 @@
+<html>
+    <body>
+        <h1 id="d1"></h1>
+        <h1 id="d2"></h1>
+        <button onClick="checkin()">Check in</button>
+        <button onClick="checkout()">Check Out</button>
+        <br/>
+        Total Time::<h1 id='tt'></h1>
+        <script>
+            var times = [];
+            var totalTime = 0;
+            function checkin(){
+                times.push(Date.now());
+                console.log(times);
+            }
+            function checkout(){
+                totalTime=0;
+                times.push(Date.now());
+                for(let i=0;i<=times.length-1;i=i+2){
+                    totalTime = totalTime+(times[i+1]-times[i])
+                }
+                document.getElementById('tt').innerHTML = totalTime/1000+"seconds"
+                console.log(times);
+            }
+            var d1 = new Date();
+            var cdate = d1.getDate();
+            var cmonth = d1.getMonth();
+            var cyear = d1.getFullYear();
+            var el = document.getElementById('d1');
+            el.innerHTML = cdate+"/"+cmonth+"/"+cyear;
+            setInterval(function(){
+                var d1 = new Date();
+                var chours = d1.getHours();
+                var cminutes = d1.getMinutes();
+                var csec = d1.getSeconds();
+                var el2 = document.getElementById("d2");
+                el2.innerHTML = chours+":"+cminutes+":"+csec;
+            },1000)
+        </script>
+    </body>
+    
+</html>

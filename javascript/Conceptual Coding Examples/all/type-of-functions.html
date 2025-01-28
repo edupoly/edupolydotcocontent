@@ -1,0 +1,44 @@
+<html>
+    <body>
+        
+        <script>
+            // console.log(a);
+            // var res3 = s(12,6);
+            // console.log(res3)
+            // var a = 1123;
+
+            var s = function(a,b){
+                var x;
+                x = a+b;
+                return x
+            }//function expression
+
+            console.log(s)
+            var res = s(12,34);
+            console.log(res);
+
+
+            (function(){
+                console.log('hello ananymous functions')
+            })();
+
+
+            (function(){
+                console.log("How are you doing all")
+            })();
+
+            function abc(a,c){
+                console.log(a);
+                console.log(c);
+            }
+            abc(12,function(){})
+        </script>
+    </body>
+</html>
+<!-- 
+    1.function declerations
+    2. function expressions
+    3. ananymous functions
+    4. iife or self executable functions
+    5. first class functions
+ -->

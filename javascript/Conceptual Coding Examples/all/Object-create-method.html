@@ -1,0 +1,52 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            class Student{
+                firstname;
+                lastname;
+                gender;
+                constructor(fn,ln,gen){
+                    this.firstname=fn;
+                    this.lastname=ln;
+                    this.gender=gen
+                }
+                getFullName=function(){
+                    if(this.gender==='male'){
+                        return "Mr."+this.firstname.toUpperCase()+this.lastname.toUpperCase();
+                    }
+                    else{
+                        return "Mrs."+this.firstname.toUpperCase()+this.lastname.toUpperCase();
+                    }
+                }
+            }
+            var std1 = new Student('praveen','gubbala','male')
+            class Employee{
+                firstname;
+                lastname;
+                gender;
+                constructor(fn,ln,g){
+                    this.firstname=fn;
+                    this.lastname=ln;
+                    this.gender=g;
+                }
+            }
+
+            var em1 = new Employee('sachin','batnagar','male');
+            
+            // console.log(em1.getFullName())
+            var emp1 = Object.create(std1)
+            emp1.firstname=em1.firstname;
+            emp1.lastname=em1.lastname;
+            console.log(emp1.getFullName())
+        </script>
+    </body>
+</html>
+<!-- 
+    Object Oritened Programming
+        1. Abstraction
+        2. Inheritance
+        3. Polymorphism
+        4. Encapsulation
+
+ -->

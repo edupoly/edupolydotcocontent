@@ -1,0 +1,62 @@
+<html>
+    <body>
+        <script>
+           
+            var ar = [12,22,15,26,21,20,40,33,45,76,32];
+            
+            var x = ar.forEach(function(a,i){
+                if(a%2===0){
+                    console.log(a)
+                }                
+            })
+
+            var y = ar.map(function(a,b){
+                console.log("Hello",a,b);
+                return a
+            })
+            console.log(y);
+            console.log(ar);
+
+            var k = ar.filter(function(x,y){
+                console.log("hello",x,y)
+                if(x%2===0){
+                    return true;
+                }
+                else{
+                    return false;
+                }
+            })
+            console.log(k);
+
+            // var ar = [12,22,15,26,21,20,40,33,45,76,32];
+            // for(var i=0;i<=ar.length-1;)
+            // {
+            //     if(ar[i]%2===0){
+            //         ar.splice(i,1)
+            //     }
+            //     else{
+            //         i++;
+            //     }
+            // }
+            //console.log(ar)
+
+           
+            // ar.splice(3,0,99)
+            // console.log(ar)
+            // ar[5]=99;
+            //ar[ar.length]=88;
+            // ar.push(182)
+            // console.log(ar)
+            // ar.unshift(20);
+            // console.log(ar)
+            // ar.pop();
+            // console.log(ar)
+            // ar.shift();
+            // ar.shift();
+            // ar.shift();
+            // console.log(ar);
+
+            
+        </script>
+    </body>
+</html>

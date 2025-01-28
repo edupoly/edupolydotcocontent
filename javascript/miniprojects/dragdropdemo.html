@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Agdasima:wght@400;700&family=Arima:wght@100..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        
+        <style>
+            *{
+                font-family: "Poppins", sans-serif;
+
+            }
+            ul{
+                border:2px solid;
+                padding:20px;
+                list-style: none;
+                width:300px;
+            }
+            #container{
+                display: flex;
+                justify-content: center;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <ul ondragover="event.preventDefault()" ondrop="handleDrop(event)">
+                <h3>All Players</h3>
+                <li id="p1" draggable="true" ondragstart="hadnleDrag(event)">Rohit Sharma</li>
+                <li id="p2" draggable="true" ondragstart="hadnleDrag(event)">Virat Kohli</li>
+                <li id="p3" draggable="true" ondragstart="hadnleDrag(event)">Jaiswal</li>
+                <li id="p4" draggable="true" ondragstart="hadnleDrag(event)">Pant</li>
+                <li id="p5" draggable="true" ondragstart="hadnleDrag(event)">Sundar</li>
+                <li id="p6" draggable="true" ondragstart="hadnleDrag(event)">Siraj</li>
+                <li id="p7" draggable="true" ondragstart="hadnleDrag(event)">Surya Kumar</li>
+            </ul>
+            <ul ondragover="event.preventDefault()" ondrop="handleDrop(event)">
+                <h3>Selected Players</h3>
+
+            </ul>
+        </div>
+        <script>
+            function hadnleDrag(ev){
+                ev.dataTransfer.setData('eid',ev.target.id)
+            }
+            function handleDrop(ev){
+
+                var el = document.getElementById(ev.dataTransfer.getData('eid'))
+                if(ev.target.tagName==='LI'){
+                    ev.target.parentElement.appendChild(el)
+                }
+                else{
+                    ev.target.appendChild(el)
+                }
+            }
+
+        </script>
+    </body>
+</html>

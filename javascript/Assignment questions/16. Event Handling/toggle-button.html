@@ -1,0 +1,27 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <script>
+  function myhandle(e){
+    if(e.target.innerHTML==='On'){
+      e.target.innerHTML="Off"
+    }
+    else{
+      e.target.innerHTML="On"
+    }
+  }
+  </script>
+  <style>
+    #d1{
+      padding: 10px;
+      margin:20px;
+    }
+  </style>
+</head>
+
+<body>
+  <button id="d1" onclick="myhandle(event)">On</button>
+</body>
+
+</html>

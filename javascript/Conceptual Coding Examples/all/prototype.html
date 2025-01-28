@@ -1,0 +1,29 @@
+<html>
+    <body>
+        <script>
+            function abc(n1,n2){
+                this.a=n1;
+                this.b=n2;
+            }
+            abc.prototype.x = 'cake';
+
+            var ob1 = new abc(100,120);
+            console.log(ob1)
+
+            var ob2 = new abc(111,222);
+            console.log(ob2)
+
+            var ob3 = new abc(999,444)
+            console.log(ob3)
+
+            console.log(ob2.a)
+            console.log(ob3.b)
+            console.log(ob1.a)
+            console.log(ob1.x);//cake
+            console.log(ob3.x);//cake
+            ob2.x = 345;
+            console.log(ob2.x)
+            console.log(ob3.x)
+        </script>
+    </body>
+</html>

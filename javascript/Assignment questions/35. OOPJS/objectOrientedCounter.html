@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        class Counter{
+            c=0;
+            nh1 = null;
+
+            constructor(){
+                this.nh1 = document.createElement("h1");
+                this.nh1.innerHTML="Counter:"+this.c;
+                var ibtn = document.createElement("button")
+                ibtn.innerHTML='increment';
+                var t = this;
+                ibtn.onclick=this.inc;
+                var dbtn = document.createElement("button")
+                dbtn.innerHTML='decrement';
+                dbtn.onclick = this.dec;
+                document.body.appendChild(this.nh1)
+                document.body.appendChild(ibtn)
+                document.body.appendChild(dbtn)
+            }
+            inc=()=>{
+                console.log(this)
+                this.c++;
+                console.log(this.c)
+                this.nh1.innerHTML="Counter:"+this.c;
+            }
+            dec=()=>{
+                this.c--;
+                // this.nh1.innerHTML=this.c;
+            }
+        }
+        
+        var counter1=new Counter();
+        var counter2 = new Counter();
+        
+        var ctr3 = new Counter();
+    </script>
+</body>
+</html>

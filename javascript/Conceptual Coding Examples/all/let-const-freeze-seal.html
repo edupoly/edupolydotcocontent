@@ -1,0 +1,44 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            var a = 100;
+            var a = 200;
+            let x = 100;
+            // let x = 200;
+
+            let add = function(a,b){
+                console.log(a+b)
+            }
+
+            add = function(a,b){
+                return a+b;
+            }
+
+            const sub = function(a,b){
+                return a-b;
+            }
+            // sub = function(a,b){
+            //     console.log(a-b)
+            // }
+
+            const p = 3.74134;
+            //p = 234;
+
+            const ar = [12,23,34];
+            ar[1] = 99;
+            console.log(ar)
+
+            const obj1 = {
+                firstname:'praveen'
+            }
+            // Object.freeze(obj1)
+            Object.seal(obj1)
+            obj1.firstname ='srikanth';
+            obj1.lastname='gubbala';
+
+            console.log(obj1)
+
+        </script>
+    </body>
+</html>

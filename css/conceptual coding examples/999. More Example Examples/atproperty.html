@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          @property --myfavcolor{
+            syntax: "<color>";
+            inherits: false;
+            initial-value: rgb(5, 137, 155);
+          }
+          .heading{
+            color: var(--myfavcolor);
+          }
+    </style>
+</head>
+<body>
+    <h1 class="heading">Hello Edupoly</h1>
+</body>
+</html>

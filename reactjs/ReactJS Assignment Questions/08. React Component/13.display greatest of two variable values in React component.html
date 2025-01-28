@@ -1,0 +1,28 @@
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- use ? : operator to display the greatest of a and b -->
+    <div id="d1"></div>
+    <script type="text/babel">
+        var Jkl = function () {
+            var [j, setJ] = React.useState(500);
+            var [k, setK] = React.useState(900);
+            return (
+                <div>
+                    <h1>
+                        {j > k ? j : k}
+                    </h1>
+                </div>
+            )
+        }
+        ReactDOM.render(<Jkl />, document.getElementById('d1'));
+    </script>
+</body>
+
+</html>

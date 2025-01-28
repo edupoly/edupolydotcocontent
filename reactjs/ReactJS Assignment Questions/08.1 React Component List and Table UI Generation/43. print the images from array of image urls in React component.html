@@ -1,0 +1,32 @@
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+    <!-- 31. print the images from array of image urls -->
+    <div id="d2"></div>
+    <script type="text/babel">
+        var Jkl = function () {
+            var [ar, setAr] = React.useState([
+                  "https://cdn.pixabay.com/photo/2023/04/08/01/23/mom-7908059_1280.jpg",
+                  "https://cdn.pixabay.com/photo/2015/01/07/11/31/tigers-591359_1280.jpg",
+                  "https://cdn.pixabay.com/photo/2015/04/23/22/01/mountains-736886_1280.jpg"
+                ]);
+            return (
+                <div>
+                    {
+                        ar.map((a)=>{
+                      return <img src={a} width="100px"/>
+                    })
+                    }
+                </div>
+            )
+        }
+        ReactDOM.render(<Jkl />, document.getElementById('d2'));
+    </script>
+</body>
+
+</html>

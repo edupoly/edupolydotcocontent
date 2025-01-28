@@ -1,0 +1,17 @@
+<html>
+    <body>
+        <ul id="d1">
+
+        </ul>
+        <script>
+            var http = new XMLHttpRequest();
+            console.dir(http)
+            http.open("GET","https://fakestoreapi.com/products");
+            http.send()
+
+            http.onloadend = function(){
+                console.log(http.response)
+            }
+        </script>
+    </body>
+</html>

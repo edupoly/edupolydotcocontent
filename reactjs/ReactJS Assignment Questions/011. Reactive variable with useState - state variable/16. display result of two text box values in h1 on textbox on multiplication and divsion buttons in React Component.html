@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="d3"></div>
+    <script type="text/babel">
+        function App() {
+            var [num1, setNum1] = React.useState('');
+            var [num2, setNum2] = React.useState('');
+            var [result, setResult] = React.useState('');
+
+            const handleMultiple = () => {
+                setResult(num1 * num2);
+            }
+            const handleDivision = () => {
+                setResult(num1 / num2);
+            }
+
+            return (
+                <div>
+                    <input type="text" value={num1} onChange={(e) => setNum1(+e.target.value)} /><br />
+                    <input type="text" value={num2} onChange={(e) => setNum2(+e.target.value)} /><br />
+                    <button onClick={handleMultiple}>mul</button>
+                    <button onClick={handleDivision}>Div</button>
+                    <h1>{result}</h1>
+
+                </div>
+            );
+        }
+        ReactDOM.render(<App />, document.getElementById('d3'));
+    </script>
+</body>
+
+</html>

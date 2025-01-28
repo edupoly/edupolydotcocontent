@@ -1,0 +1,58 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: rgb(0, 0, 0);
+            }
+            .cards{
+                display: flex;
+            }
+            .card{
+                width:500px;
+                overflow: hidden;
+                height:200px;
+                border-radius: 10px;
+                margin:20px;
+                transition: 1s;
+            }
+            .card:nth-child(1){
+                background-size: cover;
+                background-image:url("https://images.unsplash.com/photo-1576506295286-5cda18df43e7?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+            }
+            .card:nth-child(2){
+                background-size: cover;
+                background-image:url("https://images.unsplash.com/photo-1565299507177-b0ac66763828?q=80&w=722&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+            }
+            .card:nth-child(3){
+                background-size: cover;
+                background-image:url("https://images.unsplash.com/photo-1563805042-7684c019e1cb?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+            }
+            
+            .card:hover{
+                box-shadow: white 0px 0px 30px;
+                transition:0.5s;
+            }
+            .cards:hover > .card:not(:hover) div{
+                width:100%;
+                height: 100%;
+                backdrop-filter: blur(12px);
+                transition:1s;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div class="cards">
+            <div class="card">
+                <div></div>
+            </div>
+            <div class="card">
+                <div></div>
+            </div>
+            <div class="card">
+                <div></div>
+            </div>
+        </div>
+        
+    </body>
+</html>

@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <script src="mobiles.js"></script>
+        <style>
+            .abc div:nth-child(2n){
+                background-color: rgb(239, 241, 241);
+            }
+            .abc div:nth-child(2n+1){
+                background-color: rgb(221, 223, 223);
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            var compui = <div className='container'>
+                            <div className='d-flex justify-content-around sticky-top bg-light'>
+                                <div className="justify-content-center d-flex align-items-center ">
+                                    <h1>Comparision</h1>
+                                </div>
+                                {
+                                    mobiles.map((mobile)=>{
+                                        return  <div className=" text-center">
+                                                    <img src={mobile.image} className="" style={{width:'200px',height:'200px'}} alt=""/>
+                                                    <h3>{mobile.name}</h3>
+                                                    <i>{mobile.price}</i>
+                                                </div>
+                                    })
+                                }
+                            </div>
+                            <div className="d-flex">
+                                <div className="w-25 d-flex flex-column align-items-end abc">
+                                    {
+                                        Object.keys(mobiles[0].features).map((key)=>{
+                                            return <div className="p-3 w-100" style={{minHeight:'90px'}}>{key}</div>
+                                        })
+                                    }
+                                </div>
+                                {
+                                    mobiles.map((mobile)=>{
+                                        return <div className="w-25 abc">
+                                                {
+                                                    Object.keys(mobile.features).map((key)=>{
+                                                        return <div className="text-center p-3" style={{minHeight:'90px'}}>
+                                                                {mobile.features[key]}
+                                                                {key==="5G_support" && (mobile.features[key]?"Yes":"No")}
+                                                            </div>
+                                                    })
+                                                }
+                                            </div>
+                                    })
+                                }
+                            </div>
+                        </div>
+            
+            ReactDOM.render(compui,document.getElementById("root"))
+        </script>
+    </body>
+</html>

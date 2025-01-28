@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <script src="data.js"></script>
+        <style>
+            body{
+                background-color: white;
+            }
+            #products{
+                padding:0px;
+                display: flex;
+                flex-wrap:wrap;
+                justify-content: space-evenly;
+                list-style:none;
+                aspect-ratio: 3/2;
+                object-fit: cover;
+                margin:100px;
+            }
+            #products img{
+                width:200px;
+
+            }
+            #lightbox{
+                display: none;
+                position: fixed;
+                top:0px;
+                left:0px;
+                backdrop-filter: blur(5px);
+                background-color: rgba(55,55,55,0.5);
+                width:100%;
+                height:100%;
+                justify-content: center;
+                align-items: center;
+            }
+            #lightbox button{
+                position: absolute;
+                right:0px;
+                top:0px;
+                margin:40px;
+            }
+            #lightimage{
+                width:50%;
+                height:50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="lightbox">
+            <button>close</button>
+            <img id="lightimage"></img>
+        </div>
+        <ul id="products">
+
+        </ul>
+        <script>
+            data.forEach(function(product){
+                var nli = document.createElement("li")
+                var im = document.createElement("img");
+                im.src = "https://raw.githubusercontent.com/ParasGarg/Online-Grocery-Store/master"+product.images[0];
+                nli.appendChild(im);
+                document.getElementById("products").appendChild(nli);
+            })
+            document.querySelectorAll("#products img").forEach(function(el){
+                el.onclick = function(e){
+                    document.getElementById("lightbox").style.display='flex';
+                    console.log(e.target.src)
+                    document.querySelector("#lightimage").src=e.target.src;
+                }
+            })
+            document.querySelector("#lightbox button").onclick = function(){
+                console.log("HIHIH")
+                    document.getElementById("lightbox").style.display='none';
+            }
+        </script>
+    </body>
+</html>

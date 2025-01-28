@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+            }
+            #container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn{
+                width:150px;
+                padding:10px;
+                margin:10px;
+                font-size: 1.5em;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Javascript Events:Day8</h2>
+        <h1>Input field values:Reading input field values using event Object</h1>
+        <div id="container">
+            <input type="text" id="fname">
+            <button id="mybtn">Show value </button>
+            <h1 id="d1" id="firstname"></h1>
+        </div>
+        <script>
+            document.getElementById("mybtn").onclick=function(){
+                var val = document.getElementById("fname").value;
+                document.getElementById("firstname").innerHTML=val;
+            }
+        </script>
+    </body>
+</html>

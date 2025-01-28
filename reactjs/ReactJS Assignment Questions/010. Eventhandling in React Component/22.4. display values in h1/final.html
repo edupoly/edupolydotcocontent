@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <!-- 
+      create 4 buttons and pass different values to each event handler
+     -->
+   
+    <div id="d3"></div>
+
+    <script type="text/babel">
+      
+      var students = [
+        {
+          firstname:"Praveen",
+          lastname:"Gubbala",
+          age:40,
+          gender:'male'
+        },
+        {
+          firstname:"Smrithi",
+          lastname:"mandana",
+          age:25,
+          gender:'female'
+        },
+        {
+          firstname:"mithali",
+          lastname:"raj",
+          age:39,
+          gender:'female'
+        },
+        {
+          firstname:"Rohit",
+          lastname:"Sharma",
+          age:35,
+          gender:'male'
+        },
+        {
+          firstname:"Sachin",
+          lastname:"Tendulkar",
+          age:50,
+          gender:'male'
+        },
+    ]
+    function abc(i,s){
+        document.getElementById("dh").innerHTML=s.lastname+" is at index"+i
+      }
+      var jh1 = <div>
+                  {
+                    students.map((s,i)=>{
+                      return <li>
+                        {s.firstname}
+                        <button onClick={()=>{abc(i,s)}}>See</button>
+                        </li>
+                    })
+                  }
+                  <h1 id='dh'></h1>
+                </div>
+      ReactDOM.render(jh1,document.getElementById("d3"))
+
+
+    </script>
+  </body>
+</html>

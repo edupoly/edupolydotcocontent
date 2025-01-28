@@ -1,0 +1,60 @@
+<html>
+    <head></head>
+    <body>
+        <ul id="d1"></ul>
+        <script>
+            async function getCountries(){
+                try{
+                    var res = await fetch("https://ressstcountries.com/v3/alll")
+                    var data = await res.json()
+                    console.log(res)
+                    console.log(data)
+                    if(res.ok){
+                        data.forEach((country)=>{
+                            var nli = document.createElement("li")
+                            nli.innerText=country.name.common
+                            document.getElementById("d1").appendChild(nli)
+                        })
+                    }
+                    else{
+                        throw new Error("pathError")
+                    }
+                }
+                catch(err){
+                    if(err.message==='pathError'){
+                        document.body.innerHTML="<h1>Path error</h1>"
+                    }
+                    else{
+                        document.body.innerHTML="<h1>Server busy error</h1>"
+                    }
+                    console.log("handled in catch",err)
+                }
+            }
+            getCountries();
+
+
+
+            // fetch("https://restcountrsies.com/v3/all")
+            // .then(res=>{
+            //     console.log(res)
+            //     if(res.ok){
+            //         return res.json();
+            //     }else{
+            //         document.body.innerHTML="<h1>path is wrong</h1>"
+            //         throw new Error("Path is wrong")
+            //     }
+            // })
+            // .then(data=>{
+            //     data.forEach((country)=>{
+            //         var nli = document.createElement("li")
+            //         nli.innerText=country.name.common
+            //         document.getElementById("d1").appendChild(nli)
+            //     })
+            // })
+            // .catch(error=>{
+            //     document.body.innerHTML="<h1>"+error.message+"</h1>"
+            //     console.log("error handled in catch",error.message)
+            // })
+        </script>
+    </body>
+</html>

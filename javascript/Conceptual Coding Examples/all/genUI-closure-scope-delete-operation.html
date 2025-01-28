@@ -1,0 +1,28 @@
+<html>
+    <head></head>
+    <body>
+        <ul id="dd">
+
+        </ul>
+        <script>
+            var x = ['praveen','rama','himesh','divya'];
+            
+            function genUI(){
+                document.getElementById('dd').innerHTML='';
+                x.forEach(function(a,i){
+                    var newli = document.createElement('li');
+                    newli.innerHTML=a;
+                    var delBtn = document.createElement('button');
+                    delBtn.innerHTML='DELETE';
+                    delBtn.onclick=function(){
+                        x.splice(i,1)
+                        genUI()
+                    }
+                    newli.appendChild(delBtn)
+                    document.getElementById('dd').appendChild(newli)
+                })
+            }
+            genUI();
+        </script>
+    </body>
+</html>

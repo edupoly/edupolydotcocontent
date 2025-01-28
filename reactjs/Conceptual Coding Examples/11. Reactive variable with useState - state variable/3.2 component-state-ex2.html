@@ -1,0 +1,51 @@
+<html>
+  <head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    
+    <div id="d1"></div>
+
+    <script type="text/babel">
+     function Students(){
+
+      var [mystudents,setMystudents] = React.useState(['kavya','manisha','nasir','keshu','hemika','prasad','srinivas'])
+      
+      function asc(){
+        var temp = [...mystudents];
+        temp.sort();
+        setMystudents([...temp])
+      }
+      function dec(){
+        var temp = [...mystudents];
+        temp.sort().reverse();
+        setMystudents([...temp])
+      }
+      function addStudent(){
+        var x = document.getElementById('ns').value;
+        setMystudents([...mystudents,x])
+      }
+      return (
+        <div>
+          <h1>React Students</h1>
+          <input type="text" id='ns'/>
+          <button onClick={addStudent}>Add Student</button>
+          <br/>
+          <button onClick={asc}>Ascending Order</button>&nbsp;&nbsp;&nbsp;
+          <button onClick={dec}>Descending Order</button>&nbsp;&nbsp;&nbsp;
+          <ul>
+            {
+              mystudents.map((s)=>{
+                return <li>{s}</li>
+              })
+            }
+          </ul>
+        </div>
+      )
+     }
+     ReactDOM.render(<Students></Students>,document.getElementById("d1"))
+    </script>
+  </body>
+</html>

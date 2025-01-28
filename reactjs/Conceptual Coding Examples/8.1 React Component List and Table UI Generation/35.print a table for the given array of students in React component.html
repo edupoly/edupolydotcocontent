@@ -1,0 +1,55 @@
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <!-- 35.print a table for the given array of students    -->
+    <div id="d2"></div>
+    <script type="text/babel">
+        var Jkl = function () {
+            var [students, setStudents] = React.useState([
+                {
+                    firstname: "Praveen",
+                    lastname: "Gubbala",
+                    age: 40
+                },
+                {
+                    firstname: "Rohit",
+                    lastname: "Sharma",
+                    age: 35
+                },
+                {
+                    firstname: "Sachin",
+                    lastname: "Tendulkar",
+                    age: 50
+                },
+            ]);
+            return (
+                <div>
+
+                    <table border='2'>
+                        {
+                            students.map((s) => {
+                                return (
+                                    <tr>
+                                        <td>{s.firstname}</td>
+                                        <td>{s.lastname}</td>
+                                        <td>{s.age}</td>
+                                    </tr>
+                                )
+                            })
+                        }
+                    </table>
+
+                </div>
+            )
+        }
+        ReactDOM.render(<Jkl />, document.getElementById('d2'));
+    </script>
+</body>
+
+</html>

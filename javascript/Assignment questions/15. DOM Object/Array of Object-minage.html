@@ -1,0 +1,64 @@
+<html>
+  <head></head>
+  <script>
+    
+    var students = [      {
+                            "firstname": "praveen",
+                            "lastname": "gubbala",
+                            "age": 13,
+                            "gender": "male",
+                            "city": "hyd",
+                            "subjects":["nodejs",'mongodb',"php"]
+                            },
+                            {
+                            "firstname": "srikanth",
+                            "lastname": "gubbala",
+                            "age": 12,
+                            "gender": "male",
+                            "city": "bengaluru",
+                            "subjects":["unix",'mongodb',"java"]
+                            },
+                            {
+                            "firstname": "pradeep",
+                            "lastname": "reddy",
+                            "age": 41,
+                            "gender": "male",
+                            "city": "hyd",
+                            "subjects":["c++",'unix',"php"]
+                            },
+                            {
+                            "firstname": "mounika",
+                            "lastname": "mudiraj",
+                            "age": 20,
+                            "gender": "female",
+                            "city": "nalgonda",
+                            "subjects":["python",'mongodb',"php"]
+                            },
+                            {
+                            "firstname": "nikhil",
+                            "lastname": "m",
+                            "age": 22,
+                            "gender": "male",
+                            "city": "guntur",
+                            "subjects":["java",'python',"php"]
+                            },
+                            {
+                            "firstname": "riya",
+                            "lastname": "bhadouria",
+                            "age": 14,
+                            "gender": "female",
+                            "city": "indore",
+                            "subjects":["fotron",'pascal',"csharp"]
+                            }]
+    document.write("<h1>Students:</h1>"+JSON.stringify(students))
+    var minageindex = 0;                    
+    var minage = students[minageindex].age;    
+    for(var i=1;i<=students.length-1;i++){
+        if(minage>students[i].age){
+          minage=students[i].age;
+          minageindex=i
+        }
+    }
+    document.write("<br><h1>","Min age Student :",students[minageindex].firstname)
+  </script>
+</html>

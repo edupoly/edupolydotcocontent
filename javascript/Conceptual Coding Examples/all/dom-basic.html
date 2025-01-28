@@ -1,0 +1,21 @@
+<html>
+    <body>
+        <h1>Welcome to document object</h1>
+        <h2>this is all about how we handle the webpage in javascipt</h2>
+        <h2>DOM help us to create html elements</h2>
+        <h2>DOM help us to modify html elements</h2>
+        <input type="text" id="d1"><br/>
+        <input type="text" id="d2"><br/>
+        <button onclick="add()">Add Above numbers</button>
+        <h1 id="res"></h1>
+        <hr>
+        
+        <script>
+            function add(){
+                var x = +document.getElementById("d1").value;
+                var y = +document.getElementById('d2').value
+                document.getElementById('res').innerHTML=x+y
+            }
+        </script>
+    </body>
+</html>

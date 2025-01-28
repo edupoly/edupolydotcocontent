@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let ar = [10,20,48];
+        Object.freeze(ar)
+        // ar.push(33)
+        // ar[1]=222
+        ar = [...ar,14]
+        console.log(ar)
+        // var br = [11,22,33];
+        // var cr = [...ar,...br];
+        
+        // ar = [...ar,14];
+        // console.log(ar)
+        // console.log(cr)
+
+        // // console.log(ar)
+        // // console.log(...ar)
+        // var br = [ar];
+        // var cr = [...ar]
+        // var dr = JSON.parse(JSON.stringify(ar))
+        // console.log(br)
+        // console.log(cr)
+        // console.log(dr)
+        // // console.log(br[0][1])
+        // // console.log(br[2])
+
+    </script>
+</body>
+</html>

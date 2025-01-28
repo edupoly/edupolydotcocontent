@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <style>
+            body{
+                font-family: Arial, Helvetica, sans-serif;
+                text-align: center;
+            }
+            #container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .btn{
+                width:150px;
+                padding:10px;
+                margin:10px;
+                font-size: 1.5em;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Javascript Events:Day9</h2>
+        <h1>Input field values:Reading input field value using event Object</h1>
+        <div id="container">
+            <input type="text" id="myname">
+
+            <h1 id="output"></h1>
+        </div>
+        <script>
+            document.getElementById("myname").onkeyup=function(event){
+                var myname = event.target.value;
+                document.getElementById("output").innerHTML=myname
+            }
+        </script>
+    </body>
+</html>

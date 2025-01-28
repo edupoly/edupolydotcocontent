@@ -1,0 +1,232 @@
+<html>
+    <head>
+        <script src="fooddata.js"></script>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+        
+        <style>
+            *{
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            #cartapp{
+                display: flex;
+                flex-wrap: wrap;
+            }
+            #products{
+                width:60%;
+                box-sizing: border-box;
+                display: flex;
+                flex-wrap: wrap;
+            }
+            #products li{
+                max-width:200px;
+                list-style: none;
+                box-sizing: border-box;
+                padding:10px;
+                box-shadow: 1px 1px 5px -1px lightgray;
+                margin:5px;
+                display: flex;
+                flex-direction: column;
+                justify-content:space-between;
+                border-radius: 10px;
+            }
+            #billing{
+                padding:10px 10px;
+                width:30%;
+                box-sizing: border-box;
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                justify-content: space-around;
+                height: 100%;
+                position: sticky;
+                top:0px;
+            }
+            #cart div{
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content: space-evenly;
+            }
+            #cart div b{
+                width:50%;
+                padding:10px;
+            }
+            #cart div span{
+                width:20px;
+                font-size: 20px;
+                color: green;
+                border-radius: 50%;
+            }
+            #cart{
+                position: sticky;
+                top: 0px;
+            }
+            #billing h1{
+                display: flex;
+                justify-content: space-between;
+            }
+            .btn{
+                line-height: 30px;
+                border: 0px;
+                border-radius: 10px;
+                cursor: pointer;
+            }
+            .btn:hover{
+                background-color: gray;
+                color:white;
+                transition: 0.5s;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="p-2">
+            <div class="text-center">
+                <h3>Javascript Mini Project on Event Handling, DOM Manipulation with Event Object</h3>
+                <h2>Food Billing Cart App</h2>
+            </div>
+            <hr>
+            <p>
+                Instructions:
+                <ol>
+                    <li>Click the add to cart button to add the item to cart</li>
+                    <li>click the + button in the cart to increase the number of items</li>
+                    <li>click the - button in the cart to decrease the number of items</li>
+                </ol>
+            </p>
+        </div>
+            <hr>
+        <div id="cartapp">
+            <ul id="products">
+
+            </ul>
+            <div id="billing">
+                <h3>Cart:</h3>
+                <div id="cart"></div>
+                <h1>Total:<span id="total">00.00</span></h1>
+            </div>
+        </div>
+        <script>
+            var allProducts = JSON.parse(JSON.stringify(data));
+            var cartProducts = [];
+            function getProduct(pid){
+                return allProducts.find(product=>product['_id']===pid)
+            }
+            function addToCart(product){
+                product.count=1;
+                cartProducts.push(product);
+                genCart();
+            }
+            function incCart(product){
+                var pid = product['_id'];
+
+                cartProducts = cartProducts.map((prod)=>{
+                    if(prod['_id']===pid){
+                        prod.count++;
+                    }
+                    return prod;
+                })
+                genCart();
+            }
+            function decCart(product){
+
+                var pid = product['_id'];
+                if(product.count===1){
+                    alert("HI")
+                    cartProducts = cartProducts.filter((prod)=>{
+                        return prod['_id']!==pid
+                    })
+                }
+                else{
+                    cartProducts = cartProducts.map((prod)=>{
+                        if(prod['_id']===pid){
+                            prod.count--;
+                        }
+                        return prod;
+                    })
+                }
+                
+                genCart();
+            }
+            
+            function genCart(){
+                document.getElementById("cart").innerHTML='';
+
+                var cartList = cartProducts.forEach(function(prod){
+                    var newDiv = document.createElement('div');
+                    var btitle = document.createElement('i');
+                    btitle.innerHTML=prod.title.slice(0,10);
+                    newDiv.appendChild(btitle);
+                    var uprice = document.createElement('u');
+                    uprice.innerHTML=prod.price;
+                    newDiv.appendChild(uprice);
+                    var incBtn = document.createElement('span');
+                    incBtn.innerHTML='&#8853';
+                    incBtn.onclick=function(){incCart(prod)}
+                    newDiv.appendChild(incBtn);
+                    var pcount = document.createElement("strong");
+                    pcount.innerHTML=prod.count;
+                    newDiv.appendChild(pcount)
+                    var decBtn = document.createElement('span');
+                    decBtn.innerHTML='&#8854';
+                    decBtn.onclick=function(){decCart(prod)}
+                    newDiv.appendChild(decBtn);
+                    var th1 = document.createElement("strong");
+                    th1.innerHTML=prod.count*prod.price.toPrecision(4);
+                    newDiv.appendChild(th1)
+                    document.getElementById("cart").appendChild(newDiv);
+                    
+                })
+                document.getElementById("total").innerHTML=cartProducts.reduce((p1,p2)=>{return p1+(p2.price*p2.count)},0).toPrecision(4)
+            };
+            
+            function genUI(){
+                allProducts.forEach(function(product,i){
+                    var newli = document.createElement("li");
+                    var pimage = document.createElement("img");
+                    pimage.src="https://raw.githubusercontent.com/ParasGarg/Online-Grocery-Store/master"+product.images[0];
+                    newli.appendChild(pimage);
+                    var btitle = document.createElement("b");
+                    btitle.innerHTML=product.title.slice(0,10);
+                    newli.appendChild(btitle);
+                    var iprice = document.createElement("i");
+                    iprice.innerHTML=product.price;
+                    newli.appendChild(iprice);
+                    var addCartBtn = document.createElement("button");
+                    addCartBtn.classList.add("btn");
+                    addCartBtn.classList.add("btn-success");
+                    addCartBtn.innerHTML='add to cart';
+                    addCartBtn.onclick=function(){
+                        addToCart(product);
+                    }
+                    newli.appendChild(addCartBtn)
+                    document.getElementById("products").appendChild(newli)
+                })
+
+                // var productlist =  `
+                //     ${allProducts.map(function(product,i){
+
+                //         return  `<li>
+                //                     <img src=${"https://raw.githubusercontent.com/ParasGarg/Online-Grocery-Store/master"+product.images[0]}></img>
+                //                     <b>${product.title}</b>
+                //                     <i>${product.price}</i>
+                                    
+                //                     <button ${this.addEventListener("click",addToCart)} data-product=${product['_id']}>Add To Cart</button>
+                //                 </li>`
+                //     }).join("")}
+                // `
+                // document.getElementById('products').innerHTML=productlist;
+            }
+            genUI();
+            document.querySelectorAll("#products img").forEach(function(el){
+                el.onclick = function(e){
+                    document.getElementById("lightbox").style.display='flex'
+                }
+            })
+            document.querySelector("#lightbox button").onclick = function(){
+                console.log("HIHIH")
+                    document.getElementById("lightbox").style.display='none'
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            class Person{
+                constructor(adh){
+                    console.log("person class constructor called")
+                    this.aadharno=adh;
+                }
+                aadharno;
+            }
+            class Student extends Person{
+                constructor(a,b,c){
+                    super(c);
+                    console.log('created an object',a,b);
+                    this.firstname=a;
+                    this.lastname=b;
+                }
+                firstname;
+                lastname;
+            }
+            var std1 = new Student('praveen','gubbala',123992);
+            console.log(std1)
+        </script>
+    </body>
+</html>

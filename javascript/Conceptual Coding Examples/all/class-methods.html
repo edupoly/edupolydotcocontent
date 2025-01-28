@@ -1,0 +1,31 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            class Student{
+                firstname;
+                lastname;
+                gender;
+                constructor(fn,ln,gen){
+                    this.firstname=fn;
+                    this.lastname=ln;
+                    this.gender=gen
+                }
+                getFullName=function(){
+                    if(this.gender==='male'){
+                        return "Mr."+this.firstname.toUpperCase()+this.lastname.toUpperCase();
+                    }
+                    else{
+                        return "Mrs."+this.firstname.toUpperCase()+this.lastname.toUpperCase();
+                    }
+                }
+            }
+            var std1 = new Student('praveen','gubbala','male')
+            var std2 = new Student('sneha','latha','female')
+            var std3 = new Student('alok','sirohi','male')
+            var std4 = new Student('prateek','jain','male')
+            console.log(std3.getFullName())
+            console.log(std2.getFullName())
+        </script>
+    </body>
+</html>

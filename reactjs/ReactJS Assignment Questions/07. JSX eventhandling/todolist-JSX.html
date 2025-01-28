@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="d5" style="border:5px solid red;padding:10px"></div>
+    <script type="text/babel">
+      function Counter(){
+        var [todos,settodos] = React.useState(['cooldrinks','moksha bus fee','manu shoes','memory card','connector'])
+        function addTodo(){
+          var newtodo = document.getElementById('newtodo').value;
+          settodos([...todos,newtodo])
+        }
+        return(
+          <div style={{border:'1px solid',padding:'10px'}}>
+            <h1>Todolist</h1>
+            <input type="text" id='newtodo'/>
+            <button onClick={addTodo}>Add Task</button>
+            <ul>
+              
+              {
+                todos.map(function(t){
+                  return <li>{t}</li>
+                })
+              }
+            </ul>
+          </div>
+        )
+      }
+      ReactDOM.render(<Counter></Counter>,document.getElementById('d5'))
+    </script>
+  </body>
+</html>

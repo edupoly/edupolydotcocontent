@@ -1,0 +1,97 @@
+<html>
+  <head></head>
+  <body>
+    <form onsubmit="event.preventDefault()" name="personform">
+      <table width="60%" align="center" border="2" cellspacing="0">
+        <tr>
+          <td>Firstname</td>
+          <td>
+          <input type="text" placeholder="Firstname" id="firstname" name="firstname"><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Lastname</td>
+          <td>
+            <input type="text" placeholder="Lastname" id="lastname" name="lastname"><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Date of Birth:</td>
+          <td>
+            <input type="date" placeholder="Lastname" id="dob" name="dob"><br>
+          </td>
+        </tr>
+        <tr>
+          <td>Gender:</td>
+          <td>
+            <input type="radio" name="gender" value="male">:Male &nbsp;&nbsp;&nbsp;
+            <input type="radio" name="gender" value="female">:Female &nbsp;&nbsp;&nbsp;
+            <input type="radio" name="gender" value="other">:Others &nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td>Technologies</td>
+          <td>
+            <input type="checkbox" name="techs" value="html">html&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="techs" value="css">css&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="techs" value="bootstrap">bootstrap&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="techs" value="react">react&nbsp;&nbsp;&nbsp;
+            <input type="checkbox" name="techs" value="java">java&nbsp;&nbsp;&nbsp;
+          </td>
+        </tr>
+        <tr>
+          <td>Country:</td>
+          <td>
+            <select name="country">
+              <option value="IND">India</option>
+              <option value="SRI">Srilanka</option>
+              <option value="PAK">Pakistan</option>
+              <option value="RUS">Russia</option>
+              <option value="USA">United States Of America</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>Comments:</td>
+          <td>
+            <textarea name="address"></textarea>
+          </td>
+        </tr>
+        <tr align="center">
+          <td colspan="2">
+            <button onclick="save()" width="200px">Save</button>
+          </td>
+        </tr>
+      </table>
+  </form>
+
+    <div id="people"></div>
+    <script>
+      var person={
+        firstname:'',
+        lastname:'',
+        dob:'',
+        gender:'',
+        techs:[],
+        country:'',
+        address:''
+      }
+      var people=[]
+      function save(){
+        person.firstname = document.getElementById('firstname').value;
+        person.lastname = document.getElementById('lastname').value;
+        person.dob = document.getElementById('dob').value;
+        person.gender = document.personform.gender.value;
+        document.personform.techs.forEach(function(el){
+          if(el.checked===true){
+            person.techs.push(el.value)
+          }
+        })
+        person.country=document.personform.country.value;
+        person.address=document.personform.address.value;
+        people.push(person);
+        document.getElementById('people').innerHTML=JSON.stringify(people);
+      }
+    </script>
+  </body>
+</html>

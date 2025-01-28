@@ -1,0 +1,36 @@
+<html>
+    <body>
+        <input type="range" value="0" id="d1">
+        <span id="d2">0</span>%
+        <br>
+        <button onclick="start()">Start</button>
+        <button onclick="pause()">Pause</button>
+        <button onclick="start()">Resume</button>
+        <button onclick="stop()">Stop/reset</button>
+        <script>
+            var i =0;
+            var timer;
+            function pause(){
+                clearInterval(timer)
+            }
+            function stop(){
+                clearInterval(timer);
+                i=0;
+                document.getElementById("d1").value=i;
+                document.getElementById("d2").innerHTML=i;
+            }
+            function start(){
+                timer = setInterval(()=>{
+                            if(i!==100){
+                                i++;
+                                document.getElementById("d1").value=i;
+                                document.getElementById("d2").innerHTML=i;
+                            }
+                            else{
+                                clearInterval(timer)
+                            }
+                        },100);
+            }
+        </script>
+    </body>
+</html>

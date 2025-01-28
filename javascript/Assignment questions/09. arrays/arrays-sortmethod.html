@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var ar = ['praveen',"chandanaramesh","mahesh","prakash"]
+        ar.sort();
+        console.log(ar);
+        var nr = [12,23,18,77,111,9,55,45,34,5,3];
+        nr.sort(function(a,b){
+            if(a>b){
+                return 1
+            }
+            else{
+                return -1
+            }
+        });
+        console.log(nr)
+        var students = [
+                {
+                    name:'praveen',
+                    age:38,
+                    place:'gachibowli'
+                },
+                {
+                    name:'ramesh',
+                    age:28,
+                    place:'kphb'
+                },
+                {
+                    name:'krishna vijay',
+                    age:31,
+                    place:'manikonda'
+                }
+        ]
+
+        students.sort(function(a,b){
+            if(a['age']>b['age']){
+                return 1
+            }
+            else{
+                return -1
+            }
+        })
+        console.log(students)
+    </script>
+</body>
+</html>

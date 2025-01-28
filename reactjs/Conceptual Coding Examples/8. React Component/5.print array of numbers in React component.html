@@ -1,0 +1,24 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    </head>
+    <body>
+    <!-- Print array of numbers in jsx element -->
+        <div id="d1"></div>
+        <script type="text/babel">
+            var Abc = function(){            
+                var [x,setX] = React.useState([12,5,6,8,9]);
+                return(
+                    <div>
+                        <h2>{x.map(function(k){
+                            return(<h2>{k}</h2>)
+                        })}</h2>
+                        </div>
+                )
+            }
+            ReactDOM.render(<Abc/>,document.getElementById('d1'))
+        </script>
+    </body>
+</html>

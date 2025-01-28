@@ -1,0 +1,37 @@
+<html>
+    <body>
+        <script>
+            
+
+            function getStudents(){
+                var p = new Promise(function(resolve,reject){
+                    fetch('http://localhost:3000/students')
+                    .then(function(res){
+                        res.json()
+                        .then(function(data){resolve(data)})
+                        .catch(function(err){reject(err)})
+                    })
+                })
+                return p
+            }
+
+            getStudents().then(function(students){console.log(students)}).catch(function(){})
+
+
+            function div(a,b){
+                if(b===0){
+                    return Promise.reject("DEno canot be zero")
+                }
+                else{
+                    return Promise.resolve(a/b)
+                }
+            }
+
+
+            div(12,5)
+            .then(function(res){console.log(res)})
+            .catch(function(err){console.log(err)})
+
+        </script>
+    </body>
+</html>

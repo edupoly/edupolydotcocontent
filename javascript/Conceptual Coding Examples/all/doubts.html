@@ -1,0 +1,28 @@
+<html>
+    <body>
+        <script>
+            var fruits = ["Banana","Orange","kiwi",["Apple","guava"],"mango"];
+            console.log(fruits);
+
+
+            var shalcopy=fruits.map(function(x){
+                return x;
+            });
+            console.log("Shalcopy");
+            console.log(shalcopy);
+
+
+            var deepcopy=JSON.parse(JSON.stringify(fruits));
+            console.log("Deepcopy");
+            console.log(deepcopy);
+
+            fruits[2]="250";
+            fruits[3][1]="80";
+            console.log(fruits);
+            console.log("Shalcopy");
+            console.log(shalcopy);
+            console.log("Deepcopy");
+            console.log(deepcopy)
+        </script>
+    </body>
+</html>

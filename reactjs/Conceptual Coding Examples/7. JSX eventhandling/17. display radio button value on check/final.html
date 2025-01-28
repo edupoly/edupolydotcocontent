@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    
+   
+    <div id="d3"></div>
+
+    <script type="text/babel">
+      function abc(e){
+        document.getElementById('dh').innerHTML=e.target.value;
+      }
+      function clearText(){
+        document.getElementById('dh').innerHTML='';
+        document.getElementById('dd').value='';
+      }
+      var jh1 = <div>
+                  <input type="text" id='dd' onKeyUp={abc}/>
+                  <h1 id='dh'></h1>
+                  <button onClick={clearText}>clear text</button>
+                </div>
+      ReactDOM.render(jh1,document.getElementById("d3"))
+
+
+    </script>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+
+            var ar = [11,89,42,16,28,33];
+            var br = ar;
+            var cr = [...ar];
+            
+            br[2]=999;
+            console.log(cr); //11,89,42,16,28,33
+            console.log(ar); //11,89,999,16,28,33
+        </script>
+    </body>
+</html>

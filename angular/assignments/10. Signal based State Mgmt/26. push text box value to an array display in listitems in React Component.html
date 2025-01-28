@@ -1,0 +1,39 @@
+<html>
+
+<head>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="d3"></div>
+
+    <script type="text/babel">
+        function Xyz() {
+            var [inputValue, setInputValue] = React.useState('');
+            var [ar, setAr] = React.useState([]);
+
+            function handleClick() {
+                setAr([...ar, inputValue]);
+                setInputValue('');
+            }
+
+            return (
+                <div>
+                    <input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+                    <button onClick={handleClick}>Click here to push value</button>
+                    <ul>
+                        {ar.map((value, index) => (
+                            <li key={index}>{value}</li>
+                        ))}
+                    </ul>
+                </div>
+            );
+        }
+
+        ReactDOM.render(<Xyz />, document.getElementById("d3"));
+    </script>
+</body>
+
+</html>

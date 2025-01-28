@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <style>
+            .mybox{
+                border:1px solid;
+                margin:5px;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <form name="empForm" onsubmit="addEmployee(event)">
+            <input type="text" name="firstname" placeholder="Enter the firstname" onkeyup="handleInput(event)">
+            <br>
+            <input type="text" name="lastname" placeholder="Enter the lastname" onkeyup="handleInput(event)">
+            <br>
+            <input type="text" name="age" placeholder="Enter the age"  onkeyup="handleInput(event)">
+            <br>
+            <button>Add Employee</button>
+        </form>
+        <input type="radio">:All
+        <input type="radio">:Male
+        <input type="radio">:Female
+        <table border="3">
+            <thead>
+                <th onclick="sortBy('firstname')">Firstname</th>
+                <th onclick="sortBy('lastname')">Lastname</th>
+                <th onclick="sortBy('age')">Age</th>
+            </thead>
+            <tbody id="d4" >
+
+            </tbody>
+        </table>
+        <script type="text/babel">
+            var employees = [
+                {
+                    firstname:'praveen',
+                    lastname:'gubbala',
+                    age:38,
+                    gender:'male'
+                },
+                {
+                    firstname:'srikant',
+                    lastname:'gubbala',
+                    age:28,
+                    gender:'male'
+                },
+                {
+                    firstname:'kumari',
+                    lastname:'asdasd',
+                    age:30,
+                    gender:'female'
+                },
+                {
+                    firstname:'ramesh',
+                    lastname:'reddy',
+                    age:11,
+                    gender:'male'
+                }
+            ]
+            genTable();
+            
+            function sortBy(key){
+                employees.sort(function(a,b){
+                    if(a[key]>b[key]){
+                        return 1
+                    }
+                    else{
+                        return -1
+                    }
+                })
+                genTable();
+            }
+
+            class Employee{
+                firstname;
+                lastname;
+                age;
+                constructor(fn,ln,age){
+                    this.firstname=fn;
+                    this.lastname=ln;
+                    this.age=age;
+                }
+            }
+
+            var newEmployee = new Employee();
+            function handleInput(e){
+                newEmployee[e.target.name] = e.target.value
+            }
+            
+            function addEmployee(e){
+                e.preventDefault();
+                employees.push(newEmployee);
+                genTable();
+            }
+
+            function deleteEmp(index){
+                employees.splice(index,1);
+                genTable();
+            }
+
+            function genTable(){
+                var tablerows = employees.map((emp,i)=>{
+                    return (
+                        <tr>
+                            <td>{emp.firstname}</td>
+                            <td>{emp.lastname}</td>
+                            <td>{emp.age}</td>
+                            <td>
+                                <button onClick={()=>{deleteEmp(i)}}>Delete</button>
+                                <button onClick={()=>{editEmp(i)}}>Edit</button>
+                            </td>
+                        </tr>
+                    )
+                })
+                ReactDOM.render(tablerows,document.getElementById("d4"))
+            }
+
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,65 @@
+<html>
+    <head>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
+        <script src="./data.js"></script>
+        <link rel="stylesheet" href="./styles.css">
+        <style>
+           
+            :root {
+            --bulma-primary-h: 204deg;
+            --bulma-link-l: 77%;
+            --bulma-info-h: 263deg;
+            --bulma-info-s: 74%;
+            --bulma-info-l: 67%;
+            }
+        </style>
+    </head>
+    <body>
+        <button class="button is-secondary m-2" onclick="sortbyPriceAsc()">Sort By Price in High to Low</button>
+        <button class="button is-dark m-2" onclick="sortbyPriceDsc()">Sort By Price in Low to High</button>
+        <ul id="products">
+
+        </ul>
+        <script>
+            function genUI(){
+                products.forEach(function(product){
+                    var productli = document.createElement("li")
+                    productli.style.width="250px"
+                    var titleH4 = document.createElement("b")
+                    titleH4.innerHTML=product.title.slice(0,20);
+                    productli.appendChild(titleH4)
+                    var productimg = document.createElement("img")
+                    productimg.src=product.image;
+                    productimg.style.width='100%';
+                    productimg.style.maxWidth='200px';
+                    productimg.style.maxHeight='250px';
+                    productli.appendChild(productimg)
+                    var prodh2 = document.createElement("h4")
+                    prodh2.classList.add('button','is-primary','text-light')
+                    prodh2.innerHTML="Rs. "+product.price
+                    productli.appendChild(prodh2)
+                    document.getElementById("products").appendChild(productli)
+                })
+            }
+            genUI();
+            function sortbyPriceAsc(){
+                document.getElementById("products").innerHTML="";
+                products.sort(
+                    (a,b)=>{return a.price>b.price?-1:1}
+                )
+                genUI()
+            }
+            function sortbyPriceDsc(){
+                document.getElementById("products").innerHTML="";
+                products.sort(
+                    (a,b)=>{
+                        return a.price>b.price?1:-1
+                    }
+                )
+                genUI();
+            }
+        </script>
+    </body>
+</html>

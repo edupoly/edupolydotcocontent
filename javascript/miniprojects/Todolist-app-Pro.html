@@ -1,0 +1,296 @@
+<html>
+    <head>
+        <style>
+            *{
+                font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            }
+            body{
+                width: 80%;
+                margin: 0px auto;
+            }
+            #header{
+                display: flex;
+                /* flex-wrap: wrap; */
+                /* background: hsla(333, 100%, 53%, 1); */
+                background: linear-gradient(90deg, black 0%, hsla(33, 94%, 57%, 1) 100%);
+                justify-content:space-between;
+                align-items: center;
+                padding:5px;
+                margin-bottom: 5px;
+                color:white
+
+            }
+           
+            #header div{
+                padding:5px;
+                display: flex;
+                align-items: center;
+            }
+            
+            #header div b{
+                border-radius: 10px;
+                padding: 10px 10px;
+                background-color: rgb(100, 41, 183);
+                color:white;
+            }
+            #header div span{
+                background: hsla(48, 78%, 82%, 1);
+                background: linear-gradient(90deg, rgb(30, 29, 29) 0%, rgb(82, 34, 51) 100%);
+                border-radius: 10px;
+                padding: 2px 10px;
+                color:white;
+                margin-left: 10px;
+            }
+            #addTodo{
+                display: flex;
+                flex-wrap: wrap;
+            }
+            #addTodo #controls{
+                flex-grow: 1;
+                display: flex;
+                flex-direction: column;
+            }
+            #controls{
+
+            }
+            #controls label{
+                margin-top: 5px;
+
+            }
+            #controls input{
+                display: block;
+                line-height: 10px;
+                margin: 3px 0px;
+                font-size:20px;
+            }
+            #addBtn{
+                width:100px;
+                text-align: center;
+                background-color: #ff0f7b;
+                margin: 10px 0px 10px 10px;
+                border-radius: 10px;
+                color:white;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                border: 1px solid;
+            }
+            #todos{
+                display: flex;
+                flex-direction: column;
+                padding:0px;
+            }
+            #todos li{
+
+                list-style: none;
+                position: relative;
+                top:0px;
+                left:0px;
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                margin:5px 0px;
+                border-radius: 5px;
+                box-shadow: 3px 3px 10px -5px;
+                /* background: hsla(213, 62%, 45%, 1);
+                background: linear-gradient(90deg, hsla(213, 62%, 45%, 1) 0%, hsla(203, 89%, 71%, 1) 50%, hsla(0, 0%, 96%, 1) 100%); */
+
+            }
+            #todos li *{
+                padding:5px;
+                margin: 5px;
+            }
+            #todos li h2{
+                margin:0px;
+            }
+            .delBtn{
+                position: absolute;
+                top:0px;
+                right: 0px;
+                color:red;
+                margin:5px;
+            }
+            .togBtn{
+                position: absolute;
+                top:0px;
+                right: 40px;
+                margin:5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="p-2">
+            <div class="text-center">
+                <h1> Scenario & Usecases based Javascript Mini Projects</h1>
+                <p>on Event Handling, DOM Manipulation with Event Object</p>
+                <h2> Todolist</h2>
+            </div>
+            <hr>
+            <p>
+                Instructions:
+                <ol class="m-0">
+                    <li>Enter the Todo item and description in the given text boxes then click + button</li>
+                    <li>click Dequeue button to perform the Dequeue operation</li>
+                </ol>
+            </p>
+        </div>
+        <div id="header">
+            <b id="heading"></b>
+            <div onclick="filterTodos('all')">
+                <b>All <span id="allCount"></span></b>
+            </div>
+            <div onclick="filterTodos('completed')">
+                <b>DONE <span id="completedCount"></span></b>
+            </div>
+            <div onclick="filterTodos('notcompleted')">
+                <b>Pending <span id="notCompletedCount"></span></b>
+            </div>
+        </div>
+        
+        <div id="addTodo">
+            <div id="controls">
+                <!-- <label for="title">Enter Title</label> -->
+                <input type="text" id="title" placeholder="Enter Title">
+                <!-- <label for="description ">Enter Description</label> -->
+                <input type="text" id="description" placeholder="Enter description">
+            </div>
+            <div id="addBtn">
+                <b onclick="addTodo()">+</b>
+            </div>
+        </div>
+        
+        <ul id="todos"></ul>
+        <script>
+            var filter='all';
+            var todolist = [
+                {
+                    "id": 1,
+                    "title": "first todo",
+                    "description": "pick up milk",
+                    "complete": false,
+                    "canceled": false,
+                    "date": 1389878466730
+                },
+                {
+                    "id": 2,
+                    "title": "second todo",
+                    "description": "learn reactjs",
+                    "complete": true,
+                    "canceled": true,
+                    "date": 1389988926901 
+                },
+                {
+                    "id": 3,
+                    "title": "third todo",
+                    "description": "go for a run",
+                    "complete": false,
+                    "canceled": false,
+                    "date": 1389992494240  
+                }
+            ];
+            
+            function genUI(){
+                
+                var allTodoCount=todolist.length;
+                var completedTodoCount = todolist.filter(function(todo){
+                    return todo.complete
+                }).length;
+                var notCompletedTodoCount = todolist.filter(function(todo){
+                    return !todo.complete
+                }).length;
+                document.getElementById("allCount").innerHTML=allTodoCount;
+                document.getElementById("completedCount").innerHTML=completedTodoCount;
+                document.getElementById("notCompletedCount").innerHTML=notCompletedTodoCount;
+
+                document.getElementById("todos").innerHTML='';
+                var filteredtodolist;
+                if(filter==='all'){
+                    document.getElementById("heading").innerHTML="All Todos";
+                    filteredtodolist=todolist;
+                }
+                if(filter==='completed'){
+                    document.getElementById("heading").innerHTML="Complted Todos";
+                    filteredtodolist=todolist.filter(function(todo){
+                        return todo.complete
+                    });
+                }
+                if(filter==='notcompleted'){
+                    filteredtodolist=todolist.filter(function(todo){
+                        document.getElementById("heading").innerHTML="Incomplte Todos";
+                        return !todo.complete
+                    });
+                }
+                filteredtodolist.forEach(function(todo,i){
+                    var newTodoli = document.createElement("li");
+
+                    var statuspara = document.createElement('p');
+                    statuspara.innerHTML=todo.complete?"<span style='font-size:12px;'>&#9989;</span>":"pending";
+                    newTodoli.appendChild(statuspara);
+
+                    var titleh2 = document.createElement('b');
+                    titleh2.innerHTML=todo.title;
+                    newTodoli.appendChild(titleh2);
+                    var datepara = document.createElement('p');
+                    datepara.innerHTML=(new Date(todo.date)).toLocaleDateString().substring(0,5);
+                    newTodoli.appendChild(datepara);
+                    var descriptionpara = document.createElement('p');
+                    descriptionpara.innerHTML=todo.description;
+                    newTodoli.appendChild(descriptionpara);
+                    var donebtn = document.createElement('button');
+                    donebtn.innerHTML=todo.complete?"Undo":"Done";
+                    donebtn.classList.add('togBtn')
+                    donebtn.onclick=function(){
+                        todolist = todolist.map(function(ftodo){
+                            if(ftodo.id===todo.id){
+                                ftodo.complete=!ftodo.complete;
+                            }
+                            return ftodo;
+                        })
+                        console.log(todolist)
+                        genUI();
+                    }
+                    newTodoli.appendChild(donebtn);
+                    var deletebtn = document.createElement('button');
+                    deletebtn.innerHTML="&#10060;";
+                    deletebtn.classList.add('delBtn')
+                    deletebtn.onclick=function(){
+                        todolist = todolist.filter(function(ftodo){
+                            return ftodo.id!==todo.id
+                        })
+                        genUI();
+                    }
+                    newTodoli.appendChild(deletebtn);
+                    document.getElementById("todos").appendChild(newTodoli)
+                })
+            }
+            genUI();
+            function addTodo(){
+                var allTodoCount=todolist.length;
+                var completedTodoCount = todolist.filter(function(todo){
+                    return todo.complete
+                }).length;
+                var notCompletedTodoCount = todolist.filter(function(todo){
+                    return !todo.complete
+                }).length;
+                document.getElementById("allCount").innerHTML=allTodoCount;
+                document.getElementById("completedCount").innerHTML=allTodoCount;
+                document.getElementById("notCompltedCount").innerHTML=allTodoCount;
+                var title = document.getElementById("title").value;
+                var description = document.getElementById("description").value;
+                if(todolist.length===0){
+                    todolist.push({id:1,title,description,complete:false,canceled:false,date:Date.now()});
+                }
+                else{
+                    todolist.push({id:todolist[todolist.length-1]['id']+1,title,description,complete:false,canceled:false,date:Date.now()});
+                }
+                document.getElementById('title').value=''
+                document.getElementById('description').value=''
+                genUI()
+            }
+            function filterTodos(f){
+                filter=f;
+                genUI();
+            }
+        </script>
+    </body>
+</html>

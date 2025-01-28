@@ -1,0 +1,50 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            var ar = ['praveen','sai','jain','alok','sneha'];
+            ar.sort();
+            console.log(ar);
+
+            var br = [1213,13,19,9,56,15];
+            // br.sort();
+            // console.log(br)// [1213, 13, 15, 19, 56, 9]
+
+            br.sort(function(a,b){
+                if(a>b){
+                    return 1
+                }
+                else{
+                    return -1
+                }
+            })
+            console.log(br)
+
+            var cars = [
+                {
+                    name:'benz',
+                    cost:10000
+                },
+                {
+                    name:'bmw',
+                    cost:1000
+                },
+                {
+                    name:'audi',
+                    cost:99000
+                },
+            ]
+            
+            var scars = cars.sort(function(a,b){
+                if(a.cost>b.cost){
+                    return 1
+                }
+                else{
+                    return -1
+                }
+            });
+            
+            console.log(scars)
+        </script>
+    </body>
+</html>

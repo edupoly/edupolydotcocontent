@@ -1,0 +1,17 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+            var xr = [11,[22,44],99];
+            var yr = xr;
+            var zr = [...xr];
+            var dr = JSON.parse(JSON.stringify(xr));
+            xr[1][1] = 'praveen';
+            xr[2]='rahul'
+            console.log(xr);//[11,[22,'praveen'],'rahul'];
+            console.log(yr);//[11,[22,'praveen'],'rahul'];
+            console.log(zr);//[11,[22,'praveen'],99]
+            console.log(dr)
+        </script>
+    </body>
+</html>

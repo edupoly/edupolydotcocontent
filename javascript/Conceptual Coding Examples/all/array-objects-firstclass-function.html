@@ -1,0 +1,43 @@
+<html>
+    <body>
+        <script>
+            var students = [
+                {
+                    name:'gauri shankar',
+                    age:19,
+                    gender:'male',
+                    place:'hyd'
+                },
+                {
+                    name:'himaja',
+                    age:29,
+                    gender:'female',
+                    place:'pune'
+                },
+                {
+                    name:'dada',
+                    age:39,
+                    gender:'male',
+                    place:'kolkata'
+                },
+            ];
+
+            var x = students.filter(function(a){
+                if(a.gender==='male'){
+                    return true
+                }
+            })
+            console.log(x)
+
+            students.sort(function(a,b){
+                if(a.place>b.place){
+                    return 1
+                }
+                else{
+                    return -1
+                }
+            })
+            console.log(students)
+        </script>
+    </body>
+</html>

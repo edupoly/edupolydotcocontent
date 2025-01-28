@@ -1,0 +1,23 @@
+<html>
+  <head></head>
+  <body>
+    <input type="file" onchange="handleFileChange(event)" />
+    <div id="app"></div>
+    <img id="im1" src="" alt="" width="200px" />
+
+    <script>
+      function handleFileChange(e) {
+        var element = e.target;
+        console.log('element', element);
+        var fileRef = element.files[0];
+        var reader = new FileReader();
+        reader.readAsDataURL(fileRef);
+        
+        reader.onloadend = function () {
+          var src = reader.result.toString();
+          document.getElementById('im1').src = src;
+        };
+      }
+    </script>
+  </body>
+</html>

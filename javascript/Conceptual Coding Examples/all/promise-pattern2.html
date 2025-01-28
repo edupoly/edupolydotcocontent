@@ -1,0 +1,75 @@
+<html>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>     
+    </head>
+    <body>
+        <ul id="d1">
+
+        </ul>
+        <script>
+
+            axios.get("https://fakestoreapi.com/products")
+            .then(function(res){
+                res.data.forEach(function(p){
+                    var newli = `<li>${p.title}</li>`;
+                    document.getElementById("d1").innerHTML+=newli;
+                })
+            })
+            .catch(function(err){
+                console.log("Error::",err)
+            })
+
+
+
+            console.log("Entone mee gola")
+
+
+
+
+
+
+
+
+
+
+
+            // $.get("https://fakestoreapi.com/products",function(data,status){
+            //     console.log("data::",data)
+            //     console.log("status::",status)
+            // })
+
+
+            // fetch("https://fakestoreapi.com/products")
+            // .then(function(res){
+            //     res.json().then((data)=>{
+            //         console.log(data)
+            //     })
+            // })
+            // .catch(function(err){
+            //     if(err){
+            //         console.log("Something went wrong")
+            //     }
+            // })
+
+            // function mul(a,b,cb){
+            //     if(isNaN(a)||isNaN(b)){
+            //         cb("arguments should be a number",null)
+            //     }
+            //     else{
+            //         cb(null,a*b)
+            //     }
+            // }
+            // function div(a,b){
+            //     if(isNaN(a)||isNaN(b)){
+            //         return Promise.reject("arguments should be a numbers")
+            //     }
+            //     if(b===0){
+            //         return Promise.reject('you should not have 0 as deno')
+            //     }
+            //     return Promise.resolve(a/b)
+            // }
+            // div(11,4).then(function(res){console.log(res)}).catch(function(err){console.log(err)})
+        </script>
+    </body>
+</html>

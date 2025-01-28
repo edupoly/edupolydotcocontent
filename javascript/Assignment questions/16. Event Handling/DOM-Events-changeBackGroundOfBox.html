@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <style>
+            #d1{               
+                width:200px;
+                height:100px; 
+                border: 1px solid;        
+            }
+        </style>
+    </head>
+    <body>
+
+        <div id="d1">
+
+        </div>
+        <button onclick="colorit('red')">Red</button>
+        <button onclick="colorit('green')">Green</button>
+        <button onclick="colorit('blue')">Blue</button>
+        <script>
+           function colorit(c){
+               var x = document.getElementById("d1");
+               x.style.backgroundColor = c;
+           }
+        </script>
+    </body>
+</html>   
+

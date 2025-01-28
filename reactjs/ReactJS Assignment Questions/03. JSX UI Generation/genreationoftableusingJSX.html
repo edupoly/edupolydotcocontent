@@ -1,0 +1,83 @@
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js" integrity="sha512-kp7YHLxuJDJcOzStgd6vtpxr4ZU9kjn77e6dBsivSz+pUuAuMlE2UTdKB7jjsWT84qbS8kdCWHPETnP/ctrFsA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <style>
+            .mybox{
+                border: 1px solid;
+                margin:10px;
+                padding:10px;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div id="d1">
+
+        </div>
+        <script type="text/babel">
+            var students = [
+                {
+                    firstname:'pravee',
+                    lastname:'gubbala',
+                    age:38
+                },
+                {
+                    firstname:'anupama',
+                    lastname:'reddy',
+                    age:28
+                },
+                {
+                    firstname:'priya',
+                    lastname:'kaman',
+                    age:23
+                },
+                {
+                    firstname:'kiran',
+                    lastname:'rao',
+                    age:25
+                },
+                {
+                    firstname:'triveni',
+                    lastname:'manu',
+                    age:29
+                }
+            ];
+            function deleteTask(index){
+                students.splice(index,1);
+                console.log(students);
+                ReactDOM.render(genTable(),document.getElementById('d1'))
+            }
+            function genTable(){
+                var mytable =   (<table border="2">
+                                <thead>
+                                    <th>Firstname</th>
+                                    <th>Lastname</th>
+                                    <th>Age</th>
+                                    <th>Options</th>
+                                </thead>
+                                <tbody>
+                                    {
+                                        students.map((s,i)=>{
+                                            return  <tr>
+                                                        <td>{s.firstname}</td>
+                                                        <td>{s.lastname}</td>
+                                                        <td>{s.age}</td>
+                                                        <td>
+                                                            <button onClick={()=>{
+                                                                deleteTask(i)
+                                                            }}>Delete</button>
+                                                        </td>
+                                                    </tr>
+                                        })
+                                    }    
+                                </tbody>
+                            </table>)
+                return mytable;
+            }
+            
+            ReactDOM.render(genTable(),document.getElementById('d1'))
+        </script>
+    </body>
+</html>

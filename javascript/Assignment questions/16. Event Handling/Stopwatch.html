@@ -1,0 +1,59 @@
+<html>
+    <div style="display: flex;font-size: 40px;">
+        <div id="mins"></div>:
+        <div id="sec"></div>:
+        <div id="millisec"></div>
+    </div>
+    <button onclick="toggleStartPause()" id="startBtn">Start</button>
+    <button onclick="toggleStartPause()" id="pauseBtn">Pause</button>
+    <button onclick="reset()">Reset</button>
+    <script>
+        var m = 0;
+        var s = 0;
+        var milliSec=0
+        var toggleState = false;        
+        document.getElementById('pauseBtn').style.display="none"
+        document.getElementById("mins").innerHTML=m;
+        document.getElementById("sec").innerHTML=s;
+        document.getElementById("millisec").innerHTML=milliSec;
+        var timer1;
+        function toggleStartPause(){
+            toggleState=!toggleState;
+            if(toggleState){
+                document.getElementById('startBtn').style.display="none";
+                document.getElementById('pauseBtn').style.display="inline"
+                timer1 = setInterval(function(){      
+                    if(milliSec===100){
+                        milliSec=-1;
+                        s++;
+                    }      
+                    if(s===60){
+                        s=0;
+                        m++;
+                    }
+                    milliSec++;
+                    document.getElementById("mins").innerHTML=m;
+                    document.getElementById("sec").innerHTML=s;
+                    document.getElementById("millisec").innerHTML=milliSec;
+                },10)
+            }
+            else{
+                clearInterval(timer1);
+                document.getElementById('pauseBtn').style.display="none"
+                document.getElementById('startBtn').style.display="inline"
+            }            
+        }
+        function reset(){
+            clearInterval(timer1);
+            m=0;
+            s=0;
+            milliSec=0;
+            document.getElementById("mins").innerHTML=m;
+            document.getElementById("sec").innerHTML=s;
+            document.getElementById("millisec").innerHTML=milliSec;
+            document.getElementById('pauseBtn').style.display="none"
+            document.getElementById('startBtn').style.display="inline"
+        }
+       
+    </script>
+</html>

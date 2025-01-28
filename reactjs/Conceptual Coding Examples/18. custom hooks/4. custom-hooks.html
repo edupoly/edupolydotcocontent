@@ -1,0 +1,53 @@
+<!-- 
+    1. HOC is function
+    2. HOC takes component as an argument
+    3. HOC add functionality to component
+ -->
+ <html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <style>
+            .betterview{
+                border:1px solid;
+                padding:10px;
+                margin:10px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="d4"></div>
+        <script type="text/babel">
+
+            function useCounter(init,step){
+                var [count,setCount] = React.useState(init);
+                function inc(){
+                    setCount(count+step)
+                }
+                function dec(){
+                    setCount(count-step)
+                }
+                function reset(){
+                    setCount(init)
+                }
+                return [count,inc,dec,reset]
+            }
+
+
+            function ButtonCounter(){
+                var [count,inc,dec,reset] = useCounter(10,5);
+                return(
+                    <div className="betterview">
+                        <h1>Button Counter</h1>
+                        <h2>Count:{count}</h2>
+                        <button onClick={inc}>Increment</button>&nbsp;&nbsp;&nbsp;
+                        <button onClick={dec}>Decrement</button>&nbsp;&nbsp;&nbsp;
+                        <button onClick={reset}>Reset</button>
+                    </div>
+                )
+            }
+            ReactDOM.render(<ButtonCounter />,document.getElementById("d4"))
+        </script>
+    </body>
+</html>

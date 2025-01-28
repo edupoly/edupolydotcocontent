@@ -1,0 +1,28 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        <div>
+            <h1>Welcome to Ajax</h1>
+            <div id="dd">
+
+            </div>
+        </div>
+        <script>
+            fetch("https://restcountries.com/v2/all")
+            .then(function(res){
+                res.json().then(function(data){
+                    console.log(data)
+                })
+                .catch(function(err){
+                    console.log("error in data convertion",err)
+                })
+            })
+            .catch(function(err){
+                console.log("error in request",err)
+            })
+            console.log('hi')
+        </script>
+    </body>
+</html>

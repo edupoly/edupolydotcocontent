@@ -1,0 +1,55 @@
+<html>
+    <head></head>
+    <body>
+        <script>
+           
+            // let add = function(a,b){
+            //     console.log(a+b)
+            // }
+
+            // let add = (a,b)=>{
+            //     return (a+b)
+            // }
+
+            let add = (a,b)=>(a+b)
+            add(12,34)
+
+            var ar = [12,49,29,10,33,22,16];
+            // var br = ar.filter(function(a){
+            //     if(a%2===0){
+            //         return true
+            //     }
+            //     else{
+            //         return false
+            //     }
+            // })
+            var br = ar.filter(a=>a%2);
+
+            function Employee(fn,ln,a){
+                this.firstname=fn;
+                this.lastname=ln;
+                this.age=a;
+                this.ar = [11,24,34,54]
+                this.avg = 0;
+                this.fullname=function(){
+                    setTimeout(()=>{
+                        console.log(this.firstname+" "+this.lastname)
+                    },5000)
+                }
+                this.getAvg = function(){
+                    this.ar.forEach((a)=>{
+                        this.avg=this.avg+a;
+                    })
+                }
+            }
+            var emp1 = new Employee('praveen','gubbala',39);
+            var emp2 = new Employee('kiran','reddy',42);
+            var emp3 = new Employee('manju','asda',22);
+
+            emp2.fullname();
+            emp1.fullname();
+            emp2.getAvg();
+            console.log(emp2.avg)
+        </script>
+    </body>
+</html>

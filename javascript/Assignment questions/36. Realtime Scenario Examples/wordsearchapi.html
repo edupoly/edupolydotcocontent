@@ -1,0 +1,43 @@
+
+<html>
+    <head>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.6.8/axios.min.js" integrity="sha512-PJa3oQSLWRB7wHZ7GQ/g+qyv6r4mbuhmiDb8BjSFZ8NZ2a42oTtAq5n0ucWAwcQDlikAtkub+tPVCw4np27WCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    </head>
+    <body>
+        <input type="text" onkeyup="dBounceCall(event)">
+        <h1 id="d1">Debounce Example:</h1>
+        <script>
+            var timer=true;
+            function dBounceCall(e){
+                if(timer){
+                    document.getElementById("d1").innerHTML=e.target.value;
+                    timer=false;
+                    setTimeout(()=>{
+                        timer=true;
+                        document.getElementById("d1").innerHTML=e.target.value;
+                    },1000)
+                }
+            }
+
+
+
+
+            const options = {
+                method: 'GET',
+                url: 'https://weatherapi-com.p.rapidapi.com/search.json',
+                params: {q: '53.1,-0.13'},
+                headers: {
+                    'X-RapidAPI-Key': 'a5edd05503msh5a97a150866d244p1feb7ajsn933fc450db7e',
+                    'X-RapidAPI-Host': 'weatherapi-com.p.rapidapi.com'
+                }
+            };
+
+            async function wethersearchCall(e){
+                options.params.q=e.target.value;
+                const response = await axios.request(options);
+                console.log(response.data);
+            } 
+           
+        </script>
+    </body>
+</html>

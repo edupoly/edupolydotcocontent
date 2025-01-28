@@ -1,0 +1,62 @@
+<html>
+    <body>
+        <script>
+            var n = +prompt();
+            var temp=n;
+            var sum = 0;
+            var res;
+            console.log(n);
+
+            while(n!=0)
+            {
+                res = n%10;             //res 9
+                sum=sum*10+res;         //sum 542839
+                n = parseInt(n/10)      //n 0
+            }
+           if(temp===sum){
+            console.log("the given number is palindrome")
+           }
+           else{
+            console.log("not a palindome")
+           }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            // console.log(n%10)//4
+            // n= parseInt(n/10);// n 9382
+            
+            // console.log(n%10)//2
+            // n= parseInt(n/10);//938
+
+            // console.log(n%10)//8
+            // n= parseInt(n/10);//93
+
+            // console.log(n%10)//3
+            // n= parseInt(n/10);//9
+
+            // console.log(n%10)//9
+            // n= parseInt(n/10);//0
+
+        </script>
+    </body>
+</html>
+<!-- 
+    5
+    4
+    3
+    8
+    9
+ -->
+ 

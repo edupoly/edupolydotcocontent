@@ -1,0 +1,49 @@
+<html>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/rxjs/7.5.7/rxjs.umd.min.js"
+    integrity="sha512-MiYwnEfEqT5G1xAVakQk02nQONtyt4KfpD0FmOsmJcR1Xc5Ic1fhEm4piCH7fCtEKUJfCw6Q07IpsISlAePczQ=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+
+<body>
+  <button id="d1">0</button><br>
+  <button id="d2">100</button><br>
+  <button id="d3">1000</button><br>
+  <script>
+    console.log(rxjs)
+
+    var br1 = rxjs.fromEvent(document.getElementById('d1'),'click')
+    var br2 = rxjs.fromEvent(document.getElementById('d2'),'click')
+    var br3 = rxjs.fromEvent(document.getElementById('d3'),'click')
+
+    br1 = br1.pipe(rxjs.take(2))
+    br2 = br2.pipe(rxjs.take(1))
+    br3 = br3.pipe(rxjs.take(3))
+
+    rxjs.zip(br1, br2, br3).subscribe((res) => {
+      console.log("zip::",res[0].target.innerHTML)
+      console.log("zip::",res[1].target.innerHTML)
+      console.log("zip::",res[2].target.innerHTML)
+    })
+
+    rxjs.forkJoin(br1, br2, br3).subscribe((res) => {
+      console.log("forkJoin::",res[0].target.innerHTML)
+      console.log("forkJoin::",res[1].target.innerHTML)
+      console.log("forkJoin::",res[2].target.innerHTML)
+    })
+
+    rxjs.combineLatest(br1, br2, br3).subscribe((res) => {
+      console.log("combineLatest::",res[0].target.innerHTML)
+      console.log("combineLatest::",res[1].target.innerHTML)
+      console.log("combineLatest::",res[2].target.innerHTML)
+    })
+    
+    rxjs.merge(br1, br2, br3).subscribe((res) => {
+      console.log("merge::",res.target.innerHTML)
+    })
+
+  </script>
+</body>
+
+</html>

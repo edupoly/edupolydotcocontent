@@ -1,0 +1,18 @@
+<html>
+    <body>
+        <script>
+            var ar = [12,23,45,56,[11,22]];
+            var br = ar;
+            var cr = ar.map(function(a){return a});
+            console.log(cr);//shallow copy
+            var dr = JSON.parse(JSON.stringify(ar));
+            console.log(dr)//deep copy
+
+            ar[1] = 'praveen';
+            ar[4][0]='rahul'
+            console.log("ar",ar)
+            console.log("cr",cr)
+            console.log("dr",dr)
+        </script>
+    </body>
+</html>

@@ -1,0 +1,18 @@
+<html>
+   <body>
+    <script>
+        var ob2 = {
+            p:333,
+            q:444
+        }
+        var ob1 = {
+            a:100,
+            b:200
+        }
+        ob1.__proto__=ob2;
+        console.log(ob1.a)
+        console.log(ob1.b)
+        console.log(ob1.p)
+    </script>
+   </body>
+</html>

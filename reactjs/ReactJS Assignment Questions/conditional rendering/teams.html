@@ -1,0 +1,60 @@
+
+<html>
+    <head>
+        <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+        <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="teams.js"></script>
+    </head>
+    <body>
+        <div id="root"></div>
+        
+        <script type="text/babel">
+            var maleImg = "https://cdn.pixabay.com/photo/2016/03/31/19/10/avatar-1294769_1280.png";
+            var femaleImg = "https://cdn.pixabay.com/photo/2016/03/31/19/10/avatar-1294766_1280.png";
+            var sts = {
+                offline:{class:"fa-solid fa-circle-dot",color:'gray'},
+                online:{class:"fa-solid fa-circle",color:'green'},
+                busy:{class:"fa-solid fa-circle",color:'red'},
+                away:{class:"fa-solid fa-clock",color:'orange'},
+            }
+            var memberstable = <table border='2'>
+                                    <thead>
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Status</th>
+                                            <th>Gender</th>
+                                            <th>Last Seen</th>
+                                            <th>Icon</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {
+                                            members.map((member)=>{
+                                                return (
+                                                    <tr>
+                                                        <td>{member.name}</td>
+                                                        <td align='center'>
+                                                            <i className={sts[member.status]['class']} style={{color:sts[member.status]['color']}}></i>
+                                                        </td>
+                                                        <td>{member.gender}</td>
+                                                        <td>{member.last_seen}</td>
+                                                        <td>
+                                                            {
+                                                                member.gender==='male' && <img width="50px" src={maleImg} />
+                                                            }
+                                                            {
+                                                                member.gender==='female' && <img width="50px" src={femaleImg} />
+                                                            }
+                                                        </td>
+                                                    </tr>
+                                                )
+                                            })
+                                        }
+                                    </tbody>
+                                </table>
+            ReactDOM.render(memberstable,document.getElementById("root"))
+        </script>
+    </body>
+</html>

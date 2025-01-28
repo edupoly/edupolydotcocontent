@@ -1,0 +1,89 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <style>
+      #status{
+        width:25%;
+        height:100%;
+        margin: 0px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="status" class="d-flex flex-column">
+      <div id="header" class="d-flex align-items-center p-2 bg-dark bg-opacity-10 w-100">
+        <div id="back" class="m-2 lead display-6">
+          <i class="bi bi-arrow-left-circle"></i>
+        </div>
+        <div id="dp" class='m-2 display-6'>
+          <i class="bi bi-person-circle"></i>
+        </div>
+        <div id="user" class="m-2">
+          <div>Praveen Gubbala</div>
+        </div>
+      </div>
+
+      <div class="flex-grow-1 d-flex align-items-center">
+        <img src="" alt="" id="statusimage" width="100%">
+      </div>
+      <div id="timelines" class="d-flex m-1 p-1 border border-danger">
+
+      </div>
+
+    </div>
+    <script>
+      var images = [
+        "https://img.freepik.com/free-photo/descomposition-person-wearing-vr-glasses_23-2149089507.jpg?w=740&t=st=1672125111~exp=1672125711~hmac=baa5a2ac08a3d1206e72ff5adb0910ccbafc234272903a90d05a44e930a29a0a",
+        "https://img.freepik.com/free-photo/descomposition-person-wearing-vr-glasses_23-2149089512.jpg?w=900&t=st=1672125259~exp=1672125859~hmac=38790f245791d43b504f0fc1eda889784f619596211d6ea8ccffacd08e79fa32",
+        "https://img.freepik.com/free-photo/male-dancer-suit-sneakers-making-yoga-pose_23-2148417928.jpg?w=740&t=st=1672125272~exp=1672125872~hmac=d359bf2c834de5af8fc9ab855299b56be5c338a8f8b035ae3e7a107c986d5051",
+        "https://img.freepik.com/free-photo/still-life-colombia-national-soccer-team_23-2149728344.jpg?w=1480&t=st=1673354200~exp=1673354800~hmac=d1e46f911b739d7fd964101a1db6749e6eb0d0dbd9d9d9e9b44f709ae27c16bf",
+        "https://as1.ftcdn.net/v2/jpg/01/82/43/78/1000_F_182437806_eIoe8CyDoAaNluLpUFrDNjH5t5cGpfkJ.jpg"
+      ]
+      var interval = 1000;
+      var i=0;
+      var timelinebars;
+      document.getElementById('statusimage').src=images[i];
+      images.forEach((image,i)=>{
+        var timelinebar = document.createElement('div');
+        timelinebar.style.width=`${100/images.length-1}%`;
+        timelinebar.style.height='10px';
+        timelinebar.style.border='1px solid';
+        timelinebar.classList.add('m-1')
+        var timeline = document.createElement('div');
+        timeline.style.width='0%';
+        timeline.style.height='100%';
+        timeline.style.backgroundColor='red';
+        timeline.classList.add('timeline')
+        timelinebar.appendChild(timeline);
+        document.getElementById('timelines').appendChild(timelinebar)
+      })
+      var w=0;
+      var timelinetimer;
+      var timelines = document.querySelectorAll(".timeline")
+      function growTimeline(){
+        timelinetimer=setInterval(()=>{
+          w=w+0.5;
+          timelines[i].style.width=w+"%";
+          // timelines[i].innerHTML=w+"%";
+          if(i===images.length-1 && w===100){
+            clearInterval(timelinetimer)
+          }
+          
+        },10)
+      }
+      growTimeline();
+      var statusTimer = setInterval(function(){
+        i++;
+        w=0;
+        clearInterval(timelinetimer)
+        growTimeline();
+        document.getElementById('statusimage').src=images[i];
+        if(i===images.length-1){
+          clearInterval(statusTimer)
+        }
+      },2010)
+    </script>
+  </body>
+</html>

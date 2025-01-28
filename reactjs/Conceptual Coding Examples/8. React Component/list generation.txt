@@ -1,0 +1,10 @@
+1.take a js file with list of mcq questions
+  generate ui for mcqs with question and options as radio buttons
+2.take a js file with list of products 
+  generate ui for display products in cards with add to cart button and heart button
+3.list of news articles
+  url:https://saurav.tech/NewsAPI/top-headlines/category/health/in.json
+4.list of cocktails
+  url:www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
+5.list of ships
+  url:https://api.spacexdata.com/v3/ships

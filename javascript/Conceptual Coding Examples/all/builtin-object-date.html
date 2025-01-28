@@ -1,0 +1,23 @@
+<html>
+    <head></head>
+    <body>
+        <h1>Time:<span id="d1"></span></h1>
+        <script>
+            setInterval(function(){
+                var d1 = new Date();
+                var x = d1.getHours();
+                var y = d1.getMinutes();
+                var z = d1.getSeconds();
+                document.getElementById("d1").innerHTML=x+":"+y+":"+z;
+            },100)
+
+            var d2 = new Date("6/10/2001");
+            console.log(d2.getTime())
+            var d3 = new Date();
+            console.log(d3.getTime())
+            console.log(Date.now())
+            console.log((d3-d2)/(1000*60*60*24*365))
+
+        </script>
+    </body>
+</html>

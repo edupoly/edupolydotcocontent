@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+  <title>Document</title>
+</head>
+<body>
+  <center>
+    <div id="mydiv" style="border: 2px solid red;padding:10px;margin:10px"></div>
+  </center>
+  <script type="text/babel">
+
+    var students = [
+      {
+        firstname:'ravi',
+        lastname:'sastri',
+        gender:'male'
+      },
+      {
+        firstname:'sachin',
+        lastname:'tendulkar',
+        gender:'male'
+      },
+      {
+        firstname:'mithali',
+        lastname:'raj',
+        gender:'female'
+      },
+      {
+        firstname:'Rohit',
+        lastname:'Sharma',
+        gender:'male'
+      },
+      {
+        firstname:'Smriti',
+        lastname:'Mandhana',
+        gender:'female'
+      },
+      {
+        firstname:'Virat',
+        lastname:'Kohli',
+        gender:'male'
+      },
+      {
+        firstname:'Shefali',
+        lastname:'Verma',
+        gender:'female'
+      },
+      {
+        firstname:'Surya',
+        lastname:'Kumar',
+        gender:'male'
+      },
+    ];
+    var x = <div className="d-flex flex-wrap m-1 justify-content-around">
+        
+        {
+          students.map((student)=>{
+            return(<div class="card m-1" style={{width: "18rem"}}>
+              <div class="m-2">
+                <img src={student.gender==='male'?"https://img.freepik.com/free-vector/man-with-mustache_1308-41559.jpg?w=1060&t=st=1676127241~exp=1676127841~hmac=15c14450019f4f865554d64145accc0a8ae4c1561cb7f96685e18e849a69424c":"https://img.freepik.com/free-vector/girl-reading-while-drinking_1308-83464.jpg?w=1060&t=st=1676127273~exp=1676127873~hmac=8bae6e95e8643b9cab4c9aef5743a880d9d9e03df322ed927b0c103cdceb3106"} class="card-img-top" alt="..." />
+                <div class="card-body">
+                  <b class="card-text">{student.firstname.toUpperCase()}{student.lastname.toUpperCase()}</b>
+                </div>
+              </div>
+            </div>)
+          })
+        }
+      </div>
+    
+    ReactDOM.render(x,document.getElementById('mydiv'))
+  </script>
+</body>
+</html>

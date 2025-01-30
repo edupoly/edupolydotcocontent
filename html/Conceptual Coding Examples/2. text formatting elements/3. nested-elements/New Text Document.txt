@@ -1,0 +1,1 @@
+Create an h1 tag with some text and horizontally align it at centre by nesting the h1 element in a center element.

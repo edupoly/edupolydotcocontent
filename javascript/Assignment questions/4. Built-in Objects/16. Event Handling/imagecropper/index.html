@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="node_modules/cropperjs/dist/cropper.min.css">
+        <script src="node_modules/jquery/dist/jquery.min.js"></script>
+        <script src="node_modules/cropperjs/dist/cropper.min.js"></script>
+        <style>
+            /* Ensure the size of the image fit the container perfectly */
+            img {
+            /* This rule is very important, please don't ignore this */
+            max-width: 20%;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <img id="image" src="john.jpg" width="300px">
+            <img id='croppedImage' src="" alt="" width="200px">
+        </div>
+        <script>
+            const image = document.getElementById('image');
+            const cropper = new Cropper(image, {
+                aspectRatio: 3 / 3,
+                crop(event) {
+                   // console.log(event)
+                    printCropped()
+                }
+            });
+            function printCropped(){
+                cropper.getCroppedCanvas().toBlob((blob) => {
+                    console.log(blob)
+                    var objectURL = URL.createObjectURL(blob);
+                    document.getElementById("croppedImage").src = objectURL;
+                })
+            }
+        </script>
+    </body>
+</html>

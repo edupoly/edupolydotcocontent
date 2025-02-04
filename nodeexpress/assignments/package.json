@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "excel4node": "^1.8.2",
-    "exceljs": "^4.4.0"
-  }
-}

@@ -1,9 +1,12 @@
 <html></html>
     <head></head>
     <body>
+        <div id="d1"></div>
         <script>
-
-
+            var a = +prompt();
+            var x = document.createElement('h1');
+            x.innerHTML=(a%2==0)?"even":"odd";
+            document.getElementById('d1').appendChild(x)
         </script>
     </body>
 </html>

@@ -1,6 +1,7 @@
 <html></html>
     <head></head>
     <body>
+        <table id="d5" border="2"></table>
         <script>
         var products = [
             {
@@ -46,7 +47,25 @@
                 "manufacturer": "White Canyon",				
             }
         ];
-
+        products.forEach(function(emp){
+                var newtr = document.createElement('tr');
+                var nametd = document.createElement('td');
+                nametd.innerHTML=emp.name
+                var gendertd = document.createElement('td');
+                gendertd.innerHTML=emp.type
+                var occupationtd = document.createElement('td');
+                occupationtd.innerHTML=emp.price
+                var agetd = document.createElement('td');
+                agetd.innerHTML=emp.category
+                var manufacturertd = document.createElement('td');
+                manufacturertd.innerHTML=emp.manufacturer
+                newtr.appendChild(nametd)
+                newtr.appendChild(gendertd)
+                newtr.appendChild(occupationtd)
+                newtr.appendChild(agetd)
+                newtr.appendChild(manufacturertd)
+                document.getElementById("d5").appendChild(newtr);
+            })
         </script>
     </body>
 </html>

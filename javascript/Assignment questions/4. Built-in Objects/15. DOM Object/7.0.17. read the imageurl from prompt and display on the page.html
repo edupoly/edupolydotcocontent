@@ -1,10 +1,14 @@
 <html></html>
     <head></head>
     <body>
+        <i>image address given in the code</i>
+        <div id="d1"></div>
         <script>
             // "https://cdn.motor1.com/images/mgl/MkO9NN/s1/future-supercars.webp"
-            var mycolor=prompt();
-
+            var imgURL=prompt();
+            var x = document.createElement('img');
+            x.src=imgURL;
+            document.getElementById('d1').appendChild(x)
 
         </script>
     </body>

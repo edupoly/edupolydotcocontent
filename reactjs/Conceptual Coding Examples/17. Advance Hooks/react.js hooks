@@ -1,0 +1,223 @@
+17.REACT HOOKS :
+Hooks are a feature introduced in React 16.8 that allow you to use state and other React features without writing a class. They provide a more direct API to the React concepts you already know: props, state, context, refs, and lifecycle methods. Hooks are functions that let you "hook into" React state and lifecycle features from function components.
+Key Hooks
+1.	useState: Allows you to add state to functional components.
+2.	useEffect: Lets you perform side effects in functional components (similar to lifecycle methods in class components).
+3.	useContext: Provides a way to pass data through the component tree without having to pass props down manually at every level.
+4.	useReducer: An alternative to useState for managing complex state logic.
+5.	useCallback: Returns a memoized callback function.
+6.	useMemo: Returns a memoized value.
+7.	useRef: Returns a mutable ref object whose .current property is initialized to the passed argument.
+8.	useLayoutEffect: Similar to useEffect, but it fires synchronously after all DOM mutations.
+9.	useImperativeHandle: Customizes the instance value that is exposed when using ref.
+10.	useDebugValue: Can be used to display a label for custom hooks in React DevTools.
+Examples:
+1.useState:
+import React, { useState } from 'react';
+
+function Counter() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+2. useEffect:
+import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    // Update the document title using the browser API
+    document.title = `You clicked ${count} times`;
+  }, [count]); // Only re-run the effect if count changes
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+
+3.useContext:
+import React, { useContext } from 'react';
+
+const ThemeContext = React.createContext('light');
+
+function ThemedButton() {
+  const theme = useContext(ThemeContext);
+  return <button className={theme}>I am styled by theme context!</button>;
+}
+
+function App() {
+  return (
+    <ThemeContext.Provider value="dark">
+      <ThemedButton />
+    </ThemeContext.Provider>
+  );
+}
+
+4.useReducer:
+import React, { useReducer } from 'react';
+
+const initialState = { count: 0 };
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    case 'decrement':
+      return { count: state.count - 1 };
+    default:
+      throw new Error();
+  }
+}
+
+function Counter() {
+  const [state, dispatch] = useReducer(reducer, initialState);
+
+  return (
+    <div>
+      Count: {state.count}
+      <button onClick={() => dispatch({ type: 'increment' })}>+</button>
+      <button onClick={() => dispatch({ type: 'decrement' })}>-</button>
+    </div>
+  );
+}
+5.useCallback:
+import React, { useState, useCallback } from 'react';
+
+function MyComponent() {
+  const [count, setCount] = useState(0);
+
+  const increment = useCallback(() => {
+    setCount(c => c + 1);
+  }, []);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={increment}>Increment</button>
+    </div>
+  );
+}
+6.useMemo:
+import React, { useMemo, useState } from 'react';
+
+function ExpensiveComponent({ a, b }) {
+  const result = useMemo(() => {
+    return a + b;
+  }, [a, b]);
+
+  return <div>Result: {result}</div>;
+}
+
+function App() {
+  const [a, setA] = useState(1);
+  const [b, setB] = useState(2);
+
+  return (
+    <div>
+      <ExpensiveComponent a={a} b={b} />
+      <button onClick={() => setA(a + 1)}>Increment A</button>
+      <button onClick={() => setB(b + 1)}>Increment B</button>
+    </div>
+  );
+}
+7.useRef:
+import React, { useRef } from 'react';
+
+function TextInputWithFocusButton() {
+  const inputEl = useRef(null);
+
+  const onButtonClick = () => {
+    // `current` points to the mounted text input element
+    inputEl.current.focus();
+  };
+
+  return (
+    <div>
+      <input ref={inputEl} type="text" />
+      <button onClick={onButtonClick}>Focus the input</button>
+    </div>
+  );
+}
+
+8.useLayoutEffect:
+import React, { useLayoutEffect, useState } from 'react';
+
+function Example() {
+  const [width, setWidth] = useState(0);
+
+  useLayoutEffect(() => {
+    const handleResize = () => {
+      setWidth(window.innerWidth);
+    };
+
+    window.addEventListener('resize', handleResize);
+    handleResize();
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
+  return <div>Window width: {width}</div>;
+}
+9.useImperativeHandle:
+import React, { useRef, useImperativeHandle, forwardRef } from 'react';
+
+const FancyInput = forwardRef((props, ref) => {
+  const inputRef = useRef();
+
+  useImperativeHandle(ref, () => ({
+    focus: () => {
+      inputRef.current.focus();
+    }
+  }));
+
+  return <input ref={inputRef} type="text" />;
+});
+
+function App() {
+  const inputRef = useRef();
+
+  return (
+    <div>
+      <FancyInput ref={inputRef} />
+      <button onClick={() => inputRef.current.focus()}>Focus the input</button>
+    </div>
+  );
+}
+10.useDebugValue:
+import React, { useState, useDebugValue } from 'react';
+
+function useFriendStatus(friendID) {
+  const [isOnline, setIsOnline] = useState(null);
+
+  // Show a label in DevTools next to this Hook
+  useDebugValue(isOnline ? 'Online' : 'Offline');
+
+  return isOnline;
+}
+
+function FriendStatus({ friendID }) {
+  const isOnline = useFriendStatus(friendID);
+
+  if (isOnline === null) {
+    return 'Loading...';
+  }
+  return isOnline ? 'Online' : 'Offline';
+}
+Conclusion:
+Hooks provide a powerful and flexible way to manage state and side effects in functional components. They make your code more readable and maintainable by allowing you to use state and lifecycle features without converting your functional components into class components. By understanding and utilizing hooks effectively, you can write more concise and efficient React applications.

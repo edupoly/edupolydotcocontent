@@ -1,0 +1,19 @@
+<html>
+    <head></head>
+    <body>
+        <form onsubmit="abc(event)" name="studentForm">
+            First Name:<input type="text" name="fn"><br/>
+            Last Name:<input type="text" name="ln"><br/>
+            Age:<input type="text" name="age"><br/>
+            <button>Show student</button>
+        </form>
+       
+        <script>
+            function abc(ev){
+                ev.preventDefault();
+                console.log(document.studentForm.fn.value)
+                console.log(document.studentForm.ln.value)
+            }
+        </script>
+    </body>
+</html>

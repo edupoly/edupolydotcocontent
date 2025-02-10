@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5 Form with Validations</title>
+    <style>
+        form {
+            width: 500px;
+            margin: 20px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<form action="/submit_form" method="post" id="myForm">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required placeholder="Enter your name" pattern="[a-zA-Z\s]+" title="Only letters and spaces are allowed">
+    <div class="error" id="nameError"></div>
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" name="email" required placeholder="Enter your email" >
+    <div class="error" id="emailError"></div>
+
+    <label for="phone">Phone:</label>
+    <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" title="Enter a 10-digit phone number" placeholder="Enter your phone number">
+    <div class="error" id="phoneError"></div>
+
+    <label for="url">Website:</label>
+    <input type="url" id="url" name="url" placeholder="Enter your website URL">
+    <div class="error" id="urlError"></div>
+
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" required minlength="8" title="Password must be at least 8 characters long">
+     <div class="error" id="passwordError"></div>
+
+    <label for="confirmPassword">Confirm Password:</label>
+    <input type="password" id="confirmPassword" name="confirmPassword" required>
+    <div class="error" id="confirmPasswordError"></div>
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age" min="18" max="120" placeholder="Enter your age">
+    <div class="error" id="ageError"></div>
+
+
+    <label for="dob">Date of Birth:</label>
+    <input type="date" id="dob" name="dob" required>
+    <div class="error" id="dobError"></div>
+
+    <label for="gender">Gender:</label>
+    <select id="gender" name="gender" required>
+        <option value="">Select</option>
+        <option value="male">Male</option>
+        <option value="female">Female</option>
+        <option value="other">Other</option>
+    </select>
+    <div class="error" id="genderError"></div>
+
+    <label for="message">Message:</label>
+    <textarea id="message" name="message" rows="4" required placeholder="Enter your message"></textarea>
+    <div class="error" id="messageError"></div>
+
+    <input type="checkbox" id="terms" name="terms" required>
+    <label for="terms">I agree to the terms and conditions</label>
+    <div class="error" id="termsError"></div><br>
+
+    <input type="submit" value="Submit">
+</form>
+
+<script>
+    
+</script>
+
+</body>
+</html>

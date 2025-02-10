@@ -1,1 +1,0 @@
-Create an HTML file and create headings from h1 to h6 with some text.

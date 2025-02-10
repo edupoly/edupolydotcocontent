@@ -1,0 +1,87 @@
+<html>
+    <body>
+        <form onsubmit="abc(event)" name="empForm">
+            Name:<input type="text" name="name"><br/>
+            Gender:<br>
+            <input type="radio" name="gen" value="male">:Male<br/>
+            <input type="radio" name="gen" value="female">:Female<br/>
+            <input type="radio" name="gen" value="others">:Others<br/>
+            Occupation:<input type="text" name="occ"><br/>
+            Age:<input type="text" name="age"><br/>
+            <button>Show student</button>
+        </form>
+        <table border="2">
+            <thead>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Occupation</th>
+                <th>Age</th>
+            </thead>
+            <tbody id="d5">
+
+            </tbody>
+        </table>
+        <script>
+            var employees = [
+                {
+                    name:'sachin',
+                    gender:'male',
+                    occupation:'Director',
+                    age:20
+                },
+                {
+                    name:'Praveen',
+                    gender:'male',
+                    occupation:'Instructor',
+                    age:40
+                },
+                {
+                    name:'Sneha',
+                    gender:'female',
+                    occupation:'Mentor',
+                    age:21
+                }
+            ]
+            GenTable();
+            function GenTable(){
+                document.getElementById("d5").innerHTML=''
+                employees.forEach(function(emp){
+                    var newtr = document.createElement('tr');
+                    var nametd = document.createElement('td');
+                    nametd.innerHTML=emp.name
+                    var gendertd = document.createElement('td');
+                    gendertd.innerHTML=emp.gender
+                    var occupationtd = document.createElement('td');
+                    occupationtd.innerHTML=emp.occupation
+                    var agetd = document.createElement('td');
+                    agetd.innerHTML=emp.age
+                    newtr.appendChild(nametd)
+                    newtr.appendChild(gendertd)
+                    newtr.appendChild(occupationtd)
+                    newtr.appendChild(agetd)
+                    document.getElementById("d5").appendChild(newtr);
+                })
+            }
+            
+            function abc(ev){
+                ev.preventDefault();
+                var newEmp={
+                    name:'',
+                    gender:'',
+                    occupation:'',
+                    age:''
+                }
+                var name=document.empForm.name.value;
+                var gen=document.empForm.gen.value;
+                var occ=document.empForm.occ.value;
+                var age=document.empForm.age.value;
+                newEmp.name=name;
+                newEmp.gender=gen;
+                newEmp.occupation=occ;
+                newEmp.age=age;
+                employees.push(newEmp);
+                GenTable();
+            }
+        </script>
+    </body>
+</html>

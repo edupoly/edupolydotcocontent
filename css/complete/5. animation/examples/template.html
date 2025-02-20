@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Liter&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <style>
+
+        .section{
+            padding:10px 100px;
+            display: flex;
+            flex-wrap: wrap;
+            font-family: "Manrope", serif;
+            background-image: url('https://silicon.createx.studio/assets/img/about/hero-bg.svg');
+            background-position: bottom;
+            justify-content: space-around;
+        }
+        .description{
+            width:40%;
+        }
+        .images{
+            width: 60%;
+
+        }
+        .description p{
+            font-size: 1.25em;
+            line-height: 1.75em;
+        }
+        .description img{
+            width:175px;
+            padding:3em 0px;
+        }
+        .description .stats{
+            display: flex;
+            justify-content: space-between;
+        }
+        .description .stats p{
+            font-size: 1em;
+            margin-top: 0.75em;
+        }
+        .description .stats h2{
+            font-size: 2.25em;
+            margin-bottom: 0px;
+        }
+        .section .images{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: end;
+        }
+        .images img{
+            width:35%;
+            margin: 10px;
+            border-radius: 10px;
+            box-sizing: border-box;
+            /* border:10px solid; */
+            overflow: none;
+        }
+        .images img:first-child{
+            margin-top: 50px;
+        }
+        @media screen and (max-width:1000px) {
+            .section{
+                padding:10px 20px;
+            }
+            .description{
+                width:100%;
+            }
+            .images{
+                width: 100%;
+
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <div class="description">
+            <div>Home >> About v.1</div>
+            <h1>About Edupoly</h1>
+            <p>
+                We are a dedicated team of passionate product managers, full stack developers, UX/UI        designers, QA engineers and marketing experts helping businesses of every size — from new startups to public companies — launch their projects using our software.
+
+            </p>
+            <img src="https://silicon.createx.studio/assets/img/about/clutch-dark.png" alt="">
+            <div class="stats">
+                <div>
+                    <h2>2,480</h2>
+                    <p><b>Remote</b> Sales Experts</p>
+                </div>
+                <div>
+                    <h2>760</h2>
+                    <p><b>New Clients</b> per Month</p>
+                </div>
+                <div>
+                    <h2>1200</h2>
+                    <p><b>Requests</b> per Week</p>
+                </div>
+            </div>
+        </div>
+        <div class="images">
+            <img src="https://silicon.createx.studio/assets/img/about/hero/01.jpg" alt="">
+            <img src="https://silicon.createx.studio/assets/img/about/hero/03.jpg" alt="">
+            <img src="https://silicon.createx.studio/assets/img/about/hero/02.jpg" alt="">
+            <img src="https://silicon.createx.studio/assets/img/about/hero/04.jpg" alt="">
+        </div>
+    </div>
+</body>
+</html>

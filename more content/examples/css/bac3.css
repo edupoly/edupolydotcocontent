@@ -1,0 +1,8 @@
+.recipe h2 {
+float: left;
+}
+.recipe .intro,
+.recipe ol {
+float: right;
+width: 500px;
+}

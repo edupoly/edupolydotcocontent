@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script>
+      var allspans=document.getElementsByTagName('span');
+      function rate(r){
+          document.getElementById("d2").innerHTML=r+"/5";
+          for(var i=0;i<=4;i++){
+              allspans[i].innerHTML="&#9734;"
+          }
+          for(var i=0;i<=r-1;i++){
+              allspans[i].innerHTML="&#9733;"
+          }
+      }
+    </script>
+
+    <style>
+      span {
+        font-size: 30px;
+        cursor: pointer;
+      }
+
+    </style>
+  </head>
+  <body>
+     <span onclick="rate(1)">&#9734;</span>
+        <span onclick="rate(2)">&#9734;</span>
+        <span onclick="rate(3)">&#9734;</span>
+        <span onclick="rate(4)">&#9734;</span>
+        <span onclick="rate(5)">&#9734;</span>
+        <h1>Rating:<div id="d2">0/5</div></h1>
+  </body>
+</html>

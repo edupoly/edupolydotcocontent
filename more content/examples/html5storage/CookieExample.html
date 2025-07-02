@@ -1,0 +1,19 @@
+<script lang="javascript">
+
+function call()
+{
+var id=document.form1.studentid.value;
+var name=document.form1.studentname.value;
+
+var db = openDatabase('IWT', '1.0', 'info', 2 * 1024 * 1024);
+db.transaction(function(tx) {
+    tx.executeSql("INSERT INTO Students (id, name) VALUES (?, ?)", [id,name]);
+  });
+
+}
+ </script>
+<form name="form1">
+	PRN(id) : <input type="text" name="studentid"></br>
+	NAME	:	<input type="text" name="studentname"><br>
+	<input type="button" onClick="call()">
+</form>

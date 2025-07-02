@@ -1,0 +1,1 @@
+Create an HTML page and add a title element in the head section with some text so that it appears in the tab as shown in the image.

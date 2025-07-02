@@ -1,66 +1,26 @@
 <html>
-    <head>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
-        <style>
-            body{
-                background-color: rgb(148, 190, 228);
-            }
-            th, td{
-                text-align: center;
-            }
-        </style>
-    </head>
     <body>
-        <div class="px-2 py-1">
-            <div class="text-center">
-                <h3>Javascript Mini Project on FormHandling</h3>
-            </div>
-            <p>
-                <ol>
-                    <li>Click respective button to keep the score card updated</li>
-                </ol>
-            </p>
-          </div>
+        <form onsubmit="abc(event)" name="empForm">
+            Name:<input type="text" name="name"><br/>
+            Gender:<br>
+            <input type="radio" name="gen" value="male">:Male<br/>
+            <input type="radio" name="gen" value="female">:Female<br/>
+            <input type="radio" name="gen" value="others">:Others<br/>
+            Occupation:<input type="text" name="occ"><br/>
+            Age:<input type="text" name="age"><br/>
+            <button>Show student</button>
+        </form>
+        <table border="2">
+            <thead>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Occupation</th>
+                <th>Age</th>
+            </thead>
+            <tbody id="d5">
 
-        <div class="row g-3">
-            <div class="col-md-5 p-3">
-                <form onsubmit="abc(event)" name="empForm" class="me-auto ms-auto shadow-lg p-3 bg-primary-subtle">
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="name" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Name</label>
-                    </div>
-                    <div class="mb-3">
-                    <label for="" class="form-label">Gender</label><br>
-                    <input type="radio" class="form-radio" name="gen" value="male">:Male
-                    <input type="radio" class="form-radio" name="gen" value="female">:Female
-                    <input type="radio" class="form-radio" name="gen" value="others">:Others
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="occ" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Occupation</label>
-                    </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" name="age" id="floatingInput" placeholder="name@example.com">
-                        <label for="floatingInput">Age</label>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Add student</button>
-                </form>
-            </div>
-            <div class="col-md-5">
-                <table class="me-auto ms-auto h-25 table table-dark table-hover">
-                    <thead>
-                        <th>Name</th>
-                        <th>Gender</th>
-                        <th>Occupation</th>
-                        <th>Age</th>
-                    </thead>
-                    <tbody id="d5">
-    
-                    </tbody>
-                </table>
-            </div>
-        </div>
+            </tbody>
+        </table>
         <script>
             var employees = [
                 {
@@ -121,7 +81,6 @@
                 newEmp.age=age;
                 employees.push(newEmp);
                 GenTable();
-                empForm.reset();
             }
         </script>
     </body>

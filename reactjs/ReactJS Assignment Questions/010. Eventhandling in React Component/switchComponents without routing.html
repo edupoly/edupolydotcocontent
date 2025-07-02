@@ -1,0 +1,43 @@
+<html>
+    <head>
+        <style>
+            #header{
+                display: flex;
+                justify-content: space-around;
+                border:1px solid;
+            }
+            #header li{
+                padding:10px;
+                list-style-type: none;
+                background-color: lightblue;
+            }
+            #main{
+                border:10px solid;
+                margin:10px;
+                padding: 10px;
+            }
+        </style>
+    </head>
+    <body>
+        <ul id="header">
+            <li onclick="loadhome()">Home</li>
+            <li onclick="loadabout()">About us</li>
+            <li onclick="loadcontact()">Contactus</li>
+        </ul>
+        <div id="main">
+            <h1 id="d1"></h1>
+        </div>
+        <script>
+            document.getElementById('d1').innerHTML='Its my home.... yes home';
+            function loadhome(){
+                document.getElementById('d1').innerHTML='Its my home.... yes home';
+            }
+            function loadabout(){
+                document.getElementById('d1').innerHTML='Im a simple freelance developer and trainer';
+            }
+            function loadcontact(){
+                document.getElementById('d1').innerHTML='google me.... heeee';
+            }
+        </script>
+    </body>
+</html>

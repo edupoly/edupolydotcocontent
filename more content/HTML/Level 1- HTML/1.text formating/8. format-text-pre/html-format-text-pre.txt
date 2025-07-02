@@ -1,0 +1,1 @@
+Create a webpage and display some content using the pre element as shown in the image.

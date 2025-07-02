@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="bac.css">
+
+</head>
+<body>
+<script type="text/javascript">
+  function foo()
+{
+  alert(window.getSelection());
+  }
+  function ShowSelection()
+{
+  var textComponent = document.getElementById('textarea1');
+  var selectedText;
+  var startPos = textComponent.selectionStart;
+  var endPos = textComponent.selectionEnd;
+  selectedText = textComponent.value.substring(startPos, endPos)
+  alert("You selected: " + selectedText);
+}
+ </script>
+<input type="button" onClick="foo()" value="B">
+<input type="button" onClick="foo()" value="U">
+<input type="button" onClick="ShowSelection()" value="I">
+<br>
+<textarea id="textarea1" rows="30" cols="60"></textarea>
+</body>
+</html>

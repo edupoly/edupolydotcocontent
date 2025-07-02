@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+		<script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.js" integrity="sha512-pBSlhNUvB+td6sjW1zmR6L7c7kVWR4octUPl4tfHmzO63424nxta8aLmficEcAAswQmRqTiToi63AazDurj/Sg==" crossorigin="anonymous"></script>
+	</head>
+	<body>	
+		<div id="d2">
+				
+		</div>
+		<script type="text/babel">			
+			
+			class X extends React.Component{
+			
+				constructor(){
+					super();
+					this.state = {
+						count:10
+					}
+				}
+				inc10 = ()=>{
+				
+					this.setState({count:this.state.count+10});
+				}
+				inc100 = ()=>{
+					this.setState({count:this.state.count+100})
+				}
+				dec10 = ()=>{
+					this.setState({count:this.state.count-10})
+				}
+				render(){
+					return(
+						<div>
+							<h4>Welcome to class components</h4>
+							<h1>{this.state.count}</h1>
+							<button onClick={this.inc10}>Inc count by 10</button>
+							<button onClick={this.inc100}>Inc count by 100</button>
+							<button onClick={this.dec10}>Decrement Count by 10</button>
+						</div>
+					)
+				}
+			}
+			
+			ReactDOM.render(<X></X>,document.getElementById("d2"));
+		</script>
+	</body>
+</html>
+
+
+

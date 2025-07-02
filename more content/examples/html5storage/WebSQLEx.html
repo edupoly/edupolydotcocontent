@@ -1,0 +1,8 @@
+<script lang="javascript">
+var db = openDatabase('IWT', '1.0', 'INFORMATION', 2 * 1024 * 1024);
+
+db.transaction(function (tx) {  
+   tx.executeSql('CREATE TABLE Students(id UNIQUE, name TEXT)');
+   });
+
+ </script>

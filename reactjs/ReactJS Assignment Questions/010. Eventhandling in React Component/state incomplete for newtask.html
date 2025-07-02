@@ -1,0 +1,100 @@
+<html>
+    <head>
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+		<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+		<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    </head> 
+    <body>
+        <div id="d1">
+
+        </div>
+        <script type="text/babel">
+            class Todolist extends React.Component{
+                constructor(){
+                    super();
+                    this.state = {
+                        tasks : [
+                            {
+                                title:'car wash',
+                                status:'incomplete'
+                            },
+                            {
+                                title:'insuarance payment',
+                                status:'complete'
+                            },
+                            {
+                                title:'rent',
+                                status:'incomplete'
+                            }
+                        ],
+                        filteredTasks:[]                        
+                    }                    
+                }
+                componentDidMount(){
+                  this.setState({filteredTasks:[...this.state.tasks]})  
+                }
+                addTask = ()=>{
+                    var newtask = {
+                        title:document.getElementById("d2").value,
+                        status:'incomplete'
+                    }                    
+
+                    this.setState({tasks:[...this.state.tasks,newtask]},()=>{
+                        this.setState({filteredTasks:[...this.state.tasks]})
+                    })
+                    
+                }
+                toggleTaskStatus = (index)=>{
+                    var alltasks = this.state.tasks;
+                    alltasks[index].status = alltasks[index].status==='complete'?'incomplete':'complete';
+                    this.setState({tasks:[...alltasks]})
+                }
+                updateFilter = (f)=>{
+                   if(f==='all'){
+                       this.setState({filteredTasks:[...this.state.tasks]})
+                   }
+                   else{
+                       var temp = this.state.tasks.filter((t,i)=>{
+                           if(t.status===f){
+                               return true
+                           }
+                           else{
+                               return false
+                           }
+                       })
+                       this.setState({filteredTasks:[...temp]})
+                   }
+                   
+                }
+                render(){
+                    return (
+                        <div>
+                            <input type="text" id="d2"/>
+                            <button onClick={this.addTask}>Add Task</button>
+                            <br />
+                            <br />
+                            <input type="radio" name="filter" onChange={()=>{this.updateFilter('all')}}/>: All &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="filter" onChange={()=>{this.updateFilter('complete')}}/>: Completed &nbsp;&nbsp;&nbsp;&nbsp;
+                            <input type="radio" name="filter" onChange={()=>{this.updateFilter('incomplete')}}/>: NotCompleted &nbsp;&nbsp;&nbsp;&nbsp;
+                            <ul>
+                                {
+                                    this.state.filteredTasks && this.state.filteredTasks.map((t,i)=>{
+                                        return (
+                                            <li 
+                                                style={ t.status==='complete'?{textDecoration:'line-through'}:{backgroundColor:'pink'} }
+                                                onClick={()=>{this.toggleTaskStatus(i)}}
+                                            >
+                                                {t.title}
+                                            </li>
+                                        )
+                                    })
+                                }    
+                            </ul>
+                        </div>
+                    )
+                }
+            }
+            ReactDOM.render(<Todolist></Todolist>,document.getElementById("d1"))
+        </script>
+    </body>
+</html>

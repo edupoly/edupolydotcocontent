@@ -1,13 +1,8 @@
 <html>
   <head>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
     <meta charset="UTF-8" />
     <style>
-      body{
-        background-color: rgb(155, 155, 100);
-      }
-      #block{
+      #d1{
         width: 200px;
         height: 100px;
         border:2px solid;
@@ -17,36 +12,15 @@
     </style>
   </head>
   <body>
-    <div class="p-2">
-      <div class="text-center">
-          <h3>Javascript Mini Project on Event Handling, DOM Manipulation</h3>
-          <h5>Currency Converter</h5>
-      </div>
-      <hr>
-      <p>
-          Instructions:
-          <ol>
-              <li>Click respective button to keep the score card updated</li>
-          </ol>
-      </p>
-    </div>
-    <hr>
-
-    <div style="text-align: center;">
-      <div id="block" class="me-auto ms-auto d-flex mb-3">
-        <img src="https://cdn2.iconfinder.com/data/icons/cricket-umpire-referee-hand-signal/283/cricket-umpire-referee-hand-signal-004-1024.png" width="40px" height="40px">
-        <h1 id="d1" style="line-height: 50px;">0/0</h1>&nbsp;
-        <img src="https://cdn2.iconfinder.com/data/icons/cricket-1/233/cricket-game-player-playing-009-512.png" width="40px" height="40px">
-      </div>
-      <button onclick="score(0)" class="btn btn-secondary border border-secondary-subtel">Zero</button>
-      <button onclick="score(1)" class="btn btn-secondary border border-secondary-subtel">One</button>
-      <button onclick="score(2)" class="btn btn-secondary border border-secondary-subtel">Two</button>
-      <button onclick="score(3)" class="btn btn-secondary border border-secondary-subtel">Three</button>
-      <button onclick="score(4)" class="btn btn-success border border-success-subtel">Four</button>
-      <button onclick="score(5)" class="btn btn-success border border-success-subtel">Five</button>
-      <button onclick="score(6)" class="btn btn-success border border-success-subtel">Six</button>
-      <button onclick="score('w')" class="btn btn-danger border border-danger-subtel">Wicket</button>
-    </div>
+    <h1 id="d1">0/0</h1>
+    <button onclick="score(0)">Zero</button>
+    <button onclick="score(1)">One</button>
+    <button onclick="score(2)">Two</button>
+    <button onclick="score(3)">Three</button>
+    <button onclick="score(4)">Four</button>
+    <button onclick="score(5)">Five</button>
+    <button onclick="score(6)">Six</button>
+    <button onclick="score('w')">Wicket</button>
     
     <script>
       var wickets = 0;

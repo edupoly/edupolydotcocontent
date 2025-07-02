@@ -1,0 +1,13 @@
+body {
+font: 12px sans-serif;
+line-height: normal;
+letter-spacing: normal;
+word-spacing: normal;
+text-indent: 4em;
+text-align: justify;
+}
+h1 {
+font-family: ‘Times New Roman’, Times, serif;
+font-size: 3em;
+float: left;
+}

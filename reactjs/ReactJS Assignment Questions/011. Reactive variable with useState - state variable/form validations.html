@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <form onsubmit="validate(event)" class="needs-validation" novalidate>
+                <div class="form-group">
+                    User Name:<input type="text" id="d1" class="form-control" placeholder="Enter Username" name="username" required>
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback">Please fill out this field.</div>
+                </div>
+                <div class="form-group">
+                    Password:<input type="text" id="d2" class="form-control" placeholder="Enter Password" name="password" required pattern="^(?=.*[0-9])(?=.*[- ?!@#$%^&*\/\\])(?=.*[A-Z])(?=.*[a-z])[a-zA-Z0-9- ?!@#$%^&*\/\\]{8,30}$">
+                    <div class="valid-feedback">Valid.</div>
+                    <div class="invalid-feedback ">Please fill out this field. Password must have 8 characters with Atleast 1 UPPERCASE, 1 lowercase, 1 special and 1 numeric character </div>
+                    <button>Save</button>
+                </div>
+            </form>
+        </div>
+        <script>
+            function validate(e){
+                e.preventDefault();
+                console.dir(e);
+                e.target.classList.add('was-validated');                
+            }
+        </script>
+    </body>
+</html>

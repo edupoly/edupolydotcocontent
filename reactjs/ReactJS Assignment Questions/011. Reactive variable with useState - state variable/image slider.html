@@ -1,0 +1,46 @@
+<html>
+    <body>
+		<div style="display:flex;width:100%;height:100%;justify-content:center">
+			<div style="align-self: center">
+				<button onclick="previmage()">Prev</button>
+				<img src="https://images-na.ssl-images-amazon.com/images/I/71tdJLduL9L._AC_SX425_.jpg" width="250px" height="250px">
+				<img src="https://cdn.britannica.com/68/195168-050-BBAE019A/football.jpg" width="250px"  height="250px">
+				<img src="https://pngimg.com/uploads/cricket/cricket_PNG135.png" width="250px"  height="250px">
+				<button onclick="nextimage()">Next</button>
+			</div>
+		</div>
+        
+        
+        <script>
+            var allimages = document.images;
+            index=0;
+            console.log(allimages)
+            for(var i=1;i<=allimages.length-1;i++){
+                allimages[i].style.display = "none";
+            }
+            function nextimage(){
+                index++;
+                for(var i=0;i<=allimages.length-1;i++){
+                    allimages[i].style.display = "none";
+                }                
+                allimages[index].style.display="inline";
+                if(index===2){
+                    index=-1;
+                }
+            }
+            function previmage(){
+                index--;
+                for(var i=0;i<=allimages.length-1;i++){
+                    allimages[i].style.display = "none";
+                }                
+                allimages[index].style.display="inline";
+                if(index===0){
+                    index=3;
+                }
+            }
+            setInterval(function(){
+                nextimage();
+            },3000);
+        </script>
+    </body>
+</html>

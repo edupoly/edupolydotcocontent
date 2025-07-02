@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="myCanvas" width="400" height="500" style="border: 1px solid;">
+</canvas>
+<script>
+var x=150;
+var y=150;
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.fillStyle="black";
+ctx.fillRect(0,0,c.width,c.height);
+ctx.beginPath();
+ctx.arc(x,y,40,0,2*Math.PI);
+ctx.fillStyle="#00aa00";
+ctx.fill();
+
+var m=setInterval(function() {go()},30);
+function go()
+{
+ctx.fillStyle="black";
+ctx.fillRect(0,0,c.width,c.height);
+ctx.beginPath();
+ctx.arc(x,y,40,0,1*Math.PI);
+ctx.fillStyle="#00aa00";
+ctx.fill();
+x=x+1;
+y=y+1;
+}
+</script>
+</body>
+</html>

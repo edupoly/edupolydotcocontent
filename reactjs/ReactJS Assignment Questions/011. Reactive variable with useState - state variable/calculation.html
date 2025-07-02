@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+		<script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+		<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    </head> 
+    <body>
+        <div id="d1">
+
+        </div>
+        <script type="text/babel">
+            class Todolist extends React.Component{
+                constructor(){
+                    super();
+                   this.state={
+                       total:0
+                   }
+                }
+                addNumbers = ()=>{
+                    var n1 = +document.getElementById("d2").value;
+                    var n2 = +document.getElementById("d3").value;
+                    var t = n1+n2;
+                    this.setState({total:t})
+                }
+                subNumbers = ()=>{
+                    var n1 = +document.getElementById("d2").value;
+                    var n2 = +document.getElementById("d3").value;
+                    var t = n1-n2;
+                    this.setState({total:t})
+                }
+                mulNumbers = ()=>{
+                    var n1 = +document.getElementById("d2").value;
+                    var n2 = +document.getElementById("d3").value;
+                    var t = n1*n2;
+                    this.setState({total:t})
+                }
+                divNumbers = ()=>{
+                    var n1 = +document.getElementById("d2").value;
+                    var n2 = +document.getElementById("d3").value;
+                    var t = n1/n2;
+                    this.setState({total:t})
+                }
+                render(){
+                    return (
+                        <div>
+                            <input type="text" id="d2"/>
+                            <input type="text" id="d3"/>
+                            <button onClick={this.addNumbers}>Add Numbers</button>
+                            <button onClick={this.subNumbers}>subtract Numbers</button>
+                            <button onClick={this.mulNumbers}>multiply Numbers</button>
+                            <button onClick={this.divNumbers}>divide Numbers</button>
+                            <h1>{this.state.total}</h1>
+                        </div>
+                    )
+                }
+            }
+            ReactDOM.render(<Todolist></Todolist>,document.getElementById("d1"))
+        </script>
+    </body>
+</html>

@@ -1,0 +1,80 @@
+<html>
+    <head>
+        <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+        <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+        <style>
+            .mybox{
+                border:1px solid;
+                margin:5px;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="root"></div>
+        <script type="text/babel">
+            class Todolist extends React.Component{
+                constructor(){
+                    super();
+                    this.state={
+                        tasklist:[],
+                        currentTask:''
+                    }
+                }
+                updateCurrentTask=(e)=>{
+                    this.setState({currentTask:e.target.value})
+                }
+                addTask=()=>{
+                    this.setState({tasklist:[...this.state.tasklist,this.state.currentTask]},
+                    ()=>{console.log(this.state)})
+                }
+                render(){
+                    return(
+                        <div className="mybox">
+                            <input type="text" onChange={this.updateCurrentTask}/>
+                            <button onClick={this.addTask}>Add Task</button>
+                            <ul>
+                            {
+                                this.state.tasklist.map((task,i)=>{
+                                    return <li>{task}</li>
+                                })
+                            }
+                            </ul>
+                        </div>
+                    )
+                }
+            }
+            class App extends React.Component{
+                constructor(){
+                    super();
+                    this.state={
+                        todolists:[]
+                    }
+                }
+                addTodolist = ()=>{
+                    var todolistTitle=prompt();
+                    this.setState({todolists:[...this.state.todolists,todolistTitle]})
+                }
+                render(){
+                    return(
+                        <div>
+                            <button onClick={this.addTodolist}>Add Todolist</button>
+                            {
+                                this.state.todolists.map((t,i)=>{
+                                    return (
+                                        <div>
+                                            <h1>{t}</h1>
+                                            <Todolist></Todolist>
+                                        </div>
+                                    )
+                                })
+                            }
+                        </div>
+                    )
+                }
+            }
+            ReactDOM.render(<App></App>,document.getElementById('root'))
+        </script>
+    </body>
+</html>

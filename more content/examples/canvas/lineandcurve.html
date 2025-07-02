@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+
+<canvas id="myCanvas" width="500" height="700" style="border:1px solid #000000;">
+Your browser does not support the HTML5 canvas tag.
+</canvas>
+<script>
+
+var c=document.getElementById("myCanvas");
+var ctx=c.getContext("2d");
+ctx.beginPath(); 
+ctx.moveTo(20,20);  
+
+ctx.arc(75,100,50,0,rads(360),false);
+/*
+         // Create a starting point
+//ctx.lineTo(100,20);          // Create a horizontal line
+ctx.arcTo(150,20,150,70,50); // Create an arc
+//ctx.lineTo(150,120);         // Continue with vertical line*/
+ctx.stroke(); 
+</script>
+</body>
+</html>
